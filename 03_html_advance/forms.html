@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <!--
+    <form>
+      - nem szabad egymásba ágyazni
+      - összetartozó html input elemeket tartalmazza
+      - jelzi a böngészőnek, hogy itt ürlapot eleme lesznek
+
+    attributumok:
+      id - totál egyedi azonositó, amit mi adunk meg, csak egyszer szerepelhet az egész dokumentumban (angol abc, számok, aláhúzás, kötőjel(-), aláhúzás(_))
+      action - URL-t kell megadni, ahova az input mezőbe bevitt adatot szeretnék továbbítani 
+      method - GET v. POST, alapérték a GET
+  -->
+  <form id="formid" action="" method="GET">
+    <!--
+      <input> text beviteli mező
+      attributumok:
+      id - totál egyedi azonositó, amit mi adunk meg, csak egyszer szerepelhet az egész dokumentumban (angol abc, számok, aláhúzás, kötőjel(-), aláhúzás(_))
+      type - milyen tipusu legyen a input mező, itt text,
+      placeholder - kitöltse a mezőt adatokkal, amig nem ad meg a felhasználó valamit
+      name - ami egy elnevezés az adatunknak amit kapunk az input mezőben (angol abc, számok, aláhúzás, kötőjel(-), aláhúzás(_))
+    -->
+    <label for="adatnev">Név:
+      <input type="text" id="adatnev" name="nev" placeholder="Pl: add meg a neved">
+    </label>
+    
+    <!-- 
+      type="number" - csak számot enged, ha böngésző nem támogatja, akkor text inputként fogja kezelni -->
+    <label for="szamok">Csak számok:
+      <input type="number" id="szamok" name="ar" placeholder="Pl: add meg a termék árát">
+    </label>
+
+    <!--
+      attributumok:
+      type - 
+        - submit - default - elküldi az adatot a form action url-re
+        - button - alap button megjelenés
+        - reset - a form-on belül, üresre állítja a beviteli mezők értéket
+    -->
+    <button type="submit">Elküld</button>
+    <button type="reset">Üresre</button>
+    <button type="button">Mit csinál?</button>
+
+  </form>
+
+  <form>
+    <!--
+      elrejti a begépelt szöveget, de a form-on keresztül az eredeti szöveget küldi el pl a serverre, az éréke is az lesz.
+    -->
+    <label for="jelszo">Jelszó:
+      <input type="password" id="jelszo" name="passcode">
+    </label>
+
+    <!-- 
+       dátum beviteli mező, a böngésző beállítást használja localizációra
+    -->
+    <label for="szulinapid">Szülinap
+      <input type="date" id="szulinapid" name="szulinap">
+    </label>
+
+    <label for="ido">
+      <input type="time" id="ido">
+    </label>
+
+    <!--
+      html5 inputok
+       type="phone"
+       type="email"
+       type="url"
+    -->
+  </form>
+
+  <form>
+      <!--
+        select - Legördölő lista (leugró, lenyíló menü, dropdown) 
+        
+        attributum:
+         name - adat név, amit a servernek küld, ennek az értéke az option értéke lesz.
+      -->
+      <select name="szinek">
+        <option>Kék</option>
+        <option>Piros</option>
+        <option>Sárga</option>
+      </select>
+
+      <button type="submit">Elküld</button>
+  </form>
+
+  <form>
+    <!--
+      checkbox vagy jelölő nézet (bejelő) 
+      attributum:
+      value - ezt az értéket fogja a name-ben megadott névhez kapcsolni pl serverre küldéskor
+    -->
+    <input type="checkbox" id="allatok1" name="allat" value="kutya">Kutya<br>
+    <input type="checkbox" id="allatok2" name="allat" value="macska">Macska<br>
+    <input type="checkbox" id="allatok3" name="allat" value="lo">Ló<br>
+    <button type="submit">Elküld</button>
+  </form>
+
+  <form>
+    <!-- 
+      radio button  (csak egyet lehessen választani) 
+      attributum:
+      value - ezt az értéket fogja a name-ben megadott névhez kapcsolni pl serverre küldéskor
+    -->
+    <input type="radio" id="allatok1" name="allat" value="kutya">Kutya<br>
+    <input type="radio" id="allatok2" name="allat" value="macska">Macska<br>
+    <input type="radio" id="allatok3" name="allat" value="lo">Ló<br>
+    <button type="submit">Elküld</button>
+  </form>
+
+  <form>
+    <!--
+      html5 validacio
+
+      required attributum - a mező kötelező és ellenőrzi a böngésző
+      minlength - min. karakterszám, vagyis ennél kevesebb nem fogad el
+      maxlenght - max. ilyen hosszú lehet a beírt szöveg
+    -->
+    Usernév:
+    <input type="text" required="required" minlength="5" maxlength="10">
+    <br>
+
+    
+    <!--
+      min - min éréke a számnak
+      max - max értéke a számnak
+      step - léptetés 
+    -->
+    <h4>Kosár termék darabszám:</h4>
+    <input type="number" min="0" max="10" step="2">
+    <button type="submit">Elküld</button>
+
+  </form>
+
+</body>
+</html>

@@ -1,0 +1,38 @@
+
+
+KÖnyvtár: C:/htmlfileok/
+
+pelda.html
+kep.jpg
+
+<img src="./img.jpg"> ==> <img src="c:/htmlfileok/img.jpg">
+./kep.jpg 
+
+
+ kÖnyszerkezt
+ 
+C:/htmlfileok/pelda.html
+C:/htmlfileok/img.jpg
+
+letrehoztuk C:/htmlfileok/kepek/
+
+C:/htmlfileok/pelda.html
+C:/htmlfileok/img.jpg
+C:/htmlfileok/kepek/alma.jpg
+
+
+<img src="/kepek/alma.jpg"> ==> <img src="c:/htmlfileok/kepek/alma.jpg">
+--------------------------
+
+https://www.progmatic.hu/
+
+/ 
+
+https://www.progmatic.hu/images/alma.jpg
+
+absolult utvonal: https://www.progmatic.hu/images/alma.jpg
+
+relativ utvonal, ha hivatkozni akarok a kepre a főoldalról
+
+böngsző url-jében: https://www.progmatic.hu/
+<img src="/images/alma.jpg"> ==> <img src="https://www.progmatic.hu/images/alma.jpg> 

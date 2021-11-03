@@ -1,0 +1,26 @@
+/* 
+body {
+  background-image: url(https://picsum.photos/1000/1000);
+  background-color: #77c074;
+-- ezt nem kell tudni: ---
+  background-repeat: no-repeat;
+  background-size: cover;
+} */
+
+body {
+  background-image: url(https://picsum.photos/500/500);
+  background-color: #77c074;
+  /* ezt nem kell tudni: */
+  background-position-x: center;
+  background-repeat: no-repeat;
+}
+
+p {
+  color: #a5a9b6;
+  background-color: #436d0d;
+  text-align: center; 
+  /*
+  szöveg igazitása
+  left | center | right
+  */
+}
