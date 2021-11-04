@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flex(flex-direction)</title>
+  <style>
+    .flex-container {
+      display: flex;
+      /* row (default), row-reverse, column, column-reverse */
+      flex-direction: row; 
+      /* nowrap (default), wrap, wrap-reverse */
+      flex-wrap: nowrap; 
+      /* shorthand */
+      /* flex-flow: row nowrap; */
+    }
+    .flex-container {
+      width: 500px;
+      height: 500px;
+      padding: 40px;
+    }
+    .flex-item {
+      width: 100px;
+      height: 100px;
+      /* height: auto; */
+    }
+    .bg-red {
+      background-color: rgb(88, 88, 88);
+    }
+    .flex-item {
+      border: 1px solid rgb(82, 21, 21);
+      background-color: wheat;
+    }
+    .flex-item:nth-child(1) {
+      background-color: rgb(80, 80, 253);
+      order: 1;
+    }
+    .flex-item:nth-child(2) {
+      background-color: rgb(104, 250, 104);
+      order: -1; 
+    }
+    .flex-item:nth-child(3) {
+      background-color: rgb(253, 105, 105);
+    }
+    .flex-item:nth-child(6) {
+      background-color: rgb(250, 230, 120);
+    }
+ 
+  </style>
+</head>
+<body>
+  Flex container 
+  <div class="flex-container bg-red">
+  
+    <div class="flex-item">Flex item 1</div>
+    <div class="flex-item">Flex item 2</div>
+    <div class="flex-item">Flex item 3</div>
+    <div class="flex-item">Flex item 4</div>
+    <div class="flex-item">Flex item 5</div>
+    <div class="flex-item">Flex item 6</div>
+    <div class="flex-item">Flex item 7</div>
+    <div class="flex-item">Flex item 8</div>
+  </div>
+  
+</body>
+</html>

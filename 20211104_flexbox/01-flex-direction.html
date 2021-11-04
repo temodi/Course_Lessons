@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flex(flex-direction)</title>
+  <style>
+    .flex-container {
+      display: flex;  /* inline-flex */
+      flex-direction: column; /* row (default), row-reverse, column, column-reverse */
+      width: 500px;
+      height: 500px;
+      padding: 40px;
+    }
+    .bg-red {
+      background-color: rgb(88, 88, 88);
+    }
+    .flex-item {
+      border: 1px solid rgb(82, 21, 21);
+    }
+    .flex-item:nth-child(1) {
+      background-color: rgb(80, 80, 253);
+    }
+    .flex-item:nth-child(2) {
+      background-color: rgb(104, 250, 104);
+    }
+    .flex-item:nth-child(3) {
+      background-color: rgb(253, 105, 105);
+    }
+
+ 
+  </style>
+</head>
+<body>
+  Flex container 
+  <div class="flex-container bg-red">
+    <div class="flex-item">Flex item 1</div>
+    <div class="flex-item">Flex item 2</div>
+    <div class="flex-item">Flex item 3</div>
+    <div class="flex-item">Flex item 4</div>
+  </div>
+  
+</body>
+</html>
