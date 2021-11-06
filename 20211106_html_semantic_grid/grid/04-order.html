@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grid</title>
+  <style>
+    body {
+      padding: 0;
+      margin: 40px;
+    }
+    .grid-container {
+      border: 3px solid black;
+      display: grid;  /* grid, inline-grid */
+      grid-template: repeat(4, 1fr) / repeat(4, 1fr);
+    }
+    .grid-item {
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+      color: rgb(231, 231, 209);
+      font-size: 20px;
+      box-sizing: border-box;
+      padding: 1em;
+      text-align: center;
+    }
+
+    .item-1 {
+      background-color: red;
+      /* grid-column-start: 1;
+      grid-column-end: 2;
+      grid-row-start: 1;
+      grid-row-end: 2; */
+/* 
+      grid-column: 1 / 4;  
+      grid-row: 1 / 4; */
+    }
+    .item-2 {
+      background-color: blue;
+      /* grid-column-start: 2;
+      grid-column-end: 3;
+      grid-row-start: 2;
+      grid-row-end: 3; */
+    }
+
+    .item-3 {
+      background-color: green;
+      /* grid-area: 2 / 2 / 5 / 3; */
+       order: 1; 
+    }
+
+    .item-4 {
+      background-color: indigo;
+       order: -1; 
+    }
+    
+  </style>
+</head>
+<body>
+  <div class="grid-container">
+    <div class="grid-item item-1">Grid Item 1 (0)</div>
+    <div class="grid-item item-2">Grid Item 2 (0)</div>
+    <div class="grid-item item-3">Grid Item 3 (1)</div>
+    <div class="grid-item item-4">Grid Item 4 (-1)</div>
+    <div class="grid-item">Grid Item 5</div>
+    <div class="grid-item">Grid Item 6</div>
+    <div class="grid-item">Grid Item 7</div>
+    <div class="grid-item">Grid Item 8</div>
+
+    
+  </div>
+  end of grid
+</body>
+</html>
