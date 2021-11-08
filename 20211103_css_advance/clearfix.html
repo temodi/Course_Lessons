@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .container {
+      background-color: darkviolet;
+      font-size: 30px;
+    }
+    /*
+    .container:after {
+      content: "";
+      display: table;
+      clear: both;
+    }*/
+    /*
+    .container {
+      display: flow-root;
+    } */
+    .clearfix {
+      clear: both;
+    }
+    .floated {
+      float: left;
+      width: 200px;
+      height: 200px;
+    }
+    .red {
+      background-color: red;
+    }
+    .blue {
+      background-color: blue;
+    }
+    .green {
+      background-color: green;
+    }
+  </style>
+</head>
+<body>
+  
+  <div class="container">
+    <div class="floated red">a</div>
+    <div class="floated green">b</div>
+    <div class="floated blue">c</div>
+  </div>
+  <div class="clearfix"></div>
+  awef
+</body>
+</html>

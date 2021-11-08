@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      padding: 0;
+      margin: 0;
+    }
+    .grid-container {
+      height: 100vh;
+      display: grid;
+      grid-template: 1fr 6fr 1fr / 1fr 3fr 1fr;
+    }
+    .header {
+      background-color: lightgray;
+      grid-column: 1 / 5;
+    }
+    .section {
+      background-color: lightgreen;
+      grid-column: 2 / 3;
+      grid-row: 2 / 3;
+    }
+    .aside-left {
+      background-color: lightpink;
+      grid-column: 1 / 2;
+      grid-row: 2 / 3;
+    }
+    .aside-right {
+      background-color: lightpink;
+      grid-column: 3 / 4;
+      grid-row: 2 / 3;
+    }
+    .footer {
+      background-color: lightskyblue;
+      grid-column: 1 / 4;
+    }
+  </style>
+</head>
+<body>
+  <div class="grid-container">
+    <div class="header">header</div>
+    <div class="aside-left">sidebar 1</div>
+    <div class="section">content</div>
+    <div class="aside-right">sidebar 2</div>
+    <div class="footer">footer</div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      padding: 0;
+      margin: 0;
+    }
+    .grid-container {
+      height: 100vh; /* viewport height */
+      /* min-height: 500px; */
+      /* width: 100vw;  viewport width  */
+      display: grid;
+
+  /* 1 column 3 rows */
+      /* grid-template: 1fr 6fr 1fr / 1fr; */
+
+      /* 3 sor 2 oszlop => az item-eknel osszefogtam a cellakat hogy a kijojjon a 1 columnons layout */
+      grid-template: 1fr 6fr 1fr / 2fr 2fr 1fr; 
+      /* 2fr 2fr => 2fr = [1fr 1fr]  2fr = [1fr 1fr] */
+    }
+    .header {
+      background-color: lightgray;
+      grid-column: 1 / 3;  
+    }
+    .section {
+      background-color: lightgreen;
+      grid-column: 1 / 3;
+      grid-row: 2 / 3;
+    }
+ 
+    .footer {
+      background-color: lightskyblue;
+      grid-column: 1 / 3;
+    }
+  </style>
+</head>
+<body>
+  <div class="grid-container">
+    <div class="header">header</div>
+    <div class="section">content</div>
+    <div class="footer">footer</div>
+  </div>
+</body>
+</html>

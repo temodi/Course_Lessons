@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      box-sizing: border-box;
+    }
+    nav {
+      text-align: center;
+    }
+    ul {
+      padding: 0;
+    }
+    .menu {
+      font-size: 24px;
+      display: block;
+      white-space: nowrap;
+      border-bottom: 1px solid darkolivegreen;
+    }
+    .menu a {
+      text-decoration: none;
+      color: rgb(13, 38, 63);
+    }
+    .menu li {
+      display: inline;
+      position: relative;
+    }
+    .mainmenu {
+      padding: 20px 20px 0px 20px;
+    }
+    .menu li:hover {
+      background-color: rgb(178, 216, 233);
+    }
+    .menu li:hover   .dropdown {
+      display: block;
+    }
+    .dropdown > ul > li {
+      display: list-item;
+      list-style-type: none;
+      padding: 5px;
+    }
+    .dropdown {
+      position: absolute;
+      display: none;
+      top: 46px;
+      left: 0px;
+      border: 1px solid black;
+      font-size: 20px;
+    }
+
+  </style>
+</head>
+<body>
+  <nav>
+    <ul class="menu">
+      <li class="mainmenu">
+        <a href="" class="menu-item">Menu 1</a>
+        <div class="dropdown">
+          <ul>
+            <li><a href="">Sub menu 1</a></li>
+            <li><a href="">Sub menu 2</a></li>
+          </ul>
+        </div>
+      </li>
+      <li class="mainmenu">
+        <a href="" class="menu-item">Menu 2</a>
+        <div class="dropdown">
+          <ul>
+            <li><a href="">Other menu 1</a></li>
+            <li><a href="">Other menu 2</a></li>
+          </ul>
+        </div>
+      </li>
+      <li class="mainmenu"><a href="" class="menu-item">Menu 3</a></li>
+      <li class="mainmenu"><a href="" class="menu-item">Menu 4</a></li>
+      <li class="mainmenu"><a href="" class="menu-item">Menu 5</a></li>
+    </ul>
+  </nav>
+</body>
+</html>

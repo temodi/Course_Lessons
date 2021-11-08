@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cascade</title>
+  <link href="cascade1.css" rel="stylesheet">
+  <style>
+    * {
+      border: 1px solid green;
+    }
+    .parent {
+      width: 300px;
+      margin: 10px;
+      padding: 10px;
+      font-size: 20px;
+      color: darkslategrey;
+      border: 1px solid blue;
+    }
+  </style>
+  <link href="cascade2.css" rel="stylesheet">
+</head>
+<body>
+  
+  <form>
+    <input type="checkbox" id="mindegy1"> 1
+    <input type="checkbox" id="mindegy2"> 2
+    <input type="checkbox" id="mindegy3"> 3
+
+    <input type="radio" id="mindegy1"> 1
+    <input type="radio" id="mindegy2"> 2
+    <input type="radio" id="mindegy3"> 3
+
+    <input type="text" value="hello" disabled>
+    <input type="text" value="world">
+  </form>
+
+  <div class="parent blue">
+    <p class="child1" style="border: 1px solid #f4f4f4;">
+      <em>Lorem Ipsum</em> is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard
+       dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to 
+    </p>
+    <p class="child2">
+      Visual Formatting Model describes how user agents take the document tree, and process and display it for visual media.
+    </p>
+    <p>Float
+      An element which has float set to something else than none. </p>
+    <div class="child3">
+      <p>Everything in CSS has a box around it, and understanding these boxes is key to being able to create layouts with CSS </p>
+    </div>
+
+    <p>Last line of text</p>
+    <ul>
+      <li>cascade</li>
+      <li>inheritance</li>
+      <li>class</li>
+      <li>selector</li>
+    </ul>
+    <a href="#hash">Link</a>
+  </div>
+  <p>Ez mar nem leszarmazott, hanem testver elem</p>
+  <p>Ez mar nem leszarmazott, hanem testver 2 elem</p>
+
+</body>
+</html>

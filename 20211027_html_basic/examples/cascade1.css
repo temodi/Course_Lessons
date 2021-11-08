@@ -1,0 +1,114 @@
+.parent {
+  border: 1px solid red;
+}
+
+/** Selectorok **/
+
+/* Type selector */
+p {
+ 
+}
+
+/* Selector group */
+p, div, body {
+ 
+}
+
+/* Class selector */
+
+/* Id selector */
+
+/* Univerzális selector */
+
+/* Type and Class selector combination */
+
+p.parent {
+ 
+}
+
+/* Class and class selector combination */
+
+.parent.blue {
+ 
+}
+
+/* Pseudo selectors */
+/* element pseudo selector */
+P::first-letter {
+  color: red;
+} 
+p:first-child {
+  color: purple;
+}
+/* elem előtti formázás */
+div::before {
+  content: "!!";
+}
+/* elem utáni formázás */
+div::after {
+  content: "??";
+  clear: both;
+}
+/* class pseudo selector */
+/* a link állapota még nem megtekintett vagyis nem kattintott */
+a:link {
+  /* border: 1px solid red; */
+}
+/* már kattintott link */
+a:visited {
+  /* border: 1px dashed blue;*/
+} 
+/* eger a linken */
+a:hover {
+  /* background-color: chartreuse; */
+}
+/* focust kap az elem pl tab v. egér pl jobb egér gomb */
+a:focus {
+  /* background-color: coral; */
+}
+/* kattintás az egérrel */ 
+a:active {
+  color: red;
+}
+
+/* Combinators - descendant selector (leszarmazott ) */
+ul li {
+  background-color: lightslategray;
+}
+
+/* Combinators - child combinator (közvetlen gyermek leszarmazott >) */
+div > div > p {
+  text-decoration: underline;
+}
+
+/* Combinators - next sibling (kozvetlen testver + ) */
+div + p { 
+  background-color: red;
+}
+
+/* Combinators - subsequent next sibling / general sibling (későbbi testver(ek) ~ ) */
+div ~ p {
+  border: 2px solid blueviolet;
+}
+ 
+/* CSS3 (just a few) selectors */
+/* x. leszarmazott, ahol x > 0 szám 
+   yn  .n elem pl: 2n => minden 2. elem 
+   zn + szam .n elem elolva => minden páratlen elem */
+li:nth-child(2n + 1) {
+  background-color: red;
+}
+
+/* select, radio, checkbox input */
+input:checked {
+  box-shadow: 0 0 0 3px hotpink;
+}
+
+input:enabled {
+  background-color: red;
+}
+
+input:disabled {
+  background-color: darkblue;
+}
+

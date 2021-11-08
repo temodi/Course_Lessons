@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .content-box {
+      box-sizing: content-box; /* default */
+      background-color: lightskyblue;
+      width: 200px;
+      height: 100px;
+      margin: 20px;
+      padding: 20px;
+      border: 10px dashed black;
+    }
+    .border-box {
+      box-sizing: border-box;
+      background-color: lightslategray;
+      width: 200px;
+      height: 100px;
+      margin: 20px;
+      padding: 20px;
+      border: 10px dashed black;
+    }
+    .cb-container {
+      width: 270px;
+      background-color: greenyellow;
+    }
+    .bb-container {
+      width: 210px;
+      background-color: greenyellow;
+    }
+  </style>
+</head>
+<body>
+  <div class="cb-container">
+    <div class="content-box">
+      content box
+    </div>
+  </div>
+  <div class="bb-container">
+    <div class="border-box">
+      border box
+    </div>
+  </div>
+</body>
+</html>
