@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .grid-container {
+      border:1px solid black;
+      display: grid;
+      grid-template: 150px 150px / 200px 200px;
+      grid-template-areas: 
+      "a a"
+      "b b";
+    }
+    .grid-item1 {
+      padding: 20px;
+      background-color: red;
+      grid-area: a;
+    }
+    .grid-item2 {
+      background-color: blue;
+      padding: 20px;
+      grid-area: b;
+    }
+  </style>
+</head>
+<body>
+  <div class="grid-container">
+    <div class="grid-item1">A</div>
+    <div class="grid-item2">B</div>
+  </div>
+</body>
+</html>

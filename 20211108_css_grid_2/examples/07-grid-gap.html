@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grid</title>
+  <style>
+    body {
+      padding: 0;
+      margin: 40px;
+    }
+    .grid-container {
+      border: 3px solid black;
+      display: grid;  /* grid, inline-grid */
+      grid-template: 1fr 2fr 1fr / 1fr 1fr;
+
+      /* gutters / line size (fr nincs értelme);*/
+      /* column-gap: 10px;
+      row-gap: 20px; */
+
+       gap: 25px 15px;
+  
+    }
+
+    .grid-item {
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+      color: rgb(231, 231, 209);
+      font-size: 20px;
+      box-sizing: border-box;
+      padding: 1em;
+      text-align: center;
+      /* margin: 5px; */
+    }
+    .grid-item {
+      background-color: lightslategray;
+    }
+    .grid-item:nth-child(1) {
+      background-color: rgb(80, 80, 253);
+    }
+    .grid-item:nth-child(2) {
+      background-color: rgb(253, 105, 105);
+    }
+    .grid-item:nth-child(3) {
+      background-color: rgb(140, 68, 199);
+    }
+    .grid-item:nth-child(4) {
+      background-color: rgb(223, 172, 77);
+    }
+
+
+  </style>
+</head>
+<body>
+  <div class="grid-container">
+    <div class="grid-item">Grid Item 1</div>
+    <div class="grid-item">Grid Item 2</div>
+    <div class="grid-item">Grid Item 3</div>
+    <div class="grid-item">Grid Item 4</div>
+    <div class="grid-item">Grid Item 5</div>
+    <div class="grid-item">Grid Item 6</div>
+
+    
+  </div>
+  end of grid
+</body>
+</html>

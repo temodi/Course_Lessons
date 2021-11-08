@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grid</title>
+  <style>
+    body {
+      padding: 0;
+      margin: 0;
+    }
+    .grid-container {
+      border: 3px solid black;
+      margin: auto;
+      width: 800px;
+      height: 800px;
+      display: grid;  /* grid, inline-grid */
+      grid-template: 150px 200px 100px 100px 150px / 150px 300px 150px;   
+      grid-template-areas: 
+        "header header header"
+        "sidebar-left main  sidebar-right"
+        ". section ."
+        ". . . "
+        "footer footer footer";
+ 
+      /* stretch (default), center, start, end, space-between, space-around */
+       /* justify-content: space;  */
+       /* align-content: center; */
+
+       place-content: center center; 
+      
+      /* justify-content: row axison 
+         align-content: column axison 
+         place-items: align-self justify-selft  (shorthand) */
+    }
+
+    .grid-item {
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+      color: rgb(231, 231, 209);
+      font-size: 20px;
+      box-sizing: border-box; 
+    }
+    .grid-item {
+      background-color: lightslategray;
+      padding: 20px;
+      border: 1px dotted darkslategray;
+    }
+    
+    .header {
+      background-color: rgb(80, 80, 253);
+      grid-area: header;
+      /* justify-self: center;  
+      align-self: center; */
+
+    }
+    .sidebar-left {
+      background-color: rgb(253, 105, 105);
+      grid-area: sidebar-left;
+      /* place-self: center center; */
+    }
+    .sidebar-right {
+      background-color: rgb(253, 105, 105);
+      grid-area: sidebar-right;
+      /* justify-self: end;  
+      align-self: end; */
+    }
+    .main {
+      background-color: rgb(140, 68, 199);
+      grid-area: main; 
+    }
+    .section {
+      background-color: rgb(223, 172, 77);
+      grid-area: section;
+    }
+    
+    .grid-item:nth-child(6) {
+      grid-area: footer;
+    }
+
+    .none {
+      grid-area: none;
+    }
+    
+  </style>
+</head>
+<body>
+  <div class="grid-container">
+    <div class="grid-item header">Header</div>
+    <div class="grid-item sidebar-left">Sidebar left</div>
+    <div class="grid-item main">Content</div>
+    <div class="grid-item sidebar-right">Sidebar right</div>
+    <div class="grid-item section">Section</div>
+    <div class="grid-item footer">Footer</div>
+ 
+  </div>
+  end of grid
+</body>
+</html>
