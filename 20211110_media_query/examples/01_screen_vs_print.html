@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    table {
+      width: 1000px;
+      border: 1px solid black;
+    }
+    table, th,tr, td {
+      border-collapse: collapse;
+      border-spacing: 0px;
+      border: 1px solid black;
+    }
+    .box {
+      width: 250px;
+      margin: 50px;
+      padding: 50px;
+      background-color: lightgreen;
+    }
+
+    /*
+     only - pl only print, akkor csak printer
+     not - pl not print, akkor minden mas median */
+    @media print {
+      body {
+        font-size: 24px;
+      }
+      th {
+        background-color: lightskyblue;
+      }
+
+      .box {
+        background-color: lightskyblue;
+      }
+      th:nth-child(6) {
+        display: none;
+      }
+    }
+
+  </style>
+</head>
+<body>
+  <h2>Lehet mas</h2>
+  <p>A megjelenítés nyomtatón és más a képernyőn</p>
+  <table>
+    <thead>
+      <tr>
+        <th>Ez egy név</th>
+        <th>Ez meg a teló</th>
+        <th>Ez meg ha jó sokkal tartozik</th>
+        <th>Ez meg a felhasználó címe</th>
+        <th>Ide meg a kedvenc könyve kerülhetne</th>
+        <th>Igazából a lényeg, hogy egy jó nagy table headem legyen</th>
+      </tr>
+    </thead>
+  </table>
+  <div class="box">
+    This is my green box!
+  </div>
+</body>
+</html>

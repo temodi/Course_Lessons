@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      display: flex;
+    }
+    .item {
+      background-color: crimson;
+      color: white;
+      padding: 30px;
+      font-size: 20px;
+      flex-basis: 25%;
+      border-bottom: 3px solid rgb(75, 13, 16);
+    }
+    @media screen and (max-width: 575px) {
+      body {
+        flex-direction: column;
+      }
+      .item {
+        border-bottom-width: 1px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="item">Menu 1</div>
+  <div class="item">Menu 2</div>
+  <div class="item">Menu 3</div>
+  <div class="item">Menu 4</div>
+  
+</body>
+</html>

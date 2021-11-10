@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      padding: 0;
+      margin: 0;
+      height: 100vh;
+      display: grid;
+      grid-template: repeat(3, 1fr) / repeat(3, 1fr);
+      gap: 20px;
+      font-size: 36px;
+    }
+
+    body > .item {
+      background-color: crimson;
+      color: white;
+      padding: 20px;
+      place-self: center center;
+      text-transform: uppercase;
+    }
+
+    .item:nth-child(5) {
+      place-self: stretch stretch;
+    }
+
+    @media screen and (max-width: 576px) {
+      body {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(9, 1fr);
+      }
+      .item:nth-child(5) {
+        place-self: center center;
+      }
+
+      .item:nth-child(9) {
+        grid-area: 1 / 1 / 2 / 2;
+      }
+      
+      .item:nth-child(1) {
+        place-self: stretch stretch; 
+      }
+      .item:nth-child(5) {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="item">item 1</div>
+  <div class="item">item 2</div>
+  <div class="item">item 3</div>
+  <div class="item">item 4</div>
+  <div class="item">item 5</div>
+  <div class="item">item 6</div>
+  <div class="item">item 7</div>
+  <div class="item">item 8</div>
+  <div class="item">item 9</div>
+</body>
+</html>
