@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Float</title>
+  <style>
+    body {
+      padding: 0;
+      margin: 0 auto;
+      width: 700px;
+    }
+    #normal-container {
+      background-color: navajowhite;
+      border-radius: 5px;
+      padding: 20px;
+    }
+    #float-container {
+      background-color: navajowhite;
+      border-radius: 5px;
+      padding: 20px;
+    }
+    .float-left {
+      float: left;
+      width: 250px;
+      background-color: palevioletred;
+      text-align: center;
+    }
+    .float-right {
+      float: right;
+      width: 250px;
+      background-color: mediumturquoise;
+      text-align: center;
+    }
+    .before-text {
+      background-color: lightskyblue;
+    }
+    .after-text {
+      background-color: palegreen;
+    }
+    /* Újra normál flowba váltás floated elemek után */
+    #float-container {
+      /* display: flow-root; */
+    }
+
+    /* Újra normál flowba váltás floated elemek után clearfix */
+    #float-container::after {
+      content: "";       
+      /* létrehoz egy név (tag nélküli) boxot üres tartalommal */
+      clear: both;     
+      /* megszünteti a float módot */
+      display: table; 
+      /* létrehoz egy table formating context-et, ezzel kvázi normál módba vált */
+    }
+  </style>
+</head>
+<body>
+    <h2>Normal flow</h2>
+    <div id="normal-container">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis 
+      nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu 
+      fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
+    </div>
+    <h2>Out of flow - float</h2>
+
+   <div id="float-container">
+       <span class="before-text"><strong>Előtte szoveg</strong> - Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+       nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+        fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, 
+      </span> 
+
+      <div class="float-left">
+        <img src="http://placekitten.com/200/200">
+        Floated left - aliquip ex ea commodo con aliquip ex ea commodo con
+      </div>
+  
+      <div class="float-right">
+        <img src="http://placekitten.com/200/200">
+        Floated right - aliquip ex ea commodo con aliquip ex ea commodo con
+      </div>
+      <div>Lorem ipsum dolor sit amet, consectetur</div>
+      <span class="after-text"><strong>Utána szöveg (kontaineren belül)</strong> - Lorem ipsum dolor sit amet, consectetur </span>  
+  
+    </div>  
+   
+    <span class="after-text"><strong>Utána szöveg (kontaineren kívűl)</strong> - Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i</span>
+     <div id="normal-container">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis 
+      nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu 
+      fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
+    </div>
+</body>
+</html>
