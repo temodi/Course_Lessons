@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSS Transforms</title>
+
+  <style>
+    .example {
+      margin-bottom: 3em
+    }
+    .box {
+      position: relative;
+      width: 100px;
+      height: 100px;
+      background-color: dodgerblue;
+      border: 2px dotted crimson;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: .5s transform linear;
+
+      color: #fff;
+      font-family: monospace;
+      font-size: 11px;
+    }
+    .box span:after {
+      content: '';
+      width: 10px;
+      height: 10px;
+      background-color: white;
+      border: 1px solid black;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      border-radius: 50%;
+    }
+
+    .box.origin-right {
+      transform-origin: top right;
+    }
+    .box.origin-right span:after {
+      left: 100%;
+      top: 0;
+    }
+
+    .box.origin-left {
+      transform-origin: top left;
+    }
+    .box.origin-left span:after {
+      left: 0;
+      top: 0;
+    }
+
+    .box.origin-custom {
+      transform-origin: 25px bottom;
+    }
+    .box.origin-custom span:after {
+      left: 25px;
+      top: 100%;
+    }
+  </style>
+
+</head>
+<body>
+
+  <h1>CSS Transforms</h1>
+
+  <!--  -->
+  <h2>Rotate</h2>
+
+  <div class="example">
+    <div class="box origin-right" style="transform: rotate(0);">
+      <span>default</span>
+    </div>
+  </div>
+
+  <div class="example">
+    <div class="box origin-right" style="transform: rotate(45deg);">
+      <span>rotate(45deg)</span>
+    </div>
+  </div>
+
+  <div class="example">
+    <div class="box origin-left" style="transform: rotate(-45deg);">
+      <span>rotate(-45deg)</span>
+    </div>
+  </div>
+
+  <div class="example">
+    <div class="box origin-left" style="transform: rotate(0.5turn);">
+      <span>rotate(0.5turn)</span>
+    </div>
+  </div>
+
+</body>
+</html>

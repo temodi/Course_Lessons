@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <!-- resolution switch (különböző méret) -->
+    <img srcset="img/elva-fairy-320w.jpg 320w,
+                  img/elva-fairy-480w.jpg 480w,
+                  img/elva-fairy-640w.jpg 640w"
+                  sizes="
+                  (max-width: 460px) 480px,
+                  (max-width: 762px) 600px,
+                  800px">
+              <Br>
+    <!-- resolution switch (egyező méret)
+     srcset = "imageurl pixeldensity " -->
+    <img srcset="img/elva-fairy-320w.jpg,
+                  img/elva-fairy-480w.jpg 1.5x,
+                  img/elva-fairy-640w.jpg 2x">
+  
+</body>
+</html>

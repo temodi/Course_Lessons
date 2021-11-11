@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSS Transforms</title>
+
+  <style>
+    .example {
+      margin-bottom: 3em
+    }
+    .box {
+      position: relative;
+      width: 100px;
+      height: 100px;
+      background-color: dodgerblue;
+      border: 2px dotted crimson;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: .5s transform linear;
+
+      color: #946d6d;
+      font-family: monospace;
+      font-size: 11px;
+    }
+    .box span:after {
+      content: '';
+      width: 10px;
+      height: 10px;
+      background-color: white;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      border-radius: 50%;
+    }
+  </style>
+
+</head>
+<body>
+<div style="margin-left: 200px">
+  <h1>CSS Transforms</h1>
+
+  <!--  -->
+  <h2>Rotate</h2>
+
+  <div class="example">
+    <div class="box" style="transform: rotate(0);">
+      <span>default</span>
+    </div>
+  </div>
+
+  <div class="example">
+    <div class="box" style="transform: rotate(45deg);">
+      <span>rotate(45deg)</span>
+    </div>
+  </div>
+
+  <div class="example">
+    <div class="box" style="transform: rotate(-45deg);">
+      <span>rotate(-45deg)</span>
+    </div>
+  </div>
+
+  <div class="example">
+    <div class="box" style="transform: rotate(0.5turn);">
+      <span>rotate(0.5turn)</span>
+    </div>
+  </div> 
+
+  <!--  -->
+  <h2>Scale (x, y)</h2>
+
+  <div class="example">
+    <div class="box" style="transform: scale(1);">
+      <span>default</span>
+    </div>
+  </div>
+
+  <div class="example">
+    <div class="box" style="transform: scale(2);">
+      <span>scale(2);</span>
+    </div>
+  </div>
+
+  <div class="example">
+    <div class="box" style="transform: scale(0.5);">
+      <span>scale(0.5);</span>
+    </div>
+  </div>
+
+  <div class="example">
+    <div class="box" style="transform: scale(1, 2);">
+      <span>scale(1, 2)</span>
+    </div>
+  </div>
+
+  <div class="example">
+    <div class="box" style="transform: scale(2, 1);">
+      <span>scale(2, 1)</span>
+    </div>
+  </div> -->
+
+  <!--  -->
+  <h2>translate(x, y)</h2>
+
+  <div class="example">
+    <div class="box" style="transform: translate(0, 00);">
+      <span>default</span>
+    </div>
+  </div>
+
+  <div class="example">
+    <div class="box" style="transform: translate(100%);">
+      <span>translate(100%)</span>
+    </div>
+  </div>
+
+  <div class="example">
+    <div class="box" style="transform: translate(-100%);">
+      <span>translate(-100%)</span>
+    </div>
+  </div>
+
+  <div class="example">
+    <div class="box" style="transform: translate(50px, 50px);">
+      <span>translate(50px, 50px)</span>
+    </div> -->
+
+  <!--  -->
+  <h2>skew(x, y)</h2>
+
+  <div class="example">
+    <div class="box" style="transform: skew(0, 0);">
+      <span>default</span>
+    </div>
+  </div>
+
+  <div class="example">
+    <div class="box" style="transform: skew(10deg);">
+      <span>skew(10deg)</span>
+    </div>
+  </div>
+
+  <div class="example">
+    <div class="box" style="transform: skew(0, 10deg);">
+      <span>skew(0, 10deg)</span>
+    </div>
+  </div>
+
+  <div class="example">
+    <div class="box" style="transform: skew(20deg, 10deg);">
+      <span>skew(20deg, 10deg)</span>
+    </div>
+  </div>
+</div>
+</body>
+</html>
