@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <style>
+
+    a {
+      color: blue;
+      transition-property: color;
+      transition-duration: 1s;
+    }
+
+    a.piros {
+      color: red;
+    }
+
+    a:hover {
+      color: green !important;
+    }
+
+    div {
+      height: 100px;
+      width: 100px;
+      background-color: blueviolet;
+    }
+
+    div.background {
+      transition: background-color 1s, opacity 2s;
+    }
+    div.background:hover {
+      opacity: .3;
+      background-color: cadetblue;
+    }
+
+    div.opacity {
+      /*
+      transtion-property
+      transition-duration
+       */
+      transition: opacity 1s;
+    }
+
+    div.opacity:hover {
+      opacity: 0;
+    }
+
+    div.dimensions {
+      transition: width 1s ease-in;
+    }
+    div.dimensions:hover {
+      width: 300px
+    }
+
+    span.dimensions {
+      display: inline-block;
+      transition: width 1s;
+    }
+    span.dimensions:hover {
+      width: 300px
+    }
+
+    div.transform {
+      transition: transform 1s;
+    }
+
+    div.transform:hover {
+      transform: scale(4);
+    }
+
+    div.radius {
+      transition: border-radius 3s;
+    }
+
+    div.radius:hover {
+      transition: border-radius 1s;
+      border-radius: 50%;
+    }
+
+    div.rotate {
+      background-color: transparent;
+      border-top: 10px solid aqua;
+      border-left: 10px solid cadetblue;
+      border-right: 10px solid chocolate;
+      border-bottom: 10px solid cornflowerblue;
+      transition: transform 3s ease-in-out;
+    }
+
+    div.rotate:hover {
+      transform: rotate(1turn);
+    }
+
+    div.rotate-and-radius {
+      background-color: transparent;
+      border-top: 10px solid aqua;
+      border-left: 10px solid cadetblue;
+      border-right: 10px solid chocolate;
+      border-bottom: 10px solid cornflowerblue;
+      transition: transform 1s ease-in-out, border-radius 1s;
+    }
+
+    div.rotate-and-radius:hover {
+      border-radius: 50%;
+      transform: rotate(1turn);
+    }
+
+  </style>
+
+</head>
+<body>
+
+  <a class="piros" href="#">Link</a>
+
+  <div class="opacity">Hello</div>
+  <div class="background">Hello</div>
+  <div class="dimensions">Hello</div>
+  <span class="dimensions">Hello</span>hello
+
+  <div class="transform"></div>
+  <div class="radius"></div>
+  <div class="rotate"></div>
+  <div class="rotate-and-radius"></div>
+
+</body>
+</html>

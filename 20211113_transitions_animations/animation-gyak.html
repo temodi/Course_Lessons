@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <style>
+
+    /* keyframe letrehozas */
+    @keyframes slide {
+      from {
+        transform: translateX(-100%);
+      }
+      to {
+        transform: translateX(0%);
+      }
+    }
+
+    div {
+      height: 100px;
+      width: 100px;
+      background-color: blueviolet;
+    }
+
+    div.slide {
+      /* csatoljuk a keyframet egy elemhez */
+      animation: slide 1s ease-in;
+    }
+
+
+    @keyframes slide-in-out {
+      0% {
+        transform: translate(-100%);
+      }
+      50% {
+        transform: translateX(0%);
+      }
+      100% {
+        transform: translateX(-100%);
+      }
+    }
+
+    div.slide-in-out {
+      animation: slide-in-out 2s;
+    }
+
+
+    @keyframes rotate {
+      0% {
+        transform: rotate(0);
+      }
+      100% {
+        transform: rotate(1turn);
+      }
+    }
+
+    div.rotate {
+      animation: rotate 1s linear;
+      animation-iteration-count: infinite;
+    }
+
+  </style>
+
+</head>
+<body>
+
+  <div class="slide"></div>
+
+  <div class="slide-in-out"></div>
+
+  <div class="rotate"></div>
+
+</body>
+</html>
