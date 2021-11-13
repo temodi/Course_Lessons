@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rainbow</title>
+
+    <style>
+      html,
+      body {
+        height: 100%;
+      }
+      @keyframes colorRotate {
+        from {
+          background-color: #ff3366;
+        }
+        11% {
+          background-color: #ff6633;
+        }
+        22% {
+          background-color: #ffcc33;
+        }
+        33% {
+          background-color: #33ff66;
+        }
+        44% {
+          background-color: #33ffcc;
+        }
+        55% {
+          background-color: #33ccff;
+        }
+        66% {
+          background-color: #3366ff;
+        }
+        77% {
+          background-color: #6633ff;
+        }
+        88% {
+          background-color: #cc33ff;
+        }
+        100% {
+          background-color: #ff3366;
+        }
+      }
+      .container {
+        display: flex;
+        height: 100%;
+        flex-direction: column;
+        background-color: #ff3366;
+      }
+      .stripe {
+        flex-grow: 1;
+        transition: opacity 1s ease;
+      }
+      .stripe:hover {
+        opacity: 0.5;
+      }
+      .animate .stripe {
+        animation: colorRotate 6s ease 0s infinite;
+      }
+      .animate .stripe:nth-child(2) { animation-delay: calc(100ms); }
+      .animate .stripe:nth-child(3) { animation-delay: calc(200ms); }
+      .animate .stripe:nth-child(4) { animation-delay: calc(300ms); }
+      .animate .stripe:nth-child(5) { animation-delay: calc(400ms); }
+      .animate .stripe:nth-child(6) { animation-delay: calc(500ms); }
+      .animate .stripe:nth-child(7) { animation-delay: calc(600ms); }
+      .animate .stripe:nth-child(8) { animation-delay: calc(700ms); }
+      .animate .stripe:nth-child(9) { animation-delay: calc(800ms); }
+    </style>
+  </head>
+  <body>
+    <div class="container animate">
+      <div class="stripe"></div>
+      <div class="stripe"></div>
+      <div class="stripe"></div>
+      <div class="stripe"></div>
+      <div class="stripe"></div>
+      <div class="stripe"></div>
+      <div class="stripe"></div>
+      <div class="stripe"></div>
+      <div class="stripe"></div>
+    </div>
+  </body>
+</html>
+
+https://www.joshwcomeau.com/tutorials/
+https://9elements.com/blog/pure-css-diagonal-layouts/
+https://css-tricks.com/the-shapes-of-css/

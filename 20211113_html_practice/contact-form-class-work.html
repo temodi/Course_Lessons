@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>JS Bin</title>
+
+  <style>
+    html, body {
+      height: 100%;
+    }
+
+    body {
+      background-color: #0c1931;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .contact {
+      padding: 3em;
+      background-color: whitesmoke;
+    }
+
+    .row {
+      display: flex;
+      flex-direction: column;
+    }
+    .row label {
+      margin-bottom: 1em;
+      flex-grow: 1;
+    }
+    .row label span {
+      display: block;
+    }
+
+    .row input,
+    .row textarea {
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    @media screen and (min-width: 768px) {
+      .row {
+        flex-direction: row;
+      }
+
+      .row label {
+        margin-right: 1em;
+      }
+      .row label:last-child {
+        margin-right: 0;
+      }
+
+      button[type="submit"] {
+        display: block;
+        width: 100%;
+      }
+    }
+  </style>
+
+</head>
+<body>
+<div class="contact">
+
+	<div class="contact-form">
+		<form action="#">
+			<div class="row">
+				<label>
+					<span>Name</span>
+					<input type="text" />
+				</label>
+				<label>
+					<span>Company</span>
+					<input type="text" />
+				</label>
+			</div>
+
+			<div class="row">
+				<label>
+					<span>Telephone</span>
+					<input type="text" placeholder="+36 30 123 4567" />
+				</label>
+				<label>
+					<span>Email</span>
+					<input type="email" placeholder="example@email.hu" />
+				</label>
+			</div>
+
+			<div class="row">
+				<label>
+					<span>Message</span>
+					<textarea rows="10"></textarea>
+				</label>
+			</div>
+
+			<div class="row">
+				<button type="submit">Send!</button>
+			</div>
+		</form>
+	</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UI Elements egyutt</title>
+
+  <style>
+    .article {
+      display: flex;
+    }
+    .article figure {
+      max-width: 250px;
+      flex-shrink: 0;
+    }
+    .article figure img {
+      width: 100%;
+    }
+
+    .article.article-flex--right figure {
+      order: 1;
+    }
+
+    .article.article-flex--large {
+      flex-direction: column;
+    }
+    .article.article-flex--large figure {
+      max-width: 100%;
+    }
+
+    @media screen and (max-width: 768px){
+      .article {
+        flex-direction: column;
+      }
+      .article figure {
+        max-width: 100%;
+      }
+      .article.article-flex--right figure {
+        order: 0;
+      }
+    }
+  </style>
+
+</head>
+<body>
+
+  <div class="demo">
+    <h2>Image left, flex</h2>
+    <article class="article article-flex article-flex--left">
+      <figure>
+        <img
+          srcset="
+            https://i.kinja-img.com/gawker-media/image/upload/c_fill,f_auto,g_center,h_275,q_60,w_490/e9d585e4a8cc55543c8ea5ff29c3a182.jpg       1x,
+            https://i.kinja-img.com/gawker-media/image/upload/c_fill,f_auto,g_center,h_275,q_60,w_490,dpr_2/e9d585e4a8cc55543c8ea5ff29c3a182.jpg 2x,
+            https://i.kinja-img.com/gawker-media/image/upload/c_fill,f_auto,g_center,h_275,q_60,w_490,dpr_3/e9d585e4a8cc55543c8ea5ff29c3a182.jpg 3x
+          "
+          src="https://i.kinja-img.com/gawker-media/image/upload/c_fill,f_auto,g_center,h_542,q_60,w_965/e9d585e4a8cc55543c8ea5ff29c3a182.jpg"
+        />
+      </figure>
+      <section>
+        <span class="category">Archaeology</span>
+        <h3 class="title">
+          <a href="#"
+            >Clothes From 8,000 Years Ago Were Made From Trees, New Research
+            Suggests</a
+          >
+        </h3>
+        <p>
+          Woven textiles from an archaeological site in Turkey weren’t made
+          from wool or linen as suspected, but from something else entirely.
+        </p>
+        <a href="#" class="author">George Dvorsky</a>
+      </section>
+    </article>
+  </div>
+
+  <div class="demo">
+    <h2>Image right, flex</h2>
+    <article class="article article-flex article-flex--right">
+      <figure>
+        <img
+          srcset="
+            https://i.kinja-img.com/gawker-media/image/upload/c_fill,f_auto,g_center,h_275,q_60,w_490/e9d585e4a8cc55543c8ea5ff29c3a182.jpg       1x,
+            https://i.kinja-img.com/gawker-media/image/upload/c_fill,f_auto,g_center,h_275,q_60,w_490,dpr_2/e9d585e4a8cc55543c8ea5ff29c3a182.jpg 2x,
+            https://i.kinja-img.com/gawker-media/image/upload/c_fill,f_auto,g_center,h_275,q_60,w_490,dpr_3/e9d585e4a8cc55543c8ea5ff29c3a182.jpg 3x
+          "
+          src="https://i.kinja-img.com/gawker-media/image/upload/c_fill,f_auto,g_center,h_542,q_60,w_965/e9d585e4a8cc55543c8ea5ff29c3a182.jpg"
+        />
+      </figure>
+      <section>
+        <span class="category">Archaeology</span>
+        <h3 class="title">
+          <a href="#"
+            >Clothes From 8,000 Years Ago Were Made From Trees, New Research
+            Suggests</a
+          >
+        </h3>
+        <p>
+          Woven textiles from an archaeological site in Turkey weren’t made
+          from wool or linen as suspected, but from something else entirely.
+        </p>
+        <a href="#" class="author">George Dvorsky</a>
+      </section>
+    </article>
+  </div>
+
+  <div class="demo">
+    <h2>Image large, flex</h2>
+    <article class="article article-flex article-flex--large">
+      <figure>
+        <img
+          srcset="
+            https://i.kinja-img.com/gawker-media/image/upload/f_auto,q_60,w_965/e9d585e4a8cc55543c8ea5ff29c3a182.jpg       1x,
+            https://i.kinja-img.com/gawker-media/image/upload/f_auto,q_60,w_965,dpr_2/e9d585e4a8cc55543c8ea5ff29c3a182.jpg 2x,
+            https://i.kinja-img.com/gawker-media/image/upload/f_auto,q_60,w_965,dpr_3/e9d585e4a8cc55543c8ea5ff29c3a182.jpg 3x
+          "
+          src="https://i.kinja-img.com/gawker-media/image/upload/c_fill,f_auto,g_center,h_542,q_60,w_965/e9d585e4a8cc55543c8ea5ff29c3a182.jpg"
+        />
+      </figure>
+      <section>
+        <span class="category">Archaeology</span>
+        <h3 class="title">
+          <a href="#"
+            >Clothes From 8,000 Years Ago Were Made From Trees, New Research
+            Suggests</a
+          >
+        </h3>
+        <p>
+          Woven textiles from an archaeological site in Turkey weren’t made
+          from wool or linen as suspected, but from something else entirely.
+        </p>
+        <a href="#" class="author">George Dvorsky</a>
+      </section>
+    </article>
+  </div>
+
+</body>
+</html>
