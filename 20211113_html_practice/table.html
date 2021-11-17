@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Table</title>
+
+    <style>
+      table {
+        border-collapse: collapse;
+      }
+      thead tr {
+        background-color: cornflowerblue;
+        color: #fff;
+      }
+      thead td { padding: .5em 1em; }
+      thead td:first-child {
+        font-weight: bold;
+        text-transform: uppercase;
+      }
+      thead td:last-child { text-align: right; }
+
+      tbody td {
+        border: 1px solid #fff;
+        background-color: #C7EDFF;
+        padding: 0 1em;
+      }
+      tbody tr:nth-child(2n) td {
+        background-color: #94BFF8;
+        transition: background-color 500ms linear;
+      }
+      tbody tr td:first-child {
+        background-color: transparent;
+        padding: 0;
+      }
+      tbody tr:hover td {
+        background-color: #6388EF;
+      }
+
+      img {
+        width: 30px;
+        border-radius: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <table>
+      <thead>
+        <tr>
+          <td colspan="3">Students</td>
+          <td colspan="2">27 students</td>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <th></th>
+          <th>Név</th>
+          <th>modul 1</th>
+          <th>modul 2</th>
+          <th>modul 3</th>
+        </tr>
+
+        <tr>
+          <td><img src="https://i.pravatar.cc/300?Dávid" /></td>
+          <td>Ádám Oláh</td>
+          <td>39%</td>
+          <td>79%</td>
+          <td>5%</td>
+        </tr>
+        <tr>
+          <td><img src="https://i.pravatar.cc/300?Gergely" /></td>
+          <td>Ádám Szőnyi</td>
+          <td>23%</td>
+          <td>66%</td>
+          <td>15%</td>
+        </tr>
+        <tr>
+          <td><img src="https://i.pravatar.cc/300?Tamás" /></td>
+          <td>Ákos Szőke</td>
+          <td>37%</td>
+          <td>4%</td>
+          <td>31%</td>
+        </tr>
+        <tr>
+          <td><img src="https://i.pravatar.cc/300?Domokos" /></td>
+          <td>Arpad Toth</td>
+          <td>30%</td>
+          <td>86%</td>
+          <td>48%</td>
+        </tr>
+        <tr>
+          <td><img src="https://i.pravatar.cc/300?Szabolcs" /></td>
+          <td>Attila Kiss</td>
+          <td>87%</td>
+          <td>32%</td>
+          <td>42%</td>
+        </tr>
+        <tr>
+          <td><img src="https://i.pravatar.cc/300?Dávid" /></td>
+          <td>Bence Kiss</td>
+          <td>73%</td>
+          <td>44%</td>
+          <td>68%</td>
+        </tr>
+        <tr>
+          <td><img src="https://i.pravatar.cc/300?Reka" /></td>
+          <td>Dávid Balázs</td>
+          <td>39%</td>
+          <td>93%</td>
+          <td>100%</td>
+        </tr>
+        <tr>
+          <td><img src="https://i.pravatar.cc/300?Dzsenifer" /></td>
+          <td>Dávid Farkas</td>
+          <td>16%</td>
+          <td>78%</td>
+          <td>6%</td>
+        </tr>
+        <tr>
+          <td><img src="https://i.pravatar.cc/300?Gréta" /></td>
+          <td>Dávid Ottó</td>
+          <td>97%</td>
+          <td>65%</td>
+          <td>10%</td>
+        </tr>
+        <tr>
+          <td><img src="https://i.pravatar.cc/300?Márk" /></td>
+          <td>Dávid Végh</td>
+          <td>47%</td>
+          <td>26%</td>
+          <td>50%</td>
+        </tr>
+        <tr>
+          <td><img src="https://i.pravatar.cc/300?Gergő" /></td>
+          <td>Domokos Csaba</td>
+          <td>63%</td>
+          <td>98%</td>
+          <td>27%</td>
+        </tr>
+        <tr>
+          <td><img src="https://i.pravatar.cc/300?Emese" /></td>
+          <td>Dzsenifer Farnadi</td>
+          <td>36%</td>
+          <td>69%</td>
+          <td>13%</td>
+        </tr>
+        <tr>
+          <td><img src="https://i.pravatar.cc/300?Tamás" /></td>
+          <td>Emese Józsa</td>
+          <td>78%</td>
+          <td>20%</td>
+          <td>66%</td>
+        </tr>
+        <tr>
+          <td><img src="https://i.pravatar.cc/300?Attila" /></td>
+          <td>Eszter Urbán</td>
+          <td>18%</td>
+          <td>99%</td>
+          <td>22%</td>
+        </tr>
+        <tr>
+          <td><img src="https://i.pravatar.cc/300?Bence" /></td>
+          <td>Gergely Balogh</td>
+          <td>40%</td>
+          <td>54%</td>
+          <td>40%</td>
+        </tr>
+        <tr>
+          <td><img src="https://i.pravatar.cc/300?Péter" /></td>
+          <td>Gergő Iglódi</td>
+          <td>18%</td>
+          <td>69%</td>
+          <td>37%</td>
+        </tr>
+        <tr>
+          <td><img src="https://i.pravatar.cc/300?Medárd" /></td>
+          <td>Gréta Fehértói</td>
+          <td>4%</td>
+          <td>17%</td>
+          <td>62%</td>
+        </tr>
+        <tr>
+          <td><img src="https://i.pravatar.cc/300?Ádám" /></td>
+          <td>Laszlo Pista</td>
+          <td>96%</td>
+          <td>85%</td>
+          <td>95%</td>
+        </tr>
+        <tr>
+          <td><img src="https://i.pravatar.cc/300?Dávid" /></td>
+          <td>Marcus Vidrányi</td>
+          <td>51%</td>
+          <td>11%</td>
+          <td>35%</td>
+        </tr>
+        <tr>
+          <td><img src="https://i.pravatar.cc/300?Laszlo" /></td>
+          <td>Márk Hatala</td>
+          <td>97%</td>
+          <td>29%</td>
+          <td>36%</td>
+        </tr>
+        <tr>
+          <td><img src="https://i.pravatar.cc/300?Ákos" /></td>
+          <td>Medárd Molnár</td>
+          <td>52%</td>
+          <td>93%</td>
+          <td>32%</td>
+        </tr>
+        <tr>
+          <td><img src="https://i.pravatar.cc/300?Ádám" /></td>
+          <td>Péter Laczka</td>
+          <td>14%</td>
+          <td>68%</td>
+          <td>93%</td>
+        </tr>
+        <tr>
+          <td><img src="https://i.pravatar.cc/300?Tamás" /></td>
+          <td>Reka Farkas</td>
+          <td>91%</td>
+          <td>90%</td>
+          <td>85%</td>
+        </tr>
+        <tr>
+          <td><img src="https://i.pravatar.cc/300?Arpad" /></td>
+          <td>Szabolcs Derzsi</td>
+          <td>64%</td>
+          <td>21%</td>
+          <td>92%</td>
+        </tr>
+        <tr>
+          <td><img src="https://i.pravatar.cc/300?Eszter" /></td>
+          <td>Tamás Tamás</td>
+          <td>55%</td>
+          <td>76%</td>
+          <td>13%</td>
+        </tr>
+        <tr>
+          <td><img src="https://i.pravatar.cc/300?Dávid" /></td>
+          <td>Tamás Bittera</td>
+          <td>43%</td>
+          <td>90%</td>
+          <td>62%</td>
+        </tr>
+        <tr>
+          <td><img src="https://i.pravatar.cc/300?Marcus" /></td>
+          <td>Tamás Kecskés</td>
+          <td>85%</td>
+          <td>26%</td>
+          <td>56%</td>
+        </tr>
+      </tbody>
+    </table>
+  </body>
+</html>
+
+<!--
+Kepek innen: https://i.pravatar.cc
+Random szam generalo plugin: Random Everything https://marketplace.visualstudio.com/items?itemName=helixquar.randomeverything
+
+  Nevek:
+Ádám Oláh
+Ádám Szőnyi
+Ákos Szőke
+Arpad Toth
+Attila Kiss
+Bence Kiss
+Dávid Balázs
+Dávid Farkas
+Dávid Ottó
+Dávid Végh
+Domokos Csaba
+Dzsenifer Farnadi
+Emese Józsa
+Eszter Urbán
+Gergely Balogh
+Gergő Iglódi
+Gréta Fehértói
+Laszlo Pista
+Marcus Vidrányi
+Márk Hatala
+Medárd Molnár
+Péter Laczka
+Reka Farkas
+Szabolcs Derzsi
+Tamás Tamás
+Tamás Bittera
+Tamás Kecskés
+ -->

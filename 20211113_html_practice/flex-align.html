@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+  <!--
+
+    align-items => cross axis (row vertical)
+    justify-content => main axis (row horizontal)
+
+    https://flexboxfroggy.com lvl 21
+
+   -->
+
+    <style>
+      .flex-container {
+        width: 700px;
+        margin: auto;
+        padding: 0;
+        margin: 0;
+        list-style: none;
+
+        background: #e0f080;
+        height: 500px;
+        display: flex;
+
+        justify-content: space-around;
+      }
+
+      .flex-container--align-items {
+        /*
+        Align on the cross axis (vertical)
+        Determines how the items as a whole are aligned within the container.
+        */
+        align-items: center;
+      }
+
+      .flex-container--align-content {
+        /*
+          Align on the cross axis
+          Align-content determines the spacing between lines
+          when there are multiple lines.
+          When there is only one line, align-content has no effect
+        */
+        align-content: center;
+        flex-wrap: wrap;
+      }
+
+      .flex-item {
+        background: tomato;
+        padding: 5px;
+        width: 200px;
+        height: 150px;
+        margin-top: 10px;
+
+        line-height: 150px;
+        color: white;
+        font-weight: bold;
+        font-size: 3em;
+        text-align: center;
+      }
+      .flex-item-3 {
+        height: 200px;
+      }
+    </style>
+  </head>
+  <body>
+    <ul class="flex-container flex-container--align-items">
+      <li class="flex-item flex-item-1">1</li>
+      <li class="flex-item flex-item-2">2</li>
+      <li class="flex-item flex-item-3">3</li>
+      <li class="flex-item flex-item-4">4</li>
+      <li class="flex-item flex-item-5">5</li>
+      <li class="flex-item flex-item-6">6</li>
+    </ul>
+
+    <hr>
+
+    <ul class="flex-container flex-container--align-content">
+      <li class="flex-item flex-item-1">1</li>
+      <li class="flex-item flex-item-2">2</li>
+      <li class="flex-item flex-item-3">3</li>
+      <li class="flex-item flex-item-4">4</li>
+      <li class="flex-item flex-item-5">5</li>
+      <li class="flex-item flex-item-6">6</li>
+    </ul>
+  </body>
+</html>

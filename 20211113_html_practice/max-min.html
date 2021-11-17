@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>max-width, min-width, max-height, min-height</title>
+
+  <style>
+
+    body {
+      display: flex;
+      align-items: flex-start;
+      flex-direction: column;
+      background-color: #f1f1f1;
+    }
+
+    .box {
+      text-align: center;
+      color: white;
+      background-color: #a2cbfa;
+      border-radius: 3px;
+      margin-bottom: 5em;
+      box-shadow:
+        0px 0px 1px 1px inset #4390e1,
+        0 2px 2px rgb(0 90 250 / 5%),
+        0 4px 4px rgb(0 90 250 / 5%),
+        0 8px 8px rgb(0 90 250 / 5%),
+        0 16px 16px rgb(0 90 250 / 5%);
+    }
+
+    .box--min-width {
+      min-width: 200px;
+    }
+
+    .box--max-width {
+      max-width: 300px;
+    }
+
+    .box--min-height {
+      min-width: 200px;
+      min-height: 100px;
+    }
+
+    .box--max-height {
+      max-height: 30px;
+    }
+  </style>
+
+</head>
+<body>
+
+  <div class="box">
+    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nulla, qui laudantium? Mollitia voluptatibus in laborum alias velit et repudiandae qui consectetur, rerum neque laudantium. Facilis fugiat illum animi culpa et?</p>
+  </div>
+
+  <hr>
+
+  <div class="box box--max-width">
+    <p><code>max-width</code> Lorem, ipsum dolor sit amet consectetur adipisicing elit. Perferendis architecto aspernatur, praesentium quasi sunt omnis facere dolorem at, aliquid, est quas deserunt officia ipsum deleniti minima iusto? In, cumque dolores.</p>
+  </div>
+
+  <hr>
+
+  <div class="box">
+    <p><code>rovidke</code></p>
+  </div>
+
+  <hr>
+
+  <div class="box box--min-width">
+    <p><code>min-width</code></p>
+  </div>
+
+  <hr>
+
+  <div class="box box--max-height">
+    <p><code>max-height</code> Lorem, ipsum dolor sit amet consectetur adipisicing elit. Perferendis architecto aspernatur, praesentium quasi sunt omnis facere dolorem at, aliquid, est quas deserunt officia ipsum deleniti minima iusto? In, cumque dolores.</p>
+  </div>
+
+  <hr>
+
+  <div class="box box--min-height">
+    <p><code>min-width</code></p>
+    <p><code>min-height</code></p>
+  </div>
+
+</body>
+</html>

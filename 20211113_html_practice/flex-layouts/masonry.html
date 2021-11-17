@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Stretch all, fixed spacing</title>
+
+    <link rel="stylesheet" href="./demo.css" />
+
+    <style>
+      .container {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        align-content: space-between;
+        height: 580px;
+      }
+
+      .item {
+        width: calc(100% / 3 - 2%);
+        margin-bottom: 2%;
+      }
+
+      .item:nth-child(3n + 1) {
+        order: 1;
+      }
+      .item:nth-child(3n + 2) {
+        order: 2;
+      }
+      .item:nth-child(3n) {
+        order: 3;
+      }
+
+      .container::before,
+      .container::after {
+        content: "";
+        flex-basis: 100%;
+        width: 0;
+        order: 2;
+        border: 1px solid #ddd;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="demo">
+      <div class="container">
+        <div class="item" style="height: 200px">1</div>
+        <div class="item" style="height: 250px">2</div>
+        <div class="item" style="height: 225px">3</div>
+        <div class="item" style="height: 100px">4</div>
+        <div class="item" style="height: 100px">5</div>
+        <div class="item" style="height: 120px">6</div>
+        <div class="item" style="height: 100px">7</div>
+        <div class="item" style="height: 140px">8</div>
+        <div class="item" style="height: 70px">9</div>
+      </div>
+    </div>
+  </body>
+</html>

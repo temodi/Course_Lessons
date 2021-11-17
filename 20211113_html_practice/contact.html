@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact</title>
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #0c1931;
+      }
+
+      .contact {
+        background-color: whitesmoke;
+        padding: 3em;
+        display: flex;
+        flex-direction: column-reverse;
+      }
+
+      .contact-address {
+        margin-right: 2em;
+      }
+      .contact-form {
+      }
+
+      .row {
+        display: flex;
+        flex-direction: column;
+      }
+      .row label {
+        margin-bottom: 1em;
+        flex-grow: 1;
+      }
+      .row label:only-child,
+      .row label:last-child {
+        margin-right: 0;
+      }
+      .row label span {
+        display: block;
+      }
+      .row textarea,
+      .row input {
+        width: 100%;
+        box-sizing: border-box;
+      }
+      button[type="submit"] {
+        display: block;
+        width: 100%;
+      }
+
+      @media only screen and (min-width: 768px) {
+        .contact,
+        .row {
+          flex-direction: row;
+        }
+        .row {
+          margin-bottom: 1em;
+        }
+        .row label {
+          margin-right: 1em;
+          margin-bottom: 0;
+        }
+        .contact-address {
+          align-self: center;
+          text-align: center;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="contact">
+      <div class="contact-address">
+        <p>Balázs és Társa kft.</p>
+        <p>Fekete körönd 132.</p>
+        <p>06-03-934-0908</p>
+      </div>
+      <div class="contact-form">
+        <form action="#">
+          <div class="row">
+            <label>
+              <span>Name</span>
+              <input type="text" />
+            </label>
+            <label>
+              <span>Company</span>
+              <input type="text" />
+            </label>
+          </div>
+
+          <div class="row">
+            <label>
+              <span>Telephone</span>
+              <input type="text" />
+            </label>
+            <label>
+              <span>Email</span>
+              <input type="email" />
+            </label>
+          </div>
+
+          <div class="row">
+            <label>
+              <span>Message</span>
+              <textarea rows="10"></textarea>
+            </label>
+          </div>
+
+          <div class="row">
+            <button type="submit">Send!</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
