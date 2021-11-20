@@ -39,3 +39,4 @@ let sz2 = 2;
 console.log(sz1 + sz2); // 2 Number -> összeadas
 
 
+
