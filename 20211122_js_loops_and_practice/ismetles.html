@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ismetles</title>
+  </head>
+  <body>
+    <h1 id="ismetles">Ismetles</h1>
+    <h2 id="js-alapok-ismetles-valtozo-ertekadas-alap-tipusok-es-elagazas">
+      JS-Alapok ismetles, valtozo, ertekadas, alap tipusok es elagazas
+    </h2>
+    <h3 id="string-karakter-lanc-">String (karakter lanc)</h3>
+    <pre><code class="lang-js"><span class="hljs-keyword">let</span> <span class="hljs-attr">valtozo_neve</span> = <span class="hljs-string">"valtozo erteke"</span>;
+</code></pre>
+    <ul>
+      <li>Nincs Char</li>
+      <li>String(), vagy toString()</li>
+      <li>van hossza, indexelheto</li>
+      <li>concatenation operator (+)</li>
+      <li>hasznos metodusai: includes, indexOf, slice, trim, charCodeAt</li>
+    </ul>
+    <h3 id="number-lebegopontos-szam-">Number (lebegopontos szam)</h3>
+    <pre><code class="lang-js"><span class="hljs-attribute">let age</span> = 33;
+</code></pre>
+    <ul>
+      <li>Number vagy parseInt()</li>
+      <li>Nincs hossza, nem indexelheto</li>
+      <li>NaN, isNaN</li>
+      <li>Number.MAX_SAFE_INTEGER, Number.MIN_SAFE_INTEGER</li>
+      <li>Infinity</li>
+    </ul>
+    <h3 id="boolean">Boolean</h3>
+    <pre><code class="lang-js"><span class="hljs-keyword">let</span> <span class="hljs-attr">isItTrue</span> = <span class="hljs-literal">true</span>;
+</code></pre>
+    <ul>
+      <li>Boolean()</li>
+      <li>0, NaN, undefined, null, &quot;&quot; == false</li>
+    </ul>
+    <h3 id="elagazas">Elagazas</h3>
+    <p><code>if (feltetel) { utasitasok }</code></p>
+    <h3
+      id="comparison-operators-https-developer-mozilla-org-en-us-docs-web-javascript-guide-expressions_and_operators-comparison_operators-"
+    >
+      Comparison operators (<a
+        href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators#comparison_operators"
+        >https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators#comparison_operators</a
+      >)
+    </h3>
+    <p>
+      <em>Equal (==)</em>
+      <em>Strict equal (===)</em>
+      <em>Not equal (!=)</em>
+      <em>Strict not equal (!==)</em>
+      <em>Greater than (&gt;)</em>
+      <em>Greater than or equal (&gt;=)</em>
+      <em>Less than (&lt;)</em>
+      <em>Less than or equal (&lt;=)</em>
+    </p>
+    <h3 id="arithmetic-operators">Arithmetic operators</h3>
+    <p>
+      <em>Remainder (%)</em>
+      Binary operator. Returns the integer remainder of dividing the two
+      operands.
+      <em>Increment (++)</em>
+      Unary operator. Adds one to its operand. If used as a prefix operator
+      (++x), returns the value of its operand after adding one; if used as a
+      postfix operator (x++), returns the value of its operand before adding
+      one.
+      <em>Decrement (--)</em>
+      Unary operator. Subtracts one from its operand. The return value is
+      analogous to that for the increment operator.
+      <em>Unary negation (-)</em>
+      Unary operator. Returns the negation of its operand.
+      <em>Unary plus (+)</em>
+      Unary operator. Attempts to convert the operand to a number, if it is not
+      already.
+      <em>Exponentiation operator (**)</em>
+      Calculates the base to the exponent power, that is, base^exponent
+    </p>
+    <h3 id="logical-operators">Logical operators</h3>
+    <p><em>Logical AND (&amp;&amp;)</em></p>
+    <p><em>Logical OR (||)</em></p>
+    <p><em>Logical NOT (!)</em></p>
+    <h3 id="egyenlo-vagy-egyenlo-es-azonos-tipusu">
+      Egyenlo, vagy egyenlo es azonos tipusu
+    </h3>
+    <pre><code class="lang-js"><span class="hljs-keyword">if</span> ([]) { console.<span class="hljs-built_in">log</span>(<span class="hljs-string">"[] is truthy"</span>)}         <span class="hljs-comment">// logs "[] is truthy"</span>
+<span class="hljs-keyword">if</span> ([] == <span class="hljs-literal">false</span>) { console.<span class="hljs-built_in">log</span>(<span class="hljs-string">"[] == false"</span>)} <span class="hljs-comment">// logs "[] == false"</span>
+</code></pre>
+    <p>
+      Az ok amiert <code>[] == false</code> hiaba true az ures tomb
+      <code>[]</code>: az osszehasonlitas <code>[] == false</code> az
+      <code>[]</code> erteket hasonlitja a <code>false</code>-hoz. Ahhoz hogy az
+      <code>[]</code> erteket megkapja a JS fordito meghivja a
+      <code>[].toString()</code>-et. Ez egy ures string lesz
+      <code>&quot;&quot;</code> es ezt fogja a <code>false</code>-hoz
+      hasonlitani. Tehat <code>[] == false</code> az a JS ertelmezo szamara
+      ugyan az, mint a <code>&quot;&quot; == false</code>.
+      <code>&quot;&quot;</code> pedig falsy.
+    </p>
+  </body>
+</html>

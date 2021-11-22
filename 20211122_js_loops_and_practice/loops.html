@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ciklusok</title>
+  </head>
+  <body>
+    <h1 id="ciklusok">Ciklusok</h1>
+    <p>Olyan feladatokra amiket tobbszor egymas utan kell evegezni.</p>
+    <p><em>Okolszabaly:</em></p>
+    <ul>
+      <li>Ha ismerjuk a ciklus ismetlesszamat, akkor <code>for</code></li>
+      <li>
+        Ha a ciklust egy feltetel vezerli (ismetlesek szama attol fugg, hogy egy
+        feltelte mikor valt igazbol hamissa) akkor <code>while</code>
+      </li>
+    </ul>
+    <h2 id="while">While</h2>
+    <p>
+      Eloltesztelo ciklus, belepesi feltetel vezerli a ciklus futasat A
+      ciklusmag csak akkor hajtodik vegre ha a feltetel igaz
+    </p>
+    <pre><code><span class="hljs-keyword">while</span> ( feltetel ) { ciklusmag }
+<span class="hljs-keyword">while</span> ( condition ) { <span class="hljs-keyword">loop</span>-<span class="hljs-keyword">body</span> }
+
+<span class="hljs-keyword">do</span> <span class="hljs-keyword">while</span>
+<span class="hljs-keyword">do</span> {
+  // ... <span class="hljs-keyword">loop</span> <span class="hljs-keyword">body</span> ...
+} <span class="hljs-keyword">while</span> (condition);
+</code></pre>
+    <h3 id="kitalalos-jatek">Kitalalos jatek</h3>
+    <p>
+      <a href="https://jsbin.com/joqules/1/edit?js"
+        >https://jsbin.com/joqules/1/edit?js</a
+      >
+    </p>
+    <h2 id="for">For</h2>
+    <pre><code><span class="hljs-built_in">for</span> (let ciklisvaltozo = kezdoertek; megallasi feltetel; szamlalo) {
+  <span class="hljs-comment">// ... ciklusmag ...</span>
+}
+<span class="hljs-built_in">for</span> (<span class="hljs-built_in">begin</span>; condition; <span class="hljs-built_in">step</span>) {
+  <span class="hljs-comment">// ... loop body ...</span>
+}
+</code></pre>
+    <p>
+      kezdoertek adas csak egyszer fut le a megallasi feltetel minden iteracio
+      elott a szamlalo minden iteracio utan
+    </p>
+    <h3 id="feladataok">Feladataok</h3>
+    <ul>
+      <li>
+        Feladat adjuk ossze az elso 20 szamot. (<a
+          href="https://jsbin.com/xuqudev/1/edit?js,console"
+          >https://jsbin.com/xuqudev/1/edit?js,console</a
+        >)
+      </li>
+      <li>Output even numbers in the loop [0..100]</li>
+    </ul>
+    <h2 id="breaking-the-loop">Breaking the loop</h2>
+    <p>Eroszakkal lezarja a ciklust</p>
+    <pre><code class="lang-js"><span class="hljs-keyword">let</span> sum = <span class="hljs-number">0</span>;
+
+<span class="hljs-keyword">while</span> (<span class="hljs-literal">true</span>) {
+
+  <span class="hljs-keyword">let</span> <span class="hljs-keyword">value</span> = +prompt(<span class="hljs-string">"Enter a number"</span>, <span class="hljs-string">''</span>);
+
+  <span class="hljs-keyword">if</span> (!<span class="hljs-keyword">value</span>) <span class="hljs-keyword">break</span>; <span class="hljs-comment">// (*)</span>
+
+  sum += <span class="hljs-keyword">value</span>;
+
+}
+alert( <span class="hljs-string">'Sum: '</span> + sum );
+</code></pre>
+    <h2 id="continue-to-the-next-iteration">Continue to the next iteration</h2>
+    <p>
+      Nem olyan eroszakos, mint a break, csak befejezi az aktualis iteraciot es
+      ugrik a kovetkezore
+    </p>
+    <pre><code class="lang-js"><span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">10</span>; i++) {
+
+  <span class="hljs-comment">// if true, skip the remaining part of the body</span>
+  <span class="hljs-keyword">if</span> (i % <span class="hljs-number">2</span> == <span class="hljs-number">0</span>) <span class="hljs-keyword">continue</span>;
+
+  alert(i); <span class="hljs-comment">// 1, then 3, 5, 7, 9</span>
+}
+</code></pre>
+
+  <h2>hasznos linkek</h2>
+  <ul>
+    <li><a href="https://www.programiz.com/javascript/while-loop">while-loop</a></li>
+    <li><a href="https://www.programiz.com/javascript/for-loop">for-loop</a></li>
+  </ul>
+  </body>
+</html>
