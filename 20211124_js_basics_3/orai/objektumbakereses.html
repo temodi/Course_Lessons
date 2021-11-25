@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    let felhasznalok = [
+      {
+        fullName: 'Pista bacsi',
+        userName: 'pityu',
+        email: 'valami@gmail.com',
+      },
+      {
+        fullName: 'Nagy Elemer',
+        userName: 'elem',
+        email: 'elem1@gmail.com',
+      },
+      {
+        fullName: 'Kiss Jolan',
+        userName: 'jolika',
+        email: 'jolika@gmail.com',
+      },
+      {
+        fullName: 'Tihamer',
+        userName: 'tiha',
+        email: 'tiha@gmail.com',
+      },
+    ]
+
+    console.log(felhasznalok);
+    
+    let talalat = {};
+    let index = 0;
+    while(index < felhasznalok.length) {
+      if (felhasznalok[index].fullName == 'Kiss Jolan') {
+          talalat = felhasznalok[index]; // => teljes objektumot
+          /*
+            felhasznalok[2] => 
+              {
+                fullName: 'Kiss Jolan',
+                userName: 'jolika',
+                email: 'jolika@gmail.com',
+              }
+
+            talalt =  {
+                        fullName: 'Kiss Jolan',
+                        userName: 'jolika',
+                        email: 'jolika@gmail.com',
+                      }
+          */
+          break;
+      }
+      index++;
+    }
+
+    console.log(talalat);
+
+  </script>
+</head>
+<body>
+  
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    // kiszeretnek a ciklusbol lépni, mielőtt lefutna => break
+
+    let tomb = ['a', 'abc', ' ', 'dd', 'ok'];
+    let talalat = '';
+
+    for(let i = 0; i < tomb.length; i++) {
+        console.log("i"+i);
+        if (tomb[i] == ' ') {
+            talalat = tomb[i];
+            break;
+        }
+    }
+
+    console.log(talalat.length);
+
+    // kihagyja a cikklusmag futassat -> continue
+
+    let szamok2 = [1, 2,333, 232, 4, 123, 931 , 51, 298];
+    let legnagyobb2 = 0;
+
+    for(let index = 0; index < szamok2.length; index++) {
+        // ha nem oszthato 2 vel, akkor ne hajtsa vegre a ciklusmagot
+        if (szamok2[index]%2 != 0) {
+            continue;
+        }
+ 
+        console.log('index:'+index);
+        if (szamok2[index] > legnagyobb2) {
+          legnagyobb2 = szamok2[index];
+        }
+    }
+
+  </script>
+</head>
+<body>
+  
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    // Maximum keresés - Egy tömbben keressük meg a legnagyobb számot.
+
+    let szamok = [0, 34, 1234, 2, 4831, 2345, 1234];
+    let legnagyobb = 0;
+    
+    for(let index = 0; index < szamok.length; index++) {
+        if (szamok[index] > legnagyobb) {
+          legnagyobb = szamok[index];
+        }
+    }
+
+    /* 
+      index = 0
+      szamok[0] (0) > legnagyobb (0)
+      index = 1
+      szamok[1] (34) > legnagyobb (0)
+      legnagyobb = 34
+      index = 2
+      szamok[2] (1234) > legnagyobb (34)
+      legnagyobb = 1234
+      index = 3
+      szamok[3] (2) > legnagyobb (1234)
+      index = 4
+      szamok[4] (4831) > legnagyobb (1234)
+      legnagyobb = 4831
+      ...
+      veget nem er a ciklus
+    */
+
+    console.log(legnagyobb);
+
+    // Feltételes maximum keresés 
+    // amikor a legnagyobb érték megtalálása plusz feltételhez van kötve pl 2-vel osztható
+    let szamok2 = [1, 2,333, 232, 4, 123, 931 , 51, 298];
+    let legnagyobb2 = 0;
+
+    for(let index = 0; index < szamok2.length; index++) {
+        if (szamok2[index] > legnagyobb2 && szamok2[index]%2 == 0) {
+          legnagyobb2 = szamok2[index];
+        }
+    }
+
+    console.log(legnagyobb2);
+  </script>
+</head>
+<body>
+  
+</body>
+</html>
