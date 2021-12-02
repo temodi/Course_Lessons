@@ -2,11 +2,11 @@
 function speak(string) {
   console.log(string);
 }
-speak("Hello");                     // logs "Hello"
+speak("Hello"); // logs "Hello"
 
 // Store in a variable
 let talk = speak;
-talk("Hi");                         // logs "Hi"
+talk("Hi"); // logs "Hi"
 
 // Pass as an argument to a function
 // Return from a function
@@ -14,16 +14,16 @@ function functionReturner(fn) {
   return fn;
 }
 let chat = functionReturner(talk);
-chat("Good Morning");               // logs "Good Morning"
+chat("Good Morning"); // logs "Good Morning"
 
 // Store in a data structure
 let myFuncs = [talk];
-myFuncs[0]("Good Afternoon");       // logs "Good Afternoon"
+myFuncs[0]("Good Afternoon"); // logs "Good Afternoon"
 
 // LAAATER
 // Owns properties
 talk.myProperty = "bananas";
-console.log(talk.myProperty);       // logs "bananas"
+console.log(talk.myProperty); // logs "bananas"
 
 // Ez lett belole az oran
 function sayHi() {
@@ -37,7 +37,7 @@ func()
 
 function sayHi2() {
   return function () { // anonymus function
-      console.log('igaziSayHy');
+    console.log('igaziSayHy');
   }
 }
 
@@ -46,9 +46,9 @@ majdMondjaHaMeghivom();
 
 
 function functionReturner(mitMondjon) {
-return function () { // anonymus function
-   console.log(mitMondjon); // scope miatt latja a valtozot
-}
+  return function () { // anonymus function
+    console.log(mitMondjon); // scope miatt latja a valtozot
+  }
 }
 let monddHogyHello = functionReturner('hello');
 monddHogyHello();
@@ -64,42 +64,54 @@ let sayHi3 = function () {
   console.log('sayHi3')
 }
 
+let es6SayHi = () => console.log('es6SayHi')
+let osszead = (a, b) => a + b;
+
 // Function declaration
 // function sayHi3() {
 //     console.log('sayHi3')
 // }
 
-function addOneToNumber(szam) { return szam + 1 }
-
-function addOne(array) {
-let newArray = [];
-
-for (let i = 0; i < array.length; i++) {
-  newArray.push(addOneToNumber(array[i]));
+//
+// Higher Order Function
+//
+function addOneToNumber(szam) {
+  return szam + 1
 }
 
-return newArray;
+function addOne(array) {
+  let newArray = [];
+
+  for (let i = 0; i < array.length; i++) {
+    newArray.push(addOneToNumber(array[i]));
+  }
+
+  return newArray;
 }
 
 function map(array, callback) {
-let newArray = [];
+  let newArray = [];
 
-for (let i = 0; i < array.length; i++) {
+  for (let i = 0; i < array.length; i++) {
     let aktualisSzam = array[i];
     newArray.push(callback(aktualisSzam));
-}
+  }
 
-return newArray;
+  return newArray;
 }
 
 // addOne
 console.log(
-  map([1,2,3], function (szam) { return szam + 1 })
+  map([1, 2, 3], function (szam) {
+    return szam + 1
+  })
 )
 
 // addTwo
 console.log(
-  map([1,2,3], function (szam) { return szam + 2 })
+  map([1, 2, 3], function (szam) {
+    return szam + 2
+  })
 )
 
 function addThree(szam) {
@@ -108,8 +120,30 @@ function addThree(szam) {
 
 // addThree
 console.log(
-  map([4,5,6], addThree)
+  map([4, 5, 6], addThree)
 )
 
 // Array.map([10,11,12], addThree);
-console.log([10,11,12].map(addThree));
+console.log([10, 11, 12].map(addThree));
+
+//
+// Immediately Invoking Function Expression (IIFE)
+//
+// function fn() {
+//     // ...
+// } // deklaracio
+
+// fn(); // invokacio
+let iife = (function () {
+  return true;
+})();
+
+console.log(iife);
+
+let nemiifee = function () {
+  return true;
+}
+let nemiifeeErtek = nemiifee();
+
+console.log(nemiifee)
+console.log(nemiifee())
