@@ -64,5 +64,16 @@ personArray[1] // => 10
 //
 let dzseni = { name: 'Dzseni', likesBirds: true };
 let adam = { name: 'Adam', likesBirds: false };
-let emberek = [dzseni, adam, { name: 'Peri', likesBirds: true }];
+let emberek = [dzseni, adam, { name: 'Peti', likesBirds: true }];
 dzseni.name = 'nem dzseni';
+emberek[0] // => { name: 'Dzseni', likesBirds: true }
+emberek[0].name === 'Dzseni' // => true
+emberek[0].likesBirds
+
+emberek[1] // => { name: 'Adam', likesBirds: false }
+emberek[1].name
+emberek[1].likesBirds
+
+emberek[2] // => { name: 'Peti', likesBirds: true }
+emberek[2].name
+emberek[2].likesBirds
