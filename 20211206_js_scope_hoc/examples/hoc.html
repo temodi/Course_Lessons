@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+   <script>
+     function calculatCoupon(price, cuponCalculate) { // cuponCalculate - callback fv
+       return cuponCalculate(price);
+     }
+
+     function couponFixDiscount(discountPrice) {
+       return function (price) {
+         return price - discountPrice;
+       }
+     }
+
+     function couponPercentDiscount(percent) {
+       return function (price) {
+         return price - (price * percent)
+       }
+     }
+
+     console.log(calculatCoupon(2000, couponFixDiscount(300)))
+     console.log(calculatCoupon(2000, couponPercentDiscount(0.1)))
+
+    // 
+     function couponFixDiscount(discountPrice) {
+       return function (price) {
+         return price - discountPrice;
+       }
+     }
+
+     let fix = couponFixDiscount('1000');
+
+     // fix -> function (price) {
+     //    return price - 1000;
+     //  }
+
+     fix(25000) // => 24.000 
+     
+
+   </script>
+
+</head>
+<body>
+  
+</body>
+</html>

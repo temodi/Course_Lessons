@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Block scope</title>
+  <script src="03_scope_block_1.js"></script>
+  <script>
+    let blockValtozo = 'hello';
+   // console.log('Main script:'+blockValtozo)
+    
+    function fvMintBlock() {
+       let ezIsBlockValtozo = 'igen'
+       console.log('fvMintBlock:'+ezIsBlockValtozo)
+    }
+
+    fvMintBlock()
+    console.log('fvMintBlock-on kíbűl:'+ezIsBlockValtozo)
+
+      // {
+      //  let ezMarCsakABlockban = 'world';
+      //  console.log('{} block:'+ezMarCsakABlockban);
+      // }
+      // console.log('block után'+ezMarCsakABlockban);
+
+
+  </script>
+  <script src="03_scope_block_2.js"></script>
+</head>
+<body>
+  
+</body>
+</html>
