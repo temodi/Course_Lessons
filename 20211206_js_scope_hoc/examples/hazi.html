@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    let termek = 25000;
+    let kuponok = [
+      {
+        kupon: 'XMAS10',
+        tipus: 'percent',
+        ertek: 0.1,
+      },
+      {
+        kupon: 'SANTA1000',
+        tipus: 'fix',
+        ertek: 1000,
+      },
+    ];
+
+    function kuponErtek(felhasznaloiKupon) {
+      for(let i=0; i < kuponok.length; i++) {
+          console.log(kuponok[i])
+          if (kuponok[i].kupon == felhasznaloiKupon) {
+            
+            /// kiszamolhato a kupon erteke
+            console.log('kiszamolt ertek kiiratasa');
+            return '';
+          }
+      }
+
+      console.log('Nincs ilyen kupon!');
+    }
+    
+    kuponErtek('SEMMI');
+
+  </script>
+</head>
+<body>
+  
+</body>
+</html>

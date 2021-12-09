@@ -1,0 +1,1 @@
+// console.log('JS file 1:'+blockValtozo);

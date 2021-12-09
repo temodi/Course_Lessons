@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <script>
+
+    function higherOrderFunc(func, szam) {
+      // func értéke a szamol 
+      func() 
+      // szamol()
+      szam = szam + szam + 2; // szam = 5 + 5 + 2
+    }
+    function szamol() {
+      console.log('szamol');
+    }
+    higherOrderFunc(szamol, 5)
+
+
+    function higherOrder2() {
+      let fvKifejezes = function kiir () {
+        console.log('kiir');
+      }
+      return fvKifejezes;
+    }
+    
+    function higherOrder2() {
+      return function kiir () {
+        console.log('kiir');
+      };
+    }
+
+    
+
+    let kiir = higherOrder2(); // 
+    // kiir valtozonak az ertek 
+    // function kiir () {
+    // console.log('kiir');
+    //  }
+
+    console.log(kiir)
+    kiir() // vegrehajt
+
+    let fvkifejezes = function kiir2() {
+        console.log('kiir2');
+    }
+
+    console.log(fvkifejezes); 
+    // function kiir2() {
+    //     console.log('kiir2');
+    // }
+
+    fvkifejezes();
+    // kiir2
+
+  </script>
+
+</head>
+<body>
+  
+</body>
+</html>
