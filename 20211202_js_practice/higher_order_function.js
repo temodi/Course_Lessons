@@ -3,12 +3,14 @@ function osszead(a, b) {
   return a + b;
 }
 
+osszead(1, 2)
+
 // let kivon = (a, b) => a - b;
 function kivon(a, b) {
   return a - b;
 }
 
-function szamologep(a, b, muvelet) {
+function szamologep(a /*number*/, b/*number*/, muvelet/*function (a, b)*/) {
   return muvelet(a, b);
 }
 
@@ -18,6 +20,33 @@ szamologep(1, 2, function (a, b) { return a / b  });
 szamologep(100, 200, function (a, b) { return a * b });
 szamologep(2, 8, (a, b) => a ** b);
 // **
+
+function ask(question, yes, no) {
+  if (confirm(question)) yes()
+  else no();
+}
+
+function showOk() {
+  alert("You damn fool!");
+}
+
+function showCancel() {
+  alert("Phew! You almost removed everything");
+}
+
+// usage: functions showOk, showCancel are passed as arguments to ask
+ask("Are you sure?", showOk, showCancel);
+
+function ask(question, yes, no) {
+  if (confirm(question)) yes()
+  else no();
+}
+
+ask(
+  "Are you sure?",
+  function() { alert("You damn fool!"); },
+  function() { alert("Phew! You almost removed everything"); }
+);
 
 //
 // EACH
