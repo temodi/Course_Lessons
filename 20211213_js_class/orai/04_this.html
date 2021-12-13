@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    
+    // Global context
+    console.log('this egyenlo window', this === window)
+
+    // Function context
+    function bam() {
+      console.log('this egyenlo window', this === window)
+    }
+    bam()
+
+    // Object context
+    let objektum = {
+      allatok: ['kutya'],
+      bam: function () { console.log('this', this) }
+    }
+
+    objektum.bam()
+
+    let objektum1 = {
+      allatok: ['kutya'],
+      bam: function () { console.log('this', this.allatok) }
+    }
+    let objektum2 = {
+      allatok: ['kutya', 'macska'],
+      bam: function () { console.log('this', this.allatok) }
+    }
+
+    objektum1.bam()
+    objektum2.bam()
+
+  </script>
+</head>
+<body>
+  
+</body>
+</html>

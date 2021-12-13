@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    // Osztaly letrehozas vagy osztaly deklaracio 
+    // Ures osztaly 
+    class OsztalyNeve {
+
+    }
+
+    // Osztaly letrehozas construktorral
+    class Szemely {
+      // alapallapotba hozza az objektumot peldanyositaskor
+      constructor (vezetekNev, keresztNev, szulDatum, neme) {
+        // adatag vagy property (publikus)
+        this.vezetekNev = vezetekNev;
+        this.keresztNev = keresztNev;
+        this.szulDatum = szulDatum;
+        this.neme = neme;
+      }
+
+      // publikus methodusok
+      teljesNev() {
+        return this.vezetekNev+ ' ' +this.keresztNev;
+      }
+
+      beallitVezetekNev(vezetekNev) {
+        this.vezetekNev = vezetekNev;
+      }
+
+      beallitHaziKedvenc(allat) {
+        this.haziKedvenc = allat
+      }
+      
+    }
+
+    class Allat {
+      constructor(nev, fajta) {
+        this.nev = nev;
+        this.fajta = fajta;
+      }
+    }
+
+    // Osztaly peldanyositasa
+    let Tanulo1 = new Szemely("Kiss", "Jolan", "2000.09.12", "no") //    
+    let Tanulo2 = new Szemely("Nagy", "Mate", "1990.09.11", "ff") //
+
+    console.log(Tanulo1)
+    console.log(Tanulo2)
+
+    Tanulo1.beallitVezetekNev('Lakatos');
+
+    console.log(Tanulo1)
+
+    console.log(Tanulo1 instanceof Szemely)
+    console.log(Tanulo1 instanceof Allat)
+    
+    // console.log(Szemely)
+ 
+    let Morzsi = new Allat('Morzsi', 'Kutya');
+
+    Tanulo1.beallitHaziKedvenc(Morzsi);
+    
+    console.log(Tanulo1)
+
+
+  </script>
+</head>
+<body>
+  
+</body>
+</html>
