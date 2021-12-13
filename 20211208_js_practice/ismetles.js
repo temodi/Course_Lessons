@@ -22,6 +22,9 @@ str.substring(0, 1) // => st
 str.substr(2, 4) // => ring
 str.substr(-4, 3) // => gif
 
+// szam -> string konverzio
+String(123) === "123"
+
 //
 // Tombbol torles
 //
@@ -46,6 +49,7 @@ let person = {  // object
   age: 10, // key "age", value 10,
   'likes birds': true
 }
+person['nincs ilyen kulcs'] === undefined // => true
 person.name;
 delete person.age; // => { name: 'Dzseni' }
 person['likes birds'];
@@ -53,7 +57,7 @@ person['name']
 person['age']
 
 let key = 'age';
-person[key] // => person.age || person['age']
+person[key] = 22; // => person.age || person['age']
 
 let personArray = ['Dzseni', 10];
 personArray[0] // => 'Dzseni'
