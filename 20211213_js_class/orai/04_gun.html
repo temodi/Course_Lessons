@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+
+   class LoFegyver {
+     constructor(toltenyTipus, sebzes, maxTar) {
+       this.toltenyTipus = toltenyTipus;
+       this.sebzes = sebzes;
+       this.maxTar = maxTar;
+       this.aktualisTar = maxTar;
+     }
+
+     lo() {
+      if (this.aktualisTar == 0) {
+        this.tolt()
+      }
+      console.log('1 loves');
+      this.aktualisTar--; // this.aktualisTar = this.aktualisTar - 1;
+      return ""
+     }
+
+     tolt() {
+       this.aktualisTar = this.maxTar;
+       console.log("tar ujra toltve")
+     }
+   }
+
+   let magnum = new LoFegyver('9mm', '100', 2);
+
+  //  console.log(magnum.lo())
+  //  console.log(magnum.lo())
+  //  console.log(magnum.lo())
+  // // console.log(magnum.tolt())
+  //  console.log(magnum.lo())
+  //  console.log(magnum.lo())
+   
+
+  </script>
+</head>
+<body>
+  
+</body>
+</html>

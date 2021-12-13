@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+
+  class Person {
+    constructor(fullName, phoneNumber) {
+      this.fullName = fullName;
+      this.phoneNumber = phoneNumber;
+    }
+  }
+
+  class Address {
+    constructor(city, street, houseNumber) {
+      this.city = city;
+      this.street = street;
+      this.houseNumber = houseNumber;
+    }
+  }
+
+  class Company {
+    /* companyID - cegjegyz.*/
+    constructor(companyName, vat, companyID) {
+      this.companyName = companyName;
+      this.vat = vat;
+      this.companyID = companyID;
+    }
+
+    setContactPerson(personObject) {
+      if (personObject instanceof Person) {
+        this.contactPersont = personObject;
+      }
+    }
+
+    setAddress(addressObject) {
+      this.address = addressObject;
+    }
+
+    isAlanyiAdomentes() {
+      let vatParts = this.vat.split('-')
+      // vatParts = [12345678, 1, 02]
+      if (vatParts[1] == 1) 
+        return true
+      else 
+        return false
+    }
+  }
+
+   let company1 = new Company('Kiskacsa Bt', '12345678-1-02', '213131313');
+  //  let contactPerson = new Person('Kiss Jolan','06303423233');
+  //  company1.setContactPerson(contactPerson);
+   
+  company1.setContactPerson(new Person('Kiss Jolan','06303423233'));
+ 
+
+  //  let address = new Address('Bp.', 'Valami', '5');
+  //  company1.setAddress(address);
+   
+   company1.setAddress(new Address('Bp.', 'Valami', '5'))
+
+   console.log(company1);
+   console.log('Adomentes:'+company1.isAlanyiAdomentes())
+
+
+  </script>
+</head>
+<body>
+  
+</body>
+</html>
