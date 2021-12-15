@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+
+    // Ecma6
+    class AnimalClass {
+      constructor(nameOfAnimal) {
+        this.animalName = nameOfAnimal;
+      }
+
+      getName() {
+        return this.animalName;
+      }
+    } 
+
+    // Ecma5
+    function Animal(nameOfAnimal) {
+      this.animalName = nameOfAnimal;
+    }
+
+    Animal.prototype.getName = function () {
+      return this.animalName
+    }
+
+    let dog1 = new AnimalClass('Morzsi');
+    let dog2 = new Animal('Buksi');
+
+
+    console.log('AnimalClass peldany', dog1)
+    console.log('AnimalClass tipus', typeof AnimalClass)
+    console.log('dog1 tipus', typeof dog1)
+    console.log('Animal fv', dog2)
+    console.log('Animal fv tipus', typeof Animal)
+    console.log('dog2 tipus', typeof dog2)  
+
+
+  </script>
+</head>
+<body>
+  
+</body>
+</html>

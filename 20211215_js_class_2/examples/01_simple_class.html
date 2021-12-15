@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+
+    class Animal {
+      /* Publikus property */
+      animalName;
+
+      /* Private property */
+      #age;
+
+      constructor(nameOfAnimal, bornYear) {
+        this.animalName = nameOfAnimal
+        this.#age = 2021 - bornYear;
+      }
+
+      walk() {
+        console.log(this.animalName+' sétál');
+      }
+
+      setName(nameOfAnimal) {
+        this.animalName = nameOfAnimal;
+      }
+      getName() {
+        return this.animalName;
+      }
+
+      setBornYear(bornYear) {
+        this.#age =  2021 - bornYear;
+      }
+
+      getAge() {
+        return this.#age;
+      }
+    }
+
+    let dog = new Animal('Morzsi', 2018)
+    console.log(dog)
+
+  </script>
+</head>
+<body>
+  
+</body>
+</html>

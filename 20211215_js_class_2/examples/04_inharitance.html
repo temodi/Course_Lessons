@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+
+    class Plant {
+      plantType;
+
+      constructor(pType) {
+        this.plantType = pType;
+      }
+
+      setPlantType(plantType) {
+        this.plantType = plantType;
+      } 
+    }
+
+    class Fruit extends Plant {
+      fruitType;
+      constructor(fruitType) {
+        super('Plant') // meghivja a szulo construktorat Plant.constructor()
+        this.fruitType = fruitType;
+      }
+      setPlantType(plantType) {
+        this.plantType = plantType + ' tipus';
+      }
+    }
+
+
+    let plant1 = new Plant('Plant');
+    let apple  = new Fruit('Apple','Small Plant'); // Fruit.constructor()
+
+    console.log(plant1);
+    console.log(apple)
+
+    apple.setPlantType('Valami')
+ 
+   /*  class Person {
+      fullName;
+      objectName;S
+      constructor() {
+        this.objectName = 'Person';
+      }
+
+    }
+
+    class Student extends Person {
+      constructor(name) {
+        super();
+        this.fullName = name;
+      }
+    }
+
+    let s1 = new Student('Teljes nev')
+    console.log(s1); */
+
+
+
+  </script>
+</head>
+<body>
+  
+</body>
+</html>

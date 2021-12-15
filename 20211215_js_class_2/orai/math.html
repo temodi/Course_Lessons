@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+
+    let math = {
+      pi: 3.14,
+      min: function (valueA, valueB) { return valueA < valueB ? valueA : valueB; },
+      max: function (valueA, valueB) { return valueA > valueB ? valueA : valueB; },
+      avarage: function(tomb) { 
+        let sum = 0;
+        let db = 0;
+        if (!Array.isArray(tomb)) {
+          // Array.isArray(tomb) -> true !true -> false
+          // false !false -> true
+          return null;
+        }
+
+        for(let x = 0; x < tomb.length; x++) {
+            if (this.isIntNumber(tomb[x])) {
+              sum += tomb[x];
+              db++
+            }
+            /*
+            avarage = avarage + tomb[x]
+            */ 
+        } 
+
+        return sum / db;
+      },
+      isIntNumber: function (value) {
+        let parsedValue = parseInt(value);
+        if (parsedValue && !isNaN(parsedValue)) {
+          return true;
+        }
+        return false;
+      }
+ 
+    } 
+    /*
+    if (valueA < valueB) {
+      return valueA
+    } else {
+      return valueB;
+    }
+    */
+    let tomb = [];
+
+    let vanNeve = true;
+    let nev = vanNeve ? 'Igen van nev' : 'Nincs nev';
+
+    console.log(math.min(1, 3))
+    console.log(math.avarage([1, 2, 3]))
+
+    /* Object methodusok */
+
+    let math2 = Object.assign({ 
+      sqrt: function () {} 
+    }, math);
+    let math3 = math; // ebben az esetben a math3 es a math is ugyanarra az objektumra mutat (referencia)
+    console.log(math2);
+
+    console.log(Object.entries(math)) // visszaadja egy tombben a kulcs / ertek parokat
+
+    console.log(Object.keys(math)) // visszaadja a property neveket egy tombben
+    
+    console.log(Object.values(math)) // visszaadja a property ertekeket egy tombben
+    
+    console.log('Avarage property van-e:' + math.hasOwnProperty('avarage'))
+    console.log('Xyz property van-e:' + math.hasOwnProperty('xyz'))
+
+  </script>
+</head>
+<body>
+  
+</body>
+</html>

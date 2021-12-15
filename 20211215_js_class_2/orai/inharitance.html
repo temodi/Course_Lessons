@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+
+    class Alakzat {
+      meret;
+      xCoord;
+      yCoord;
+      constructor () {
+
+      }
+      setMeret(ujMeret) {
+        this.meret = ujMeret;
+      }
+
+      setPozicio(x, y) {
+        this.xCoord = x;
+        this.yCoord = y;
+      }
+
+      setSzin(ujSzin) {
+        this.szin = ujSzin;
+      }
+
+      getAlakazatInfo() {
+        console.log('pozicio:'+this.xCoord+','+this.yCoord);
+      }
+    }
+
+    class Negyzet extends Alakzat {
+       #oldalMeret;
+       constructor(oldalMeret) {
+         super();
+         this.#oldalMeret = oldalMeret;
+       }
+       setOldalMeret(ujOldalMeret) {
+         this.#oldalMeret = ujOldalMeret;
+       }
+    }
+
+    class Kor extends Alakzat {
+      #sugar;
+      constructor(sugar, nev) {
+        super();
+        this.#sugar = sugar;
+        this.nev = nev;
+      }
+
+      setSugar(ujSugar) {
+        this.#sugar = ujSugar;
+      }
+    }
+
+    class Kor2 {
+
+    }
+
+    let kicsiNegyzet = new Negyzet(12)
+
+    kicsiNegyzet.setMeret(12)
+    kicsiNegyzet.setPozicio(1,1);
+    kicsiNegyzet.setSzin('#FFFFFF');
+
+    let kicsiKor = new Kor(2);
+    kicsiKor.setPozicio(2,2);
+    kicsiKor.setSugar(3)
+
+    let altalanosAlakzat = new Alakzat();
+    altalanosAlakzat.setPozicio(100, 200);
+
+    // Alakazat osztalybol var objektumot
+    function alakzatMuvelet(alakzat) {
+      alakzat.getAlakazatInfo()
+    }
+
+    alakzatMuvelet(altalanosAlakzat)
+    
+    alakzatMuvelet(kicsiNegyzet);
+    
+    alakzatMuvelet(kicsiKor);
+
+    let kicsiKor2 = new Kor2();
+
+    alakzatMuvelet(kicsiKor2);
+    
+
+  </script>
+</head>
+<body>
+  
+</body>
+</html>

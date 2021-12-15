@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+
+    class Circle {
+      #hiddenRadius;
+      constructor(customRadius) {
+        this.#hiddenRadius = customRadius;
+      }
+
+      get radius() {
+        return this.#hiddenRadius;
+      }
+
+      set radius(newRadius) {
+         this.#hiddenRadius = newRadius;
+      }
+
+      getRadius() {
+        return this.#hiddenRadius
+      }
+
+      setRadius(newRadius) {
+        this.#hiddenRadius = newRadius;
+      }
+    }
+
+    let smallCircle = new Circle(3)
+
+    // getter / setter 
+    console.log(smallCircle.radius)
+    smallCircle.radius = 4;
+    console.log(smallCircle.radius)
+
+    // "getter setter" methodus
+    console.log(smallCircle.getRadius())
+    smallCircle.setRadius(5);
+    
+
+    
+</script>
+</head>
+<body>
+  
+</body>
+</html>

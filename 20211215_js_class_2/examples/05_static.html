@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    class StaticClass {
+      static customProperty = 'default ertek';
+
+      static customMethod() {
+        console.log('customMethod meghivva, customProperty:', StaticClass.customProperty)
+      }
+    }
+
+    class AltalanosClass {
+      adatok;
+      constructor(adatok) {
+        this.adatok = adatok; 
+      }
+      setAdatok(ujAdat) {
+        this.adatok = ujAdat;
+      }
+    }
+
+    console.log(StaticClass.customProperty)
+    StaticClass.customMethod()
+    
+    // console.log(AltalanosClass.adatok)
+    // AltalanosClass.setAdatok('valami')
+
+    let altObj = new AltalanosClass('valami')
+
+    console.log(altObj.adatok)
+    altObj.setAdatok('valami 2');
+
+    class MathUtil {
+      static min(valueA, valueB) {
+        return valueA < valueB ? valueA : valueB;
+      }
+      static max(valueA, valueB) {
+
+      }
+    }
+
+    console.log(MathUtil.min(1,2))
+
+    class Config {
+      static serverUrl = 'http://..'
+    }
+
+
+</script>
+</head>
+<body>
+  
+</body>
+</html>
