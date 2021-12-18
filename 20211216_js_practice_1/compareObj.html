@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+
+    let obj = {
+      nev: 'Tibor',
+      kor: 20,
+    }
+
+    let obj2 = {
+      nev: 'Buksi',
+      fajta: 'kutya',
+      labak: 4,
+    }
+
+    console.log(Object.keys(obj))
+    console.log(Object.keys(obj2));
+
+    function compareObj(objekt1, objekt2) {
+      // ..
+    }
+
+    console.log('van-e nev prop.', obj2.hasOwnProperty('nev'))
+
+    compareObj(obj, obj2) // false -t 
+
+    let obj3 = {
+      nev: 'Judit',
+      kor: 32,
+    }
+
+    compareObj(obj, obj3) // true  mindkettoben van nev és kor property
+
+    compareObj({
+      nev: 'Tibor',
+      kor: 20,
+    }, 
+    {
+      nev: 'Judit',
+      kor: 32,
+    }
+    ) // -> true
+
+  </script>
+</head>
+<body>
+  
+</body>
+</html>
