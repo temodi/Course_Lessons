@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+
+    // Higher order fv / callback
+
+    function ask(szoveg, yesCallback, noCallback) {
+      // var szoveg = 'Biztos folytatod ?'
+      // var yesCallback = function () {
+      //   alert('Yes');
+      // }
+      // var noCallback = function () {
+      //    alert('No');
+      //  }
+      let userValasza = confirm(szoveg); // true v. false 
+      if (userValasza) {
+        yesCallback(userValasza) // meghivom
+      } else {
+        noCallback(userValasza)
+      }
+
+    }
+    
+    let yes = function () {
+      alert('Yes');
+    }
+
+    let no = function () {
+      alert('No');
+    }
+
+   // ask('Biztos folytatod ?', yes, no);
+
+    ask('Kiirjam consolra hogy igen ?', 
+    function (param1) {
+      console.log('Confirm visszatert:', param1);
+      console.log('yes');
+    },
+    function (param1)  {
+      console.log('Confirm visszatert:', param1);
+      console.log('no');
+    }  );
+
+   // function ask(szoveg, yesCallback, noCallback) {
+      // var szoveg = 'Kiirjam consolra hogy igen ?'
+      // var yesCallback = function (param1) {
+      //  console.log('Confirm visszatert:', param1);
+    //   console.log('yes');
+    // }
+      // var noCallback = function ()  {
+    //   console.log('no');
+    // }
+    // }
+
+
+  </script>
+</head>
+<body>
+  
+</body>
+</html>

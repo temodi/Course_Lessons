@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <script>
+ 
+  // fuggveny deklaracio
+  function fvNeve() {
+
+  }
+
+  // fv. deklaracio 
+  // parameter1..2 // formalis parameter
+  function fvNeveParamterrel(parameter1, parameter2) {
+    // var parameter1 = 'aktualis parameter'
+    // var parameter2 = 'aktualis prameter2'
+
+  }
+
+  // fv hivasa
+  fvNeveParamterrel('aktualis parameter', 'aktualis prameter2')
+  fvNeveParamterrel() // fvNeveParamterrel(undefined, undefined) // parameter1, 2 => undefined 
+
+  // fv-re hivatkozas
+  // fvNeveParamterrel;
+
+  // fvbol visszateres
+  function visszateresReturnNelkul() {
+    // utasitasok
+    // ...
+
+    // return undefined
+  }
+
+  visszateresReturnNelkul() // -> visszateresi ertek 'undefined'
+
+  function visszateressel() {
+    return 1;
+  }
+  visszateressel() // eredemeny: 1 lesz
+  let ez1lesz = visszateressel();
+
+  function PI() {
+    return 3.14
+  }
+  let r = 1;
+  let korKerulet = 2 * r * PI();  
+  console.log(korKerulet)
+
+
+  function visszateres2() {
+    let szoveg = 'akarmi';
+
+    return szoveg;
+  }
+
+  visszateres2() // visszateresi erteke: 'akarmi'  (nem a szoveg valtozo)
+
+
+  function fvCiklussal() {
+
+    for(let i = 0; i < 100; i++) {
+      // utas vegre hajta
+      return 'ciklusbol'; // => kilep a ciklusbol, kilep fv-bol is
+    }
+
+    return 'innen'
+  }
+
+  fvCiklussal() // visszateres ertek: 'ciklusbol' 
+
+  // fv kifjezes / function expression 
+
+  let fvNeve = function deklaraciosNev(param1, param2) {
+    return param1;
+  }
+
+  fvNeve;  // => beallitja a fv exp. deklaraciora , ha igy hivom meg, akkor a fv-t adja vissza es nem futatja
+  fvNeve()  // fuggveny futatasa
+
+  // anonymouse fv-t (csak fv. kifejezes eseten lehet) 
+  let fvNeve2 = function (param1, param2) {
+    return param1;
+  }
+
+   
+
+
+
+
+  </script>
+</head>
+<body>
+  
+</body>
+</html>

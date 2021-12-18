@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+
+    function min(a, b) {
+      return a < b ? a : b;
+    }
+    
+    function max(a, b) {
+      return a > b ? a : b;
+    }
+
+    function avarege(a, b) {
+      return a + b / 2
+    }
+
+    function PI() {
+      return 3.14;
+    }
+
+    function min3(a, b, c) {
+      // a es b lesz csak ertek
+      if (typeof c === undefined) {
+         console.log('hianyzik a 3. paramter')
+      }
+ 
+    }
+
+    function mathNoCallback(a, b) {
+      let eredmeny =  min(a, b)
+      return eredmeny;
+    }
+
+    // callback(a, b) => 2 paramter var
+    function math(a, b, callback) {
+      if (isNaN(a) || isNaN(b)) {
+        return null;
+      }
+
+      console.log('A megadott 2 szám', a, b);
+
+      let eredmeny = callback(a, b) 
+      //  <= let eredmeny = min(a,b) , callback == min (fv)
+      //  <= let eredmeny = max(a,b) , callback == max (fv)
+      console.log('Es az eredemny:', eredmeny)
+      return eredmeny;
+    }
+
+    console.log(math(1, 2, min));  // 1
+    console.log(math(1, 2, max));  // 2
+    console.log(math(1, 2, PI));  // 2
+    console.log(math(1, 2, min3));  // min3 az nem kompatibilis ill nem hasznalhato a math fv-el 
+
+
+    console.log(math(1, "aaa", min));
+    console.log(math(1, 2, avarege));
+
+    console.log('setIntervall elott')
+/* 
+    setInterval(function () {
+      console.log('hello')
+    }, 1000)
+ */
+    console.log('setIntervall utan')
+
+    let a = ['1', '2', 'a'];
+    a.forEach(function (e, index) {
+      console.log('element', e, index)
+    })
+
+  </script>
+</head>
+<body>
+  
+</body>
+</html>

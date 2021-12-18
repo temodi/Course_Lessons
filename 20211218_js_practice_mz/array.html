@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+
+    let tomb1dim = ['a', 1, true, { fajta: 'kutya'}, 'stb']
+
+    console.log(tomb1dim) // kiirja a teljes tombot
+    console.log(tomb1dim[0]) // 0. index , 1. elemet adja vissza
+    console.log(tomb1dim[4]) // 4. index, 5. elemet adja vissza
+
+    // tomb1dim.length = 5
+    console.log(tomb1dim[tomb1dim.length-1])
+
+    console.log(typeof tomb1dim) // object 
+    // tomb, tomb-e
+    console.log(Array.isArray(tomb1dim)) // true ha array, false ha nem array
+
+    // tombhoz elem
+    tomb1dim.push('uj elem')
+    console.log(tomb1dim)
+
+    tomb1dim.splice(0, 1); // 0. indextől, 1 elemet toroljon
+    console.log(tomb1dim)
+
+    // 2. dimenzios tomb / matrix
+    console.log('2. dimenzios')
+    let tomb2dim = [
+      ['a', 'b', 'c'],
+      [1, 2, ,3]
+    ]
+
+    // 1. tomb (index = 0), 1. elemet (index = 0)
+    // elso tomb, elso eleme
+    tomb2dim[0][0]; // 'a'
+    // elso tomb, utolso elem
+    // 
+    tomb2dim[0][2]; // 'c'
+    // 2. tomb (index = 1), 1. eleme (index = 0)
+
+    tomb2dim[1][0]; // 1-es ertek
+    // 2. tomb (index = 1), utols (3.) eleme (index = 2)
+    tomb2dim[1][2]; // 3-as ertek
+
+    let utolsoElemIndex = tomb2dim[0].length - 1; 
+    // tomb2dim[0] => ['a', 'b', 'c'].length = 3 (index 2.)
+    console.log(tomb2dim[0][utolsoElemIndex])
+    console.log(tomb2dim[0][tomb2dim[0].length - 1])
+
+    // utolso tomb, utolso eleme
+    function utolsoIdx(tomb) {
+        return tomb.length-1
+    }
+//    console.log(tomb2dim[tomb2dim.length-1][tomb2dim[tomb2dim.length-1].length - 1])
+    console.log(tomb2dim[utolsoIdx(tomb2dim)][tomb2dim[utolsoIdx(tomb2dim)].length - 1])
+
+    let tomb1 = ['a', 'b', 'c'];
+    let tomb2 = [1, 2, 3]
+    let tomb2dim2 = [
+      tomb1,  // => ['a', 'b', 'c']
+      tomb2   // [1, 2, 3]
+    ]
+
+    console.log(tomb2dim)
+    console.log(tomb2dim2)
+    
+    // 2 dim egymas ala irasd ki az össes elemeket
+    for(let i = 0; i < tomb2dim2.length; i++) {
+      // console.log('tombok:',tomb2dim2[i]) // tomboket a 'fŐ' tombből
+      let belsoTomb = tomb2dim2[i]; // ['a', 'b', 'c'] , 2. iteracio [ 1,2,3]
+      for(let j = 0; j < belsoTomb.length; j++) {
+        console.log(belsoTomb[j])
+      }
+
+    /*   for(let j = 0; j < tomb2dim2[i].length; j++) {
+        console.log(tomb2dim2[i][j]);  // 'a' , 'b' .. 3
+      } */
+    }
+
+  </script>
+</head>
+<body>
+  
+</body>
+</html>

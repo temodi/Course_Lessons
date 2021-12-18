@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <script>
+
+    // 1. 
+    let szoveg = "Sztring literalnak ezt nevezzuk";  // kezdoertek egy valtozonak
+
+    // 2.
+    let szam = 3; 
+
+    // 3.
+    let valtozo;
+    valtozo = 4;
+    console.log(valtozo);
+
+    // 4.
+    let tomb = [1, 2, 3];
+    // vagy
+    // let tomb2;
+    // tomb2 = [2,3,1];
+    
+    console.log(tomb);
+
+    // 5.
+    let konyvek = ['cim1', 'cim2', 'cim3'];  // tomb - 1p
+    console.log(konyvek) // kiiratas 1p
+
+    // 6.
+
+    let tomb2dim = [
+      [0, 1, 0],
+      [1, 1, 1],
+      [0, 1, 0]
+    ]  // 2 p
+    console.log(tomb2dim);
+
+    // 7.
+    let kapcsolo = true; // 2p
+    // if  - 1p
+    // alert - 1p
+    if (kapcsolo) {  
+      // alert("Felkapcsolva");
+    } else {
+      // alert("Nincs felkapcsolva");
+    }
+
+    // 8.
+    let szoveg2 = "string"; // 1p 
+    console.log(szoveg2[0], szoveg2[5]); // elso karakter 1p , utolso karakter 1p 
+    console.log(szoveg2[0], szoveg2[szoveg2.length-1]);
+   // charAt is jo
+
+   // 9.
+    let abc = ['a', 'b', 'c', 'd', 'e']; // 2 p
+
+    // 2 p
+    console.log(abc[0]);
+    console.log(abc[1]);
+    console.log(abc[2]);
+    console.log(abc[3]);
+    console.log(abc[4]); 
+    // ...
+    // ciklus - 1p
+    // console.log - 1p
+    for(let i = 0; i < abc.length; i++) {
+      console.log(abc[i])
+    }
+
+    // 10.
+    // fv deklaracio 1p , param -1p
+    function kiir(szoveg) {
+        console.log(szoveg);  // 1p
+    }
+
+    // 1 p
+    kiir('hello');
+    kiir('world');
+    
+    // 11. 
+
+    // ez nem jo, fv deklaracio / 0
+    function minx(a,b) {
+
+    }
+
+    // ez jo, fv kifejezes / 1p
+    // paramok / 1p
+    let min = function(a, b) {
+      // if - 1p
+      if (a < b) {
+        return a;
+      }
+    /*   else {
+        return b;
+      } */
+      return b;  // 1 p
+
+     //return a < b ? a : b;
+    }
+
+    console.log(min(1,2)); // 1+1p
+
+    let eredemny = min(3,4) // 1p
+    console.log(eredemny) // 1p
+     
+    // 12.
+    // objekutm - 1p
+    // 2 property - 1p
+    // 2 propertynek van értéke és jól van megadva / 1p
+    let szemely = {
+      nev: "Kiss Jolan",
+      kor: 32,
+    }   
+
+    // 2 kiiratas a propertyknek - 2 p
+    console.log(szemely.nev, szemely.kor)
+
+    // 13. feladat
+    let allatok = [
+      {
+        nev: 'Buksi',
+      },
+      {
+        nev: 'Csorike',
+      },
+    ]
+
+    class KisAllat {
+      constructor(nev, kor, ar) {
+        this.nev = nev;
+        // kor, ar is
+      }
+    }
+
+    let allatok2 = [
+      new KisAllat('Buksi', 1, 2000),
+      new KisAllat('Buksi2', 2, 4000),
+      new KisAllat('Buksi3', 3, 5000),
+    ]
+    function fv() {
+ 
+        return 1
+    }
+
+    let allatok1 = {
+      nev: 'Buksi',
+    }
+
+    // let allatok2 = {
+    //   nev: 'Buksi',
+    // }
+
+    class Szemely {
+      constructor(nev) {
+        this.nev;
+      }
+    }
+    function fv1(parameter1) {
+      parameter1.nev = 'Pistike'; 
+    }
+
+   
+  /*   fv1(new Szemely('Jolan')) 
+    // new Szemely('Jolan') -> Objectumot (Szemely objektum v. peldany) -> Referencia ertek (memoria cim) $AB00:0000
+    // fv1($AB00:0000) => 
+    // 
+    // a paramter1 = $AB00:0000  -> Objektum - >Szemely objektum
+    // parameter1 a Szemely peldanyt fogja tartalmazni
+    // parameter1.nev
+
+     // fv(2) -> parmeter1 = 2 
+
+    let szemely = new Szemely('Jolan');
+    fv1(szemely) 
+    console.log(szemely.nev) // => 'Pistike'
+
+    fv1(typeof szemely) // 'object'  , parameter1 = 'object'
+    fv1({}) // 
+    fv1(['a', 'b'])
+    fv(2 * 2 + 1) // parameter1 = 5 */
+    
+    
+  // 14.
+  // fv + parameter / 1p
+    function tombOsszeg(tomb) {
+    
+      if (Array.isArray(tomb) == false) {
+        return null;
+      }
+
+      // if(!Array.isArray(tomb)) {
+      //   return null
+      // }
+
+
+      let sum = 0;
+      //  ciklus 1p
+      for(let i = 0; i < tomb.length; i++) {
+        sum = sum + tomb[i]; // 1p
+      }
+      // 1p
+      return sum;
+    }
+
+    console.log(tombOsszeg("tomb")); // 1p
+    console.log(tombOsszeg([1, 2, 3])); // 1p
+
+    // 15.
+    // az egesz osztaly propertykkel 3p
+    class Konyv {
+      // 1p
+      constructor(cim, isbn, szerzo) {
+        this.cim = cim;
+        this.isbn = isbn;
+        this.szerzo = szerzo;
+      }
+
+      // 1p
+      getISBN() {
+        return this.isbn;
+      }
+      // 1p
+      setISBN(ujISBN) {
+        this.isbn = ujISBN;
+      }
+
+      // vagy 1p
+      get szerzoNeve() {
+        return this.szerzo;
+      }
+
+      // 1p
+      set szerzoNeve(ujNev) {
+        this.szerzo = ujNev;
+      }
+    } 
+    let konyv1 = new Konyv('JavaScript a gyakorlatban', 123231, 'John Doo'); // 1p
+    let konyv2 = new Konyv('JavaScript és az OOP', 545454, 'Big Bill'); // 1p
+
+    console.log(konyv1.isbn)  // 1p
+    console.log(konyv1.getISBN())  // vagy 1p
+
+    console.log(konyv2.szerzo); // 1p
+
+    konyv1.szerzoNeve = 'Jolan';
+    console.log(konyv1.szerzoNeve) // nem fv hivas
+
+
+  </script>
+
+</head>
+<body>
+  
+</body>
+</html>

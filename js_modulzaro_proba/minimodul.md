@@ -12,39 +12,43 @@ Deklarálj egy szám típusu változót (1p), amelynek a kezdő értéke legyen 
 Deklarálj egy változót kezdőérték nélkül. (1p) Adj értéket a változónak (szám vagy szöveges literál) (1p)
 Irasd ki a változó értéket (1p)
 
-# 4. feladat (4p)
+# 4. feladat (3p)
 
 Deklarálj, egy egydimenziós tömb változót (1p). A változó értéke legyen 0-tól nagyobb pozitiv számok. (1p)
 Irasd ki a változó értéket (1p)
 
 # 5. feldat (2p)
 
-Az otthonodban fellelhetők az alábbi könyvek:
+Az otthonodban fellelhetők az alábbi könyvek (200 db könyvek):
 - JavaScript alapok
 - Modern JavaScript
 - HTML és CSS 5 nap alatt
-Hozz létre egy db változót amiben tárolod a könyvcímeket.
-Irasd ki a változó értéket.
+- ...
+- ...
+Hozz létre egy db változót amiben tárolod a könyvcímeket. (1p)
+Irasd ki a változó értéket. (1p)
 
 # 6. feladat (3p)
-Deklarálj egy 2 dimenziós tömböt, amiben bit-eket tárolunk (0, 1). Max. 3 eleme legyen, vagyis egy 3x3 elemből álló tömböt kell létrehozni.
-Irasd ki a változó értéket
+Deklarálj egy 2 dimenziós tömböt (1p), amiben bit-eket tárolunk (0, 1). Max. 3 eleme legyen,
+vagyis egy 3x3 elemből álló tömböt kell létrehozni. (1p)
+Irasd ki a változó értéket (1p)
 
 # 7. feladat (4p)
 
-Egy villanykapcsoló állaptotát tárold egy változóban. (1p) Legyen alapállapotban felkapcsolva. (1p) Ha felvan kapcsolva a kapcsoló, akkor
+Egy villanykapcsoló állaptotát tárold egy változóban. (1p) Legyen alapállapotban felkapcsolva. (1p) 
+Ha felvan kapcsolva a kapcsoló, akkor
 egy dialógus ablakban (alert) jelenjen meg hogy "A villany fel van kapcsolva", ha a nincs fel kapcsolva, akkor egy dialógus ablakban 
 jelenjen meg: "Nincs felkapcsolva" (2p)
 
 
 # 8. feladat (3p)
 
-Deklarlálj egy string literál változót változót (1p) és irasd ki az első (1p) és utolsó karaktereté (1p)
+Deklarlálj egy string literál változót  (1p) és irasd ki az első (1p) és utolsó karakteretét (1p)
 
 # 9. feladat (4p)
 
 Deklarálj egy dimenziós tömböt (1), amely az ABC betűit tartalmazza (max. 5 betű elég). (1p) 
-Irasd ki a tömb elemeit, hogy új sorban jelenjen meg.  (2p)
+Irasd ki a tömb elemeit, hogy új sorban jelenjen meg. (ciklussal)  (2p)
 
 # 10. feladat (4p)
 Deklarálj egy fv-t (1p), amelynek egy paramétere van (1p). A függvény feladata, hogy console-on kíírja a megadott paramétert. (1p)
@@ -55,7 +59,7 @@ Deklarálj egy fv kifjezést (1p), amelynek két paramétere van (1p). A függv�
 kisebb, majd a függvény térjen vissza a kisebbik értékkel (2p).
 Hivd meg a fv kifejezést és jelenítse meg a fv eredményét. (2p)
 
-# 12. feladat (7p)
+# 12. feladat (5p)
 
 Deklarálj egy objektumot (1p), amelynek van két propertyje: név és kor. (1p) amelynek alapállapotát add meg (Kiss Jolan, 32) (1p)
 Irasd ki külön a név property értéket és külön a kor property értéket (2p) 
@@ -103,3 +107,7 @@ Cím: JavaScript a gyakorlatban - ISBN: 123231 - Szerző: John Doo
 Cím: JavaScript és az OOP  - ISBN: 545454 - Szerző: Big Bill
 Irassuk ki a konyv1 isbn számát (1p)
 Irassuk ki a konyv2 szerzőjét.  (1p)
+
+max pont: 65pont
+80%: 52pont
+50%: 32pont

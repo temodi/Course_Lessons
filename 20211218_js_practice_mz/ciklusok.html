@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <script>
+
+    // alap for / meghatarozott lepes szam eseten idealis
+    let ciklusFutasanakSzama = 0;
+    for(let x = 1; x <= 10; x++) {
+      console.log('x:',x)
+      ciklusFutasanakSzama++;
+    }
+    console.log(ciklusFutasanakSzama);
+
+    ciklusFutasanakSzama = 0;
+    for(let x = 0; x <= 10; x++) {
+      console.log('x:',x)
+      ciklusFutasanakSzama++;
+    }
+    console.log(ciklusFutasanakSzama);
+
+    let tomb = [ 1, 2 ,3, 4, 5, 6 ,7 , 8, 9, 10] 
+    // tomb.length => 10 
+    // tomb index intervallum [0..9]
+    
+    //  for(let x = 0; x < tomb.length; x++)
+    ciklusFutasanakSzama = 0;
+    for(let x = 0; x <= tomb.length-1; x++) {
+      console.log(tomb[x])
+      ciklusFutasanakSzama++;
+    }
+    console.log(ciklusFutasanakSzama)
+
+    let tomb2 = ['a', 'b', 'c']
+    // for..of  // array-re
+    for(let tombElem of tomb2) {
+      console.log(tombElem);
+    }
+
+    // for..in // object
+    let obj = {
+      nev: 'Jolan',
+      kor: 32,
+      abc: 'x',
+      "x y": 'x es y',
+    }
+ 
+    for(let objProperty in obj) {
+      console.log(objProperty);
+      console.log(obj[objProperty])
+      
+      switch(objProperty) {
+        case 'nev' : console.log('nev propertihez kapcs. feladat'); break;
+        case 'kor' : /* feladat */ break;
+      }
+    }
+ 
+    // while / amikor valamlyien feltetel szerinte kell futni a ciklusanak, amig a feltetl igaz
+
+    function kapcsoldLe() {
+      let lekapcsolva = true; // vill. le van kapcsolva
+      while(lekapcsolva) {
+        let kapcsoloAllapot = prompt('on vagy off a villanykapcsolo allasa')
+        if (kapcsoloAllapot == 'on') {
+            lekapcsolva = false; // vill. fel kapcsolva.
+        }
+      }
+    }
+
+   /*  let x = 0;
+    while(x < tomb2.length) {
+      x++;
+    }
+ */
+    // do / while ciklus / hattultesztelos,  mindig legalabb 1x lefut a ciklusmag
+    let x = -1;
+    do {
+      console.log('do-while:'+x)
+      x++;
+    } while (x < 0)
+
+
+
+
+  </script>
+</head>
+<body>
+  
+</body>
+</html>
