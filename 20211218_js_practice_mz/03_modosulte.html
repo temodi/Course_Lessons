@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <script>
+    
+    function adatBekeres() {
+      return [
+        prompt('Nev'),
+        prompt('Kor'),
+        prompt('Beosztas')
+      ];
+    }
+
+    let adat = adatBekeres();
+    let originalAdat = adat.concat([]);
+ 
+    adat = adatBekeres();
+    for(let i = 0; i < adat.length; i++) {
+      if (adat[i] != originalAdat[i]) {
+        console.log('Eredeti adat: '+originalAdat[i]+' => új adat: '+adat[i]);
+      } else {
+        console.log('Nem módosult a(z)'+originalAdat[i]);
+      }
+    }
+
+
+
+  </script>
+</head>
+<body>
+  
+</body>
+</html>
