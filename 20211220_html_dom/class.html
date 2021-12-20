@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div class="stilus1 stilus2 stilus3">szoveg</div>
+  <script>
+    let divElem = document.querySelector('div');
+
+    // string-es megoldas
+    console.log(divElem.className);
+    divElem.className = divElem.className + ' stilus4';
+    console.log(divElem.className);
+
+    // (tömb) megoldás 
+    console.log(divElem.classList)
+    // 1 elem
+    console.log(divElem.classList.item(1));
+    console.log(divElem.classList[1]);
+
+    // class hozzaadas
+    divElem.classList.add("stilus5");
+    console.log(divElem.classList)
+
+    // class törlés
+    divElem.classList.remove('stilus3');
+    console.log(divElem.classList)
+
+    // class contains
+    console.log(divElem.classList.contains('stilus3'))
+
+  </script>
+</body>
+</html>

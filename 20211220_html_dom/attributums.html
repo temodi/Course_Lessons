@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .stilus1 {
+      font-size: 30px!important;
+    } 
+    .stilus2 {
+      font-size: 15px;
+    }
+  </style>
+</head>
+<body id="myBodyId">
+  
+  <div class="stilus1 stilus2">Div szoveg</div>
+  <input type="text" disabled class="nevStilus" value="33">
+  <p  data-custom-attr="sajat attributum">P Elem</p>
+  <script>
+    //1. 1:1 attributum => property map
+    let bodyElem = document.querySelector('#myBodyId');
+    console.log(bodyElem.id);
+    console.log(bodyElem["id"])
+    bodyElem.id = "newBodyId";
+    console.log(bodyElem.id);
+
+    // 2. nem 1:1 map, attributm => property
+    // colspan => colSpan
+    // class => className
+    let divElem = document.querySelector('.stilus1');
+    console.log(divElem.className);
+
+    divElem.className = 'stilus2';
+    console.log(divElem.className)
+
+    // for => htmlFor (lable tag)
+    
+    // 3. obj. property nem lesz html attributum
+    // textContent - egy elem tartalma spec modon
+
+    // 4. spec attibutumok, aminek van property de nem elvart modon tartalmazza az erteket
+    // pl: disabled ami true v. false es nem ures vagy null
+    let inputElem = document.querySelector('.nevStilus');
+    console.log(inputElem.disabled)
+    console.log(inputElem.value)
+
+    inputElem.value = 'Uj ertek'
+    console.log(inputElem.value)
+
+    // lekerdezni es beallitani a html elemhez tartozo attr.
+    // (html elem).setAttribute(attributum_nev, ertek)
+    // (html elem).getAttribute(attributum_nev) => stringbe visszaadja az html attributomot
+    divElem.setAttribute('id','divId');
+    console.log(divElem.getAttribute('id'))
+
+    let pElem = document.querySelector('p');
+    pElem.setAttribute('class', 'helloP');
+    console.log(pElem.getAttribute('class'));
+    console.log(pElem.getAttribute('data-custom-attr'));
+
+  </script>
+</body>
+</html>
