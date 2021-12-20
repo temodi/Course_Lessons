@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body id="bodyid">
+  <div class="szepbetuk">Div 1
+    <p>Div szoveg</p>
+  </div>
+  <p>Szoveg szoveg hatan</p>
+  <p>Masodik szoveg</p>
+  <input type="text" name="nev" value="">
+ 
+  <script>
+    // HTML elem lekerdezes id attr. alapjan
+    let bodyElem = document.querySelector('#bodyid');
+    
+    console.log(bodyElem);
+    console.log(bodyElem instanceof HTMLBodyElement)
+
+    // HTML elem lekerdezes html tag alapjn
+    let p = document.querySelector('p');
+    console.log(p)
+    
+    // HTML elem lek. class atr alapjan
+
+    let szep = document.querySelector('.szepbetuk');
+    console.log(szep);
+
+    // HTML elem lek. leszarmazottak
+    let pK = document.querySelector('div p');
+    console.log(pK) 
+
+    // HTML elem az input nev alapjan
+    let inputom = document.querySelector('input[name="nev"]');
+    console.log(inputom);
+
+    // HTMl elem div 
+    let div = document.querySelector('div');
+    console.log(div)
+
+    // element leszarmazott.querySelector
+    let divPje = div.querySelector('p')
+    console.log(divPje)
+
+    // querySelectorAll(selector) visszateres NodeList (nem array, de hasonlo) static , non-live
+
+    let osszesPelem = document.querySelectorAll('p');
+    console.log(osszesPelem);
+
+    for(let i = 0; i < osszesPelem.length; i++) {
+      console.log(osszesPelem[i])
+    }
+  
+    console.log('forEachel')
+    let elemKiir = function (elem) {
+      console.log(elem)
+    }
+    osszesPelem.forEach(elemKiir)
+    
+
+    let divOsszesP = div.querySelectorAll('p');
+    console.log(divOsszesP);
+  
+    // regi modszerek
+    // id alapjan lekerdezes
+    let  idAlapjanRegi = document.getElementById('bodyid')
+    console.log(idAlapjanRegi)
+
+    // class alapjan 
+    let classAlapjanRegi = document.getElementsByClassName('szepbetuk');  // HTMLCollection a visszaterese 
+    console.log(classAlapjanRegi)
+
+    // tag alapjan
+    let tagAlapjanRegi = document.getElementsByTagName('p'); // HTMLCollection add vissza
+    console.log(tagAlapjanRegi)
+
+
+    // live collection vagy static collection (non-live)
+
+
+  </script>
+</body>
+</html>
