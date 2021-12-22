@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    let szam = prompt("Kérek egy számot 0 - 20 között");
+    let novelniKell = szam <= 10 ? false : true;
+    let ciklusSzam = 0;
+
+    if (szam % 3 === 0) {
+      console.log("Osztható 3-al!");
+    } else {
+      while(szam % 3 !== 0) {
+        ciklusSzam++;
+        if (novelniKell) {
+          szam++;
+        } else {
+          szam--
+        }
+      }
+      console.log('3-al osztható szám:', szam);
+      console.log('Iteráció szám:', ciklusSzam)
+    }
+    
+  </script>
+</head>
+<body>
+  
+</body>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    let csv = "Név;E-mail;Osztályzat\n"+
+    "Kiss Jolan;kiss.jolan@gmail.com;5\n"+
+    "Nagy Péter;nagy.peter@gmail.com;3";
+    
+    function csv2array(csv_string, delimiter, omit_header) {
+      let csvLines = csv_string.split("\n")
+      let csvArray = [];
+      for(let i=0; i < csvLines.length; i++) {
+        if (i == 0 && omit_header) {
+            continue;
+        }
+
+        csvArray.push(csvLines[i].split(delimiter));
+      }
+
+      return csvArray
+    }
+
+    function csv2arrayShort(csv_string, delimiter, omit_header) {
+      return csv_string.slice(omit_header? csv_string.indexOf("\n") + 1:0).split("\n").map((line) => line.split(delimiter))
+    }
+
+    /*
+     csv_tomb = [
+       ["nev", "email", "osztalyzat"],  => .join(';') => "nev;email;osztalyzat"
+       ["Jolan", "jolan@gmail.com", "5"] => .join(';') => "Jolan;jolan@gmail.com;5"
+     ]
+     lines = [
+        "nev;email;osztalyzat",
+        "Jolan;jolan@gmail.com;5"
+     ]
+     */
+    function array2csv(csv_tomb, delimiter) {
+      let lines = []
+      for(let index = 0; index < csv_tomb.length; index++) {
+          lines.push(csv_tomb[index].join(delimiter))   
+      }
+      return lines.join("\n"); // =>
+      // "nev;email;osztalyzat\nJolan;jolan@gmail.com;5"
+    }
+
+    function array2csvShort(csv_tomb, delimiter) {
+      return csv_tomb.map((line) => line.join(delimiter)).join("\n");
+    }
+
+ /*    let csv_tomb = [
+       ["nev", "email", "osztalyzat"],   
+       ["Jolan", "jolan@gmail.com", "5"]  
+     ]; */
+/* 
+    let ujTomb = csv_tomb.map(function (tombElem) {
+      return tombElem
+    }) */
+
+    // ujTomb !== csv_tomb 
+    // tartalama egyenlo lesz
+/* 
+    let regiTomb = [
+      {nev: 'Jolan', kor: 15},
+      {nev: 'Imre', kor: 20},
+    ]
+
+    let talalat = regiTomb.map(function (elem) {
+       // elem = obj lesz 
+       //  {nev: 'Jolan', kor: 15}
+       // {nev: 'Imre', kor: 20}
+       if (elem.nev == 'Imre') {
+         return elem;
+       }
+    })
+
+    let talalat2;
+    regiTomb.forEach(function (elem) {
+      if (elem.nev == 'Imre') {
+        talalat2 = elem;
+       }
+    })
+    console.log(talalat2)
+ */
+
+/*     console.log(csv2array(csv,';', true));
+    console.log(csv2arrayShort(csv,';', true)); */
+  //  console.log(array2csv(csv2array(csv,';', false), ';'))
+
+  </script>
+</head>
+<body>
+  
+</body>
+</html>

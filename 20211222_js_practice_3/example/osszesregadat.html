@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+
+    let userAdat = {
+      nev: null,
+      email: null,
+      telefon: null,
+      url: null,
+      szulev: null,
+    }
+
+  /*
+     function osszesKitolveObjKeys(obj) {
+      let keys = Object.keys(obj)
+      for(let i = 0; i < keys.length; i++) {
+        propertyName = keys[i];
+        if (obj[propertyName] === null) {
+            return false;
+        }
+      }
+      return true;
+    } */
+
+    function osszesKitoltve(obj) {
+      for(let propertyName in obj) {
+        if (obj[propertyName] === null) {
+            return false;
+        }
+      }
+      return true;
+    }
+
+    while(!osszesKitoltve(userAdat)) {
+
+      for(let propertyName in userAdat) {
+        /* propertyName -> nev
+          ... 
+        */
+        if (userAdat[propertyName] === null) {
+          let bekertAdat = prompt("Nincs még kitöltve: "+propertyName);
+          if (bekertAdat === '') {
+              bekertAdat = null;
+          } 
+          userAdat[propertyName] = bekertAdat;
+        }
+      }
+
+    }
+
+    console.log(userAdat)
+  </script>
+</head>
+<body>
+  
+</body>
+</html>
