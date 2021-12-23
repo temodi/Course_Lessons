@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    
+  /*   let item = {
+      done: false,
+      title: 'Megtanulni a querySelector-t'
+    } */
+
+
+
+    function addItem(toDoList, toDoObjectum) {
+      toDoList.push(toDoObjectum);
+    }
+    
+    function removeItem() {
+
+    }
+
+    function listToDo(toDoList) { 
+      for(let i = 0; i < toDoList.length; i++) {
+        let keszAllapot = toDoList[i].done ? 'kész' : 'nincs kész';
+        console.log((i + 1) + ". "+ toDoList[i].title + " : " + keszAllapot);
+      }
+    }
+
+    // itemPoz -> nem index, hanem hanyadik toDo tetel (1, 2, ...)
+    function itemDone(toDoList, itemPoz) {
+      let itemObjectum = toDoList[itemPoz - 1]
+      if (itemObjectum) {
+        itemObjectum.done = true;
+      }
+    }
+
+    function itemUnDone(toDoList, itemPoz) {
+      let itemObjectum = toDoList[itemPoz - 1]
+      if (itemObjectum) {
+        itemObjectum.done = false;
+      }
+    }
+    
+    // inicializaljuk 
+    let myToDoList = []; 
+    addItem(myToDoList, {
+      done: false,
+      title: 'Megtanulni a querySelector-t'
+      }
+    )
+
+    addItem(myToDoList, {
+      done: false,
+      title: 'Karacsonyi ajandkat beszerezni'
+      }
+    );  
+
+    itemDone(myToDoList, 1)
+    itemDone(myToDoList, 2)
+    itemUnDone(myToDoList, 1);
+
+    let wifeToDoList = []; 
+
+    addItem(wifeToDoList, {
+      done: false,
+      title: "Nagy bevasarlas"
+    })
+
+    addItem(wifeToDoList, {
+      done: false,
+      title: "Kozmetika",
+    })
+
+    itemDone(wifeToDoList, 1)
+  
+    listToDo(myToDoList);
+    listToDo(wifeToDoList);
+
+  </script>
+</head>
+<body>
+  
+</body>
+</html>

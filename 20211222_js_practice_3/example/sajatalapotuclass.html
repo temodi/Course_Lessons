@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    class Kapcsolo {
+      constructor(kezdoAllapot) {
+        this.bekapcsolva = kezdoAllapot;
+      }
+
+      bevagyokEKapcsolva() {
+        if (this.bekapcsolva) {
+          return 'igen'
+        }
+        return 'nem'
+      }
+      bekapcsol() {
+        this.bekapcsolva = true;
+      }
+      kikapcsol() {
+        this.bekapcsolva = false;
+      }
+    }
+
+    let nagyszobaiKapcsolo = new Kapcsolo(false); 
+    console.log('nagyszobaiKapcsolo felvan e kapcsolva:' + nagyszobaiKapcsolo.bevagyokEKapcsolva())
+
+    let osszesKapcsolo = [
+      new Kapcsolo(false),
+      new Kapcsolo(true),
+      new Kapcsolo(false),
+    ]
+
+    console.log(osszesKapcsolo) 
+  </script>
+</head>
+<body>
+  
+</body>
+</html>

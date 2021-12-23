@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .active {
+      background-color: crimson;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <ul>
+    <li class="li-style">Menu 1</li>
+    <li class="li-style">Menu 2</li>
+    <li class="li-style">Menu 3</li>
+    <li class="li-style">Menu 4</li>
+  </ul>
+  <script>
+    
+    function setActiveMenu(menuPoz) {
+      let liElems = document.querySelectorAll('li'); // nodeList - 4 HTMLElement tipusu li elemmel
+      
+      liElems.forEach(function (elem) { 
+         elem.classList.remove('active')
+      })
+
+    /*   for(let i = 0; i < liElems.length; i++) {
+        liElems[i].classList.remove('active')
+      } */
+      
+      liElems[menuPoz-1].classList.add('active');
+    }
+
+    setActiveMenu(1);
+
+  </script>
+</body>
+</html>
