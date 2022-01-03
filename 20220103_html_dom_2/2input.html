@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <form>
+    <input type="text" name="nev" value="Kezdo nev" id="nev">
+    <input type="text" name="szuldatum" value="Kezdo szul. datum" id="szuldatum">
+  </form>
+  <form>
+    <input type="text" name="hazikedvenc" value="kutya">
+  </form>
+  <script>
+    let nevElem = document.querySelector('#nev');
+    let szulDatum = document.querySelector('#szuldatum');
+
+    nevElem.value = 'Kiss Jolan';
+    // console.log(nevElem.name, nevElem.defaultValue, nevElem.value);
+    szulDatum.value = '1997.09.21';
+    // console.log(szulDatum.name, szulDatum.defaultValue, szulDatum.value);
+
+    let osszesInput = document.querySelectorAll('input');
+    console.log(osszesInput);
+
+    // for iteracio
+    for(let i = 0; i < osszesInput.length; i++) {
+     /*  console.log(osszesInput[i]); */
+      console.log(osszesInput[i].name, osszesInput[i].defaultValue, osszesInput[i].value)
+    }
+console.log('for-of');
+    // for of
+    for(let elem of osszesInput) {
+      console.log(elem.name, elem.defaultValue, elem.value)
+    }
+
+    // 
+    let formElem = document.querySelectorAll('form'); // node list
+    let inputok = formElem[0].querySelectorAll('input'); // htmlformelement
+    console.log('inputok', inputok);
+
+    for(let egyForm of formElem) {
+        let inputAFormhoz = egyForm.querySelectorAll('input')
+        console.log('form----')
+        for(let inputElem of inputAFormhoz) {
+          console.log(inputElem.name, inputElem.defaultValue, inputElem.value);
+        }
+    }
+  </script>
+</body>
+</html>
