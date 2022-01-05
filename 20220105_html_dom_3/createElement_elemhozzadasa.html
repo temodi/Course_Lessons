@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #main {
+      background-color: crimson;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <div id="main">
+      <p>Meglevo tartalom</p>
+  </div>
+  
+  <p class="pclass">Szoveg</p>
+
+  <div id="div2">
+      Div Szoveg
+  </div>
+
+  <script>
+    let pTesztElem = document.querySelector('.pclass'); // HTMLParagraphElement - Element - Node
+
+    let mainDiv = document.querySelector('#main'); // HTMLDivElement - Element - Node
+    let pElem = document.createElement('p'); // ezzel ter vissza: HTMLParagraphElement - Element - Node
+    pElem.innerText = 'Appenddel a node végébe';
+    pElem.classList.add('pclass2');
+    console.log(pElem)
+    mainDiv.append(pElem)
+
+    let secondDiv = document.querySelector('#div2');
+    let pElem2 = document.createElement('p');
+    pElem2.innerText = 'Appenddel a node végébe';
+    pElem2.classList.add('pclass2');
+    secondDiv.append(pElem2);
+
+    // let pSzoveg2 = document.createTextNode('Ez meg egy uj a szoveg a p elemhez'); //  
+    // pElem2.append(pSzoveg2);
+    
+    pElem2.append(document.createTextNode('Ez meg egy uj a szoveg a p elemhez'))
+    // pElem2.append('Ez meg egy uj a szoveg a p elemhez')
+    
+    // pElem2.innerText = 'Appenddel a node végébe';
+    // pElem2.innerText =  pElem2.innerText + 'Ez meg egy uj a szoveg a p elemhez';
+
+    // secondDiv.innerHTML = '<p class="pclass2">Appenddel a node végébe</p>';
+    // secondDiv.innerHTML = '<divptag>helo</divptag>'; // ez hibas
+
+
+    let pElem3 = document.createElement('p');
+    pElem3.innerText = 'A meglévő elemek elé';
+    mainDiv.prepend(pElem3)
+
+    let pElem4 = document.createElement('p');
+    pElem4.innerText = 'A szülő elem elé';
+    mainDiv.before(pElem4)
+    
+    let pElem5 = document.createElement('p');
+    pElem5.innerText = 'A szülő elem után';
+    mainDiv.after(pElem5)
+
+    pElem5.before("String szoveg");
+    
+    // HTML torlese
+    let torlendoElem = document.createElement('a');
+    torlendoElem.href = 'http://www.google.com';
+    torlendoElem.innerText = 'Klikkelj Ide';
+    mainDiv.append(torlendoElem);
+    torlendoElem.remove()
+
+
+
+  </script>
+</body>
+</html>
