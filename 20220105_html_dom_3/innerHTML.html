@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <div id="elso">Szoveg es <strong>p szoveg</strong></div>
+  <div id="masodik"></div>
+  <p>
+    Lorem ipsum...
+  </p>
+  <span>
+    Ez meg span volt
+  </span>
+  <script>
+    let divElem = document.querySelector('#elso'); // HTMLDivElement
+    console.log(divElem.innerHTML, typeof divElem.innerHTML);
+
+    let divElem2 = document.querySelector('#masodik');
+    divElem2.innerHTML = "Kiskutyafule <strong>Hello</strong>";
+    divElem2.innerHTML = divElem2.innerHTML + "Kis regény cime";
+
+    let pElem = document.querySelector('p');
+    pElem.innerText = 'Ez lesz az uj szoveg<strong> ez nem strong</strong>';
+
+    let spanElem = document.querySelector('span');
+    spanElem.textContent = 'Menu lista: <ul><li>Hello</li></ul>';
+
+    document.body.innerHTML = ""
+</script>
+</body>
+</html>

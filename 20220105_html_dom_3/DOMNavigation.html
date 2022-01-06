@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+  <ul>
+    <!-- Menu komment -->
+    <li>Item 1</li>
+    <li>Item 2</li>
+    <li><a href="">Item 3</a></li>
+  </ul>
+  <script> 
+    let ulElem = document.querySelector('ul');
+
+    // ulElem osszes gyereke
+    // let osszesLiChildren = ulElem.querySelectorAll('li')
+    // let osszesLiChildren = ulElem.children
+    
+
+    let liElem = document.querySelector('li:nth-child(2)');
+    let liElem3 = document.querySelector('li:nth-child(3)');
+    
+    console.log(liElem);
+
+    // Szulo  lekerdezese
+    console.log(liElem.parentNode) // Szulo Node
+    console.log(liElem.parentElement) // Szulo Element, ha nem element vagy nincs, akkor null
+
+    // Gyerek lekerdezese
+    console.log(liElem.childNodes) // NodeList 
+    console.log(liElem.children)  // HTMLCollection 
+
+    console.log(liElem3.childNodes) // NodeList 
+    console.log(liElem3.children)  // HTMLCollection 
+
+    // Elso gyerek lekerdezese
+    console.log(ulElem.firstChild)  // elso gyerek node
+    console.log(ulElem.firstElementChild) // elso gyerek element
+
+    // Utolso gyerek lekerdezese
+    console.log(ulElem.lastChild)  // utolso gyerek node
+    console.log(ulElem.lastElementChild) // ulso gyerek element
+
+    // Testverek lekerdezese
+    // Elozo testverek
+    console.log(liElem.previousSibling) // elozo testvere node
+    console.log(liElem.previousElementSibling) // elozo testver element
+
+    // Kov. teso
+    console.log(liElem.nextSibling) // kov. teso node
+    console.log(liElem.nextElementSibling) // kov teso element
+
+  </script>
+</body>
+</html>

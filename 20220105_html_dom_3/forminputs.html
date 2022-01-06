@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body, input, select {
+      font-size: 20px;
+    }
+  </style>
+</head>
+<body>
+  Ez szoveg
+  <form method="post" action="" name="enformom1" class="formclass">
+    <input type="text" name="nev" value="Kezdo ertek" class="nevClass">
+    <br>
+    <br>
+    <input type="radio" name="neme" value="ferfi" checked>Ferfi <br>
+    <input type="radio" name="neme" value="no" class="noClass">No <br> 
+  </form>
+<br><br>  
+  <form method="post" action="" name="enformom2"  class="formclass">
+    <select name="szinek">
+      <option value="kek">Kek</option>
+      <option value="piros">Piros</option>
+    </select>
+  </form>
+  <script>
+    // dokumentum összes form elemje
+    let osszesForm = document.forms;
+    console.log(osszesForm)
+    console.log(osszesForm[0]); // elso form -om
+    
+    // Preferalt mod
+    let osszesFormNew = document.querySelectorAll('form');  // NodeList 
+    console.log(osszesFormNew);
+
+    // ezt nem hasznaljuk
+    let osszesFormByClass = document.getElementsByClassName('formclass');
+    console.log(osszesFormByClass);
+
+
+    // ertek lekerdezese egy inputnak
+    let inputNev = osszesFormNew[0].querySelector('.nevClass');
+    console.log('osszesFormNew[0]', osszesFormNew[0]) // htmlformelement / element (.querySelector) / node  
+    console.log(inputNev)
+
+    // input mezo ertekenek lekerdezese
+    inputNev.value
+    inputNev.defaultValue  // eredeti kezdo ertek
+    inputNev.getAttribute('value') //
+
+    inputNev.value = 'Uj ertek';
+
+    /// Radio 
+    let radioInputok = osszesFormNew[0].querySelectorAll('input[name="neme"]');
+    console.log('radioInputok', radioInputok)
+
+    for(let i = 0; i < radioInputok.length; i++) {
+      console.log('index alapjan', radioInputok[i]);
+    }
+
+    for(let e of radioInputok) {
+      console.log('e', e, e.name, e.checked )
+    }
+
+    // bejelove beallitasa
+    let noRadioInput = radioInputok[1];
+    noRadioInput.checked = true;
+    console.log('no',noRadioInput, noRadioInput.checked )
+
+    let noRadioInputByClass = document.querySelector('.noClass');
+    noRadioInputByClass.checked = false;
+    console.log('no',noRadioInput, noRadioInput.value, noRadioInput.checked)
+
+
+    // select
+    let selectInput = osszesFormNew[1].querySelector('select');
+    console.log(selectInput)
+    
+    // kivalasztott tetel / option indexe
+    console.log(selectInput.selectedIndex);
+
+    // kivalasztott tetel
+    console.log(selectInput.selectedOptions);  // option tag/elemeket tartalamazza ami kilett valasztva
+
+    let selectedOption = selectInput.selectedOptions[0];
+    console.log('selectedOption', selectedOption, selectedOption.selected)
+
+    
+
+  </script>
+</body>
+</html>

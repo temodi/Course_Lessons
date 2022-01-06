@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div class="div1"> Div 1</div>
+  <br>
+  <div class="div2"> Div 2</div>
+  <script>
+  
+    let div1Elem = document.querySelector('.div1');
+    let div2Elem = document.querySelector('.div2');
+    
+    // append
+    let pElem = document.createElement('p');
+    let aElem = document.createElement('a');
+    
+    pElem.innerText = "Elkeszult a P tag";
+    aElem.innerText = "Kattints ide";
+    aElem.href = 'http://www.google.com';
+
+    div1Elem.appendChild(pElem);
+    div1Elem.appendChild(aElem);
+   
+
+    // appendChild
+
+    let pElem2 = document.createElement('p');
+    let aElem2 = document.createElement('a');
+    
+    pElem2.innerText = "Elkeszult a 2. P tag";
+    aElem2.innerText = "Kattints ide a 2. linkre";
+    aElem2.href = 'http://www.google.com';
+
+    div2Elem.append(pElem2, aElem2)
+    aElem2.append(", mert ez egy link")
+
+  </script>
+  
+</body>
+</html>

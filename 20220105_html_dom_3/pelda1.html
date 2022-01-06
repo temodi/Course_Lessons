@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .piros {
+      color: red;
+    }
+    .active {
+      color: white;
+      background-color: red;
+    }
+  </style>
+</head>
+<body>
+  <ul id="ul1">
+    <li>menu 1</li>
+    <li>menu 2</li>
+    <li>menu 3</li>
+    <li>menu 4</li>
+  </ul>
+  <ul id="ul2">
+    <li>menu 1</li>
+    <li>menu 2</li>
+    <li>menu 3</li>
+    <li>menu 4</li>
+  </ul>
+  <script>
+      let ulElem = document.querySelector('#ul1');
+      let liElemek = ulElem.children;  // htmlcollection
+
+      for(let i = 0; i < liElemek.length; i++) {
+        liElemek[i].classList.add('piros');   // HTMLiElement
+      }
+
+      // 2. verzio
+      let liElemek2 = document.querySelectorAll('#ul1 > li');
+      for(let i = 0; i < liElemek2.length; i++) {
+        liElemek2[i].classList.add('kek');   // HTMLiElement
+      }
+
+      let activeIndex = 2;
+      liElemek2[activeIndex].classList.add('active');
+
+  </script>
+</body>
+</html>

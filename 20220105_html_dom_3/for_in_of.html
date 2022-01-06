@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    let konyvAdatok = {
+      cim: 'Bukta lekvarosan gyorsan',
+      isbn: '2399393',
+      szerszo: 'Anonymous',
+    }
+
+    // vegigmenni az objektum kulcsokon
+    for(let key in konyvAdatok) {
+        console.log(key)
+        console.log(konyvAdatok[key]) // key = cim, isbn, szerszo
+    }
+
+    // vegigmenni az objektum kulcsokon 2.
+    let keys = Object.keys(konyvAdatok);
+    console.log(keys);
+    for(let i = 0; i < keys.length; i++) {
+      console.log(keys[i]);
+
+    }
+
+    // let tomb = [1, 2, 3];
+    // for(let key in tomb) {
+    //   console.log(key)
+    // }
+    
+
+    // iteralni egy tombot, ha nem kell index
+    let tomb = [1, 2, 3, { x: 0, y: 1}];
+    for(let tombElem of tomb) {
+      console.log(tombElem)
+    }
+    
+  </script>
+</head>
+<body>
+  
+</body>
+</html>

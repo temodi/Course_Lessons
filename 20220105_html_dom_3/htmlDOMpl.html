@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  Menu:
+  <ul>
+    <li><a href="">szoveg</a></li>
+  </ul>  
+
+  <script>
+    let ulElem = document.querySelector('ul');
+
+    let menupontok = [
+      {
+        text: 'Menupont 1',
+        url: 'http://www.google.com'
+      },
+      {
+        text: 'Menupont 2',
+        url: 'http://www.google.com'
+      },
+    ];
+
+    for(let menu of menupontok) {
+      let liElem = document.createElement('li');
+      console.log(liElem)
+      
+      // innerHTML
+      // let aLink = '<a href="'+menu.url+'">'+menu.text+'</a>';
+      //  let aLink = "<a href=\""+menu.url+"\">"+menu.text+"</a>";
+      // liElem.innerHTML = aLink;
+      // console.log(aLink)
+
+      // createElement
+      let aElem = document.createElement('a');
+      aElem.href = menu.url;
+      aElem.innerText = menu.text;
+      // aElem.append(menu.text);
+      liElem.append(aElem);
+
+      // DOM hoz hozzadja
+      ulElem.append(liElem);
+    }
+    
+  </script>
+</body>
+</html>

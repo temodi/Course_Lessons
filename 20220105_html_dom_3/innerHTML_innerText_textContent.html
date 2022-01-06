@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+    
+  Ez meg egy     szöveg a <b>bodyban</b>
+  ez meg <strong>kiemelt</strong>
+
+  <div>
+    <p>Ez egy össze-vissza   spacelt szöveg
+      meg még van ami új sorban is van. Ez meg <strong>erős</strong></p> 
+  </div>
+  <!-- Ez meg egy comment -->
+  <style>
+    body {
+      font-size: 24px;
+    }
+  </style>
+  <script>
+    let body = document.querySelector('body'); // document.body
+
+    console.log('----innerHTML Start----')
+    console.log(document.body.innerHTML);
+    console.log('----innerHTML End----')
+
+    console.log('----innerText Start----')
+    console.log(document.body.innerText);
+    console.log('----innerText End----')
+    
+    console.log('----textContent Start----')
+    console.log(document.body.textContent);
+    console.log('----textContent End----')
+  </script>
+
+</body>
+</html>

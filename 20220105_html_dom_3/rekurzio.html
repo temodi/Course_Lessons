@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function rekurzivFv(lepes) {
+      console.log('lepes', lepes)
+      lepes--;
+      if (lepes > 0) {
+        rekurzivFv(lepes)
+      }
+    }
+
+    rekurzivFv(4); 
+
+    function faktorialis(n) {
+      let f;
+      if (n == 0) {
+        f = 1;
+      } else {
+        let visszaterese = faktorialis(n - 1)
+        f = visszaterese * n;
+      }
+      return f;
+      // return n === 0 ? 1 : faktorialis(n - 1) * n
+    }
+    
+
+    function faktorialisCiklussal(n) {
+      let f = 1; 
+      for(let i = 1; i <= n; n--) {
+        f = f *  n;
+      }
+      return f;
+    }
+
+    console.log(faktorialis(5));
+    console.log(faktorialisCiklussal(5));
+</script>
+</body>
+</html>
