@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+
+  // Osztaly deklaracio
+  class Animal {
+    constructor(neve) {
+      this.neve = neve;
+    }
+    
+    eszik() {
+      console.log(this.neve + ' eszik!');
+    }
+
+    setNev(ujNeve) {
+      this.neve = ujNeve;
+    }
+    getNev() {
+      return this.neve;
+    }
+
+    set nev(ujNeve) {
+      this.neve = ujNeve;
+    }
+
+    get nev() {
+      return this.neve;
+    }
+  }
+ 
+
+  class CsupaszCsiga extends Animal {
+    constructor() {
+      super('')
+    }
+  }
+ 
+
+  class Kutya extends Animal {
+    constructor(nev, fajta, kiskutya) {
+      super(nev) // szulo osztaly construktorat hivja meg
+      this.fajta = fajta;
+      
+      if (kiskutya)
+        this.kiskutyja = kiskutya;
+
+      this.legjobbBaratja = new CsupaszCsiga()
+    }
+/* 
+    kiskutyjaLett() {
+      this.kiskutyja = new Kutya('Bleki', this.fajta); // peldanyosito es bellitom az osztaly propertyt
+    } */
+    
+    eszik() {
+      console.log(this.neve + ' eszik, ha éhes!');
+    }
+
+    setalni() {
+      console.log(this.nev + ' setal!');
+    }
+
+    fut() {
+      console.log(this.nev + ' fut!');
+    }
+
+    setBeceneve(ujNev) {
+      this.neve = ujNev;
+    }
+  }
+ 
+  function atlag(a1,a2,a3) {
+    return (a1 + a2 + a3) / 3
+  }
+  // Peldanyositas
+  let animal = new Animal('Gyurika');
+  console.log(animal);
+  // console.log(animal.nev);  
+  // animal.nev = 'Csorike';
+  // animal.setNev('Gyurika');
+  // console.log(animal.getNev());
+
+  animal.nev = 'Madarka';
+  console.log(animal.nev); 
+
+  let ujkiskutya = new Kutya('Bleki', 'labrador');
+  let kiskutya = new Kutya('Buksi', 'labrador', ujkiskutya);  // Kutya.constructor('Buksi') => super('Buksi') => Animal.constuctor('Buksi')
+  console.log(kiskutya);
+
+  let nagykutya = new Kutya('valami', 'pincsi');
+  console.log(nagykutya);
+  
+  kiskutya.fut() 
+  kiskutya.eszik();
+  animal.eszik();
+
+  // nagykutya.kiskutyjaLett();
+
+
+  </script>
+</head>
+<body>
+  
+</body>
+</html>
