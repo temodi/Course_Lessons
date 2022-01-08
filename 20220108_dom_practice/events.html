@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Events</title>
+  </head>
+  <body>
+    <h2>Egerecske esemenyei HTML-ben</h2>
+    <ul>
+      <li><code>click</code> – amikor egy elemre kattintas tortenik</li>
+      <li>
+        <code>contextmenu</code> – amikor egy elemre jobb klikkel tortenik
+        kattintas
+      </li>
+      <li>
+        <code>mousedown</code> / <code>mouseup</code> – amikor a lenyomas
+        megtortent / felengedes megtortent
+      </li>
+      <li>
+        <code>mouseover</code> / <code>mouseout</code> – amikor az egermutato
+        belep egy elembe / kilep belole
+      </li>
+      <li><code>mousemove</code> – amikor megmozdul az eger.</li>
+    </ul>
+
+    <button id="" onclick="alert(Math.PI);">Klikk</button>
+    <button oncontextmenu="alert('jobbhorog!')">Klikk</button>
+    <hr />
+    <button
+      onclick="console.log('balegyenes!')"
+      oncontextmenu="console.log('jobbhorog!')"
+    >
+      Klikk jobb-bal
+    </button>
+    <hr />
+    <button onmousedown="console.log('le')" onmouseup="console.log('fel')">
+      Klikk
+    </button>
+    <hr />
+    <div
+      style="border: 1px solid aquamarine"
+      onmouseover="console.log('be')"
+      onmouseout="console.log('ki')"
+    >
+      Gyere ide folem
+    </div>
+    <hr />
+    <div
+      style="border: 1px solid red"
+      onmousemove="console.log(Math.random())"
+    >
+      Gyere ide folem
+    </div>
+
+    <hr />
+    <style>
+      .color-example {
+        height: 600px;
+        box-shadow: inset 0 0 3px 5px rgba(0, 0, 0, .2);
+      }
+    </style>
+    <script>
+      // https://gist.github.com/egstad/33696f342c2d7c6399b2
+      function colorExample(event) {
+        x = event.offsetX;
+        y = event.offsetY;
+        event.target.style.backgroundColor = `rgb(${x}, ${y}, ${x - y})`;
+      }
+    </script>
+    <div class="color-example" onmousemove="colorExample(event)"></div>
+
+    <h2>Egerecske esemenyei DOM-ban</h2>
+
+    <button id="onclickpelda1">Bökj meg</button>
+
+    <script>
+      const gomb = document.querySelector('#onclickpelda1');
+      gomb.innerHTML = "Leccike bokj meg";
+      gomb.onclick = function () {
+        console.log('aucs')
+      };
+      gomb.onmouseover = function () {
+        console.log('hover')
+      }
+      gomb.onmouseout = function () {
+        console.log('nem hover')
+      }
+    </script>
+
+    <h2>addEventListener</h2>
+  </body>
+</html>
