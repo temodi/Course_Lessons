@@ -1,20 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
 </head>
+
 <body>
   <button type="button">Gomb 1</button>
   <button type="button">Gomb 2</button>
   <button type="button">Gomb 3</button>
   <button type="button">Gomb 4</button>
-  
+
   <script>
     let btn = document.querySelectorAll('button');
-    
+
     // Osszes elemhez eventListener
     // for(let index = 0; index < btn.length; index++) {
     //   btn[index].addEventListener('click', function () {
@@ -22,16 +24,32 @@
     //   })
     // }
 
-     // Osszes elemhez eventListener
-     for(let index = 0; index < btn.length; index++) {
+    // Osszes elemhez eventListener
+        for(let index = 0; index < btn.length; index++) {
+       btn[index].addEventListener('click', function (event) {
+           let btnElem = event.target;
+           console.log(btnElem);
+           alert(btnElem.innerText)
+       })
+     }
+ 
+     let elemWithBorder = null;
+
+    for(let index = 0; index < btn.length; index++) {
       btn[index].addEventListener('click', function (event) {
           let btnElem = event.target;
-          console.log(btnElem);
-          alert(btnElem.innerText)
+
+          if (elemWithBorder) {
+            elemWithBorder.style.border = '';
+          }
+        
+          elemWithBorder = event.target;
+          elemWithBorder.style.border = "2px solid red";
       })
     }
 
   </script>
-  
+
 </body>
+
 </html>
