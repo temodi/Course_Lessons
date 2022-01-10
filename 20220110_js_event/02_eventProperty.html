@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .shakeit {
+      animation: shake 0.5s;
+      animation-iteration-count: 2;
+    }
+
+    .shakeit_forever {
+      animation: shake 0.5s;
+      animation-iteration-count: infinite;
+    }
+
+    @keyframes shake {
+      0% { transform: translate(1px, 1px) rotate(0deg); }
+      10% { transform: translate(-1px, -2px) rotate(-1deg); }
+      20% { transform: translate(-3px, 0px) rotate(1deg); }
+      30% { transform: translate(3px, 2px) rotate(0deg); }
+      40% { transform: translate(1px, -1px) rotate(1deg); }
+      50% { transform: translate(-1px, 2px) rotate(-1deg); }
+      60% { transform: translate(-3px, 1px) rotate(0deg); }
+      70% { transform: translate(3px, 1px) rotate(-1deg); }
+      80% { transform: translate(-1px, -1px) rotate(1deg); }
+      90% { transform: translate(1px, 2px) rotate(0deg); }
+      100% { transform: translate(1px, -2px) rotate(-1deg); }
+    }
+  </style>
+  <script>
+    function clickEsemenyKezelo() {
+      let hElem = document.querySelector('h1');
+      hElem.classList.add('shakeit');
+    }
+
+    function mouseEnterEsemenyKezelo() {
+      let hElem = document.querySelector('h2');
+      hElem.classList.add('shakeit_forever');
+    }
+    
+    function masodlagosEventKezelo(str) {
+      console.log(str);
+    }
+
+    function clickEsemenyKezeloInput() {
+      let inputElem = document.querySelector('input');
+      inputElem.classList.add('shakeit');
+    }
+
+  </script>
+</head>
+<body>
+  <h1 onClick="clickEsemenyKezelo(); masodlagosEventKezelo('onClickhez'); " onAnimationEnd="this.className = ''">Ez egy H1</h1>
+  <h2 onMouseEnter="mouseEnterEsemenyKezelo(); masodlagosEventKezelo('onMouseEnterhez');" onMouseLeave="this.className = ''">Ez ey H1</h2>
+  <form autocomplete="off">
+    <label>Kotelezo nev:
+      <input type="text" name="name" onFocus="">
+    </label>
+  </form>
+
+  <script>
+    let inputElem = document.querySelector('input');
+    
+    inputElem.onfocus = function () {
+      console.log('focus megtortent')
+    }
+    /* inputElem.onfocus = clickEsemenyKezeloInput; */
+    
+    inputElem.onfocus = function () {
+      console.log('ez meg a masodik feluliras megtortent')
+    }
+
+    inputElem.onblur = function () {
+      this.className = '';
+    }
+
+    function fuggvenyecske() {
+      return 5;
+    }
+
+    let b;
+    b = fuggvenyecske() // b = '5' 
+    
+    let fv;
+
+    fv = fuggvenyecske; /*
+
+    fv = function () {
+      return 5;
+    }
+    */
+
+    fv(); // return 5
+
+    console.log('fuggvenyecske()', fuggvenyecske())
+    console.log('fuggvenyecske:', fuggvenyecske)
+    
+  </script>
+</body>
+</html>
