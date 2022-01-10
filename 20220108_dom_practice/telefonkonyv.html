@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Telefonkonyv</title>
+
+    <style>
+      .strike {
+        text-decoration: line-through;
+      }
+    </style>
+
+    <script>
+      let myPhoneNumbers = [
+        3630792765, 3630369549, 3620797249, 3670129465, 3630735165, 3630799685,
+        3630294765, 3630739572, 3630792388, 3630792947, 3630798965, 3630799284,
+        3630793325, 3630799685, 3630194265,
+      ];
+      let myNames = [
+        "Bandobras Underhill",
+        "Robin Gardner",
+        "Isembold Whitfoot",
+        "Donnamira Galbassi",
+        "Bungo Baggins",
+        "Will Sandyman",
+        "Isengrim Proudfoot",
+        "Frodo Baggins",
+        "Amaranth Gaukrogers",
+        "Trahand Bunce",
+        "Will Sandyman",
+        "Halfred Goodchild",
+        "Bilbo Baggins",
+        "Will Sandyman",
+        "Belba Sandheaver",
+      ];
+
+      function createPhoneBook(names, phoneNumbers) {
+        // formalis parameterek
+        let phoneBook = [];
+
+        for (let i = 0; i < names.length; i++) {
+          let person = {
+            name: names[i],
+            mobile: phoneNumbers[i],
+          };
+          phoneBook.push(person);
+        }
+
+        return phoneBook;
+      }
+
+      let myPhoneBook = createPhoneBook(myNames, myPhoneNumbers); // aktualis parameterek
+
+      console.log("Telefonkonyv", myPhoneBook);
+    </script>
+  </head>
+
+  <body>
+    <table>
+      <thead>
+        <tr>
+          <th colspan="3">Telefonkonyv</th>
+        </tr>
+      </thead>
+      <tbody class="body"></tbody>
+      <tfoot>
+        <tr>
+          <td colspan="3"></td>
+        </tr>
+      </tfoot>
+    </table>
+
+    <script>
+      let body = document.querySelector(".body");
+      for (let i = 0; i < myPhoneBook.length; i++) {
+        let tr = document.createElement("tr");
+        let td1 = document.createElement("td");
+        let td2 = document.createElement("td");
+        let td3 = document.createElement("td");
+        let deleteButton = document.createElement("button");
+        let strikeButton = document.createElement("button");
+
+        deleteButton.innerText = "X";
+        strikeButton.innerText = "-";
+        td1.innerHTML = myPhoneBook[i].name;
+        td2.innerHTML = myPhoneBook[i].mobile;
+        td3.append(deleteButton, strikeButton);
+
+        deleteButton.onclick = function () {
+          console.log("Majd torolni fogok");
+          console.log(myPhoneBook[i].mobile);
+          tr.remove();
+        };
+
+        strikeButton.onclick = function () {
+          td1.classList.add("strike");
+          td2.classList.add("strike");
+        };
+
+        tr.onmouseover = function () {
+          tr.style.backgroundColor = "red";
+        };
+
+        tr.onmouseout = function () {
+          tr.style.background = "transparent";
+        };
+
+        tr.append(td1, td2, td3);
+        body.append(tr);
+      }
+    </script>
+
+    <script>
+      let allDeleteButton = document.createElement("button");
+
+      allDeleteButton.style.position = "absolute";
+      allDeleteButton.style.top = "20px";
+      allDeleteButton.style.right = "20px";
+      allDeleteButton.innerHTML = "PÁNIK";
+      body.append(allDeleteButton);
+
+      allDeleteButton.onclick = function () {
+        document.body.remove();
+      };
+    </script>
+
+    <hr />
+
+    <h2>Rendereles <code>innerHTML</code> felekeppen</h2>
+
+    <table class="mytable"></table>
+
+    <script>
+      let table2 = document.querySelector(".mytable");
+      for (let i = 0; i < myPhoneBook.length; i++) {
+        // table2.innerHTML += "<tr><td>" + myPhoneBook[i].name + "</td><td>" + myPhoneBook[i].mobile + "</td></tr>"
+        table2.innerHTML += `
+          <tr>
+            <td>${myPhoneBook[i].name}</td>
+            <td>${myPhoneBook[i].mobile}</td>
+            <td><button>X</button></td>
+          </tr>
+        `;
+      }
+    </script>
+  </body>
+</html>

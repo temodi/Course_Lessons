@@ -312,10 +312,6 @@ function bagginsok(phoneBook) {
   return hobbitkak;
 }
 
-{
-  phoneBook[i].name + formatPhoneNumber(phoneBook[i].mobil)
-}
-
 /**
  * FELADAT:
  * Irj programot ami az ugyan olyan telefonszammal rendelkezok
