@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <button name="kattinthato" id="pirosra">Piros</button>
+  <button name="kattinthato" id="kekre">Kek</button>
+  <div>Ha kattintasz eltűnök!</div>
+  <script>
+ 
+  let globalValtozoAEventHandlerReszere = 'Click';  // mindig elerheto az esemenykezolo szamara
+ 
+  function newClickEventHandler(color) {
+
+    return function clickEventHandler(event) {
+        console.log(globalValtozoAEventHandlerReszere);
+        document.querySelector('div').style.color = color;
+      }
+  }
+  
+
+  newClickEventHandler('red') /* =>
+   function clickEventHandler(event) {
+        console.log(globalValtozoAEventHandlerReszere);
+        document.querySelector('div').style.color = 'red';
+      }
+  */
+
+  newClickEventHandler('blue') /* =>
+   function clickEventHandler(event) {
+        console.log(globalValtozoAEventHandlerReszere);
+        document.querySelector('div').style.color = 'blue';
+      }
+  */
+
+/* 
+  function clickEventHandler2(event) {
+    console.log(globalValtozoAEventHandlerReszere);
+    document.querySelector('div').style.color = 'blue';
+  }
+
+  function clickEventHandler3(event) {
+    console.log(globalValtozoAEventHandlerReszere);
+    document.querySelector('div').style.color = 'green';
+  } */
+ 
+ 
+  document.querySelector('#pirosra').addEventListener('click', newClickEventHandler('red'));
+  document.querySelector('#kekre').addEventListener('click', newClickEventHandler('blue'));
+ 
+
+  // fv ertek  es van a fv hivas kozot
+  function sum(a,b) {
+    return a+b;
+  }
+  // sum  -> fv ertek, parameterben atadhato, valtoznak is
+  // sum(1,2) -> fv hivas, ebben az esetben a visszateresi erteket fogja atadni, valtoznak is
+
+  </script>
+</body>
+</html>

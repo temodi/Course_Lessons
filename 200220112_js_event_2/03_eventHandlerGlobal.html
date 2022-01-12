@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    select {
+      font-size: 20px;
+      background-color: black;
+      color: beige;
+    }
+  </style>
+</head>
+ 
+  <form>
+    <select name="kategoria" id="kategoria">
+      <option value="0">Valasz kategoriat</option>
+      <option value="Kategoria 1">Kategoria 1</option>
+      <option value="Kategoria 2">Kategoria 2</option>
+    </select>
+    <select name="alkategoria" id="alkategoria">
+      <option>Nincs alkategoria kivalasztva</option>  
+    </select>
+  </form>
+
+<body>
+  <script>
+    
+    let kivalasztottFoKategoria = null;
+    let nincsKategoria = '<option>Nincs kategoria kivalasztva</option>';
+
+    let kategoriaSelect = document.querySelector('#kategoria');
+    let alkategoriaSelect = document.querySelector('#alkategoria');
+    let alkategoriak = {
+      'Kategoria 1' : ["Alma", "Korte"],
+      'Kategoria 2' : ["Kutya", "Macska"]
+    } 
+
+    if (kategoriaSelect) {
+      kategoriaSelect.addEventListener('change', function (event) {
+            kivalasztottFoKategoria = event.target.value; // event.target -> HTMLSelectElement
+
+            console.log('kivalasztott kategorai id:', kivalasztottFoKategoria, alkategoriak[kivalasztottFoKategoria])
+
+            if (kivalasztottFoKategoria !== '0' && alkategoriak[kivalasztottFoKategoria]) {
+              alkategoriaSelect.innerHTML = nincsKategoria;
+              for(let alkat of alkategoriak[kivalasztottFoKategoria]) {
+                let alkategoriaOption = '<option value="'+alkat+'">'+alkat+'</option>';
+                alkategoriaSelect.innerHTML += alkategoriaOption
+              }
+            }
+      })
+    }
+
+  
+    if (alkategoriaSelect) {
+      alkategoriaSelect.addEventListener('change', function (event) {
+        console.log('Kivalasztott kategóriák:',kivalasztottFoKategoria + ' >> ' + event.target.value)
+      })
+    }
+
+    
+  </script>
+</body>
+</html>

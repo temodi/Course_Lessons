@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+</head>
+<body>
+  <h2>Itt egy szekvenciális vagy procedurális futás lesz</h2>
+  <script>
+    // Szekvencialis (proceduralis (eljaras orientált))
+    function sum(a, b) {
+      return a, b;
+    } 
+
+    /* Program eleje */ 
+    let a = 5;
+    let b = 10;
+
+    document.write("Összeg:"+sum(a,b)+"<br>" );
+    /* Program vége */
+  </script>
+  <h2>Itt egy eseményvezérélt program eredménye lesz:</h1>
+  <input type="text" name="a">
+  <input type="text" name="b">
+  <button type="button">Összeg</button>
+  <br><br><br>
+  <script>
+    // Eseményvezérelt
+    // (szekvencialisan lefut az esemenykezelo hozzadasa)
+    document.querySelector('button').addEventListener('click', function () {
+      // esemenykezelo  
+      let inputElements = document.querySelectorAll('input');
+      let a = Number(inputElements[0].value);
+      let b = Number(inputElements[1].value);
+      let eredmeny = document.createTextNode('Összeg:'+(a + b));
+      document.body.insertBefore(eredmeny, document.querySelector('script:last-child'));
+      document.querySelector('body').insertBefore(document.createElement('br'), document.querySelector('script:last-child'));
+ 
+    })
+    // (szekvencialis vege)
+  </script>
+</body>
+</html>
