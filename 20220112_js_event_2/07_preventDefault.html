@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <a href="http://www.google.com">Katt ide</a>
+  <form>
+    <input type="checkbox" name="valami">
+  </form>
+  <script>
+    document.querySelector('a').addEventListener('click', function (event) {
+      // this  == event.currentTarget = document.querySelector('a')
+
+      // console.log(this.href) 
+      console.log(event.currentTarget);
+      // console.log(document.querySelector('a').href)
+
+      event.preventDefault();
+      event.target.innerText = "Szivas van nem mehetsz tovabb";
+    })
+
+    document.querySelector('input').addEventListener('click', function (event) {
+      event.preventDefault();
+    })
+  </script>
+</body>
+</html>

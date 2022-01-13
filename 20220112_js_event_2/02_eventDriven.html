@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <button name="kattinthato">Gombocska</button>
+  <div>Ha kattintasz eltűnök!</div>
+  <script>
+
+  /* Esemény kezelés legfontosabb lépései */
+
+  /* eventHandler létrehozása vagyis maga az eseménykezelő */
+  /* globalis fv-ke és változok létrehozása (ezek állandóak az eseménykezelő számára) */
+
+  let globalValtozoAEventHandlerReszere = 'Click';  // mindig elerheto az esemenykezolo szamara
+
+  function clickEventHandler(event) {
+    let x = 'valami'; // addig el amig le nem fut az esemenykezelo;
+    /* esemény kezelőben a megfelel esetekben reagálás vagy esemény figyelmenkivűl hagyása */
+    console.log(globalValtozoAEventHandlerReszere)
+  }
+ 
+  /* eventHandler listenerhez kapcsolódása, megfigyeléssel adott eseményre */
+  document.querySelector('button').addEventListener('click', clickEventHandler);
+
+  /* eventHandler listener eltávolítása (ha szükséges) */
+  // document.querySelector('button').removeEventListener('click', clickEventHandler);
+  </script>
+</body>
+</html>

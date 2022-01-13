@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .parent {
+      background-color: crimson;
+      color: white;
+      width: 200px;
+      height: 200px;
+      display: flex;
+      justify-content: center;
+    }
+    .item {
+      background-color: gainsboro;
+      color: black;
+      align-self: center;
+      padding: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="parent">
+    <div class="item">Child elem 1</div>
+  </div>
+  <script>
+    let parentElem = document.querySelector('.parent');
+    if (parentElem) {
+      parentElem.addEventListener('click', function (event) {
+        console.log('parentElem click')
+        console.log('event.target=', event.target);
+        console.log('event.currentTarget', event.currentTarget)
+        console.log('---------')
+      })
+    }
+
+    let childElem = document.querySelector('.item');
+    if (childElem) {
+      childElem.addEventListener('click', function (event) {
+        console.log('childElem click')
+        console.log('event.target=', event.target);
+        console.log('event.currentTarget', event.currentTarget)
+        console.log('---------')
+      })
+    }
+
+    let body = document.querySelector('body');
+    if (body) {
+      body.addEventListener('click', function (event) {
+        console.log('body click')
+        console.log('event.target=', event.target);
+        console.log('event.currentTarget', event.currentTarget)
+        console.log('---------')
+      })
+    }
+  </script>
+</body>
+</html>
