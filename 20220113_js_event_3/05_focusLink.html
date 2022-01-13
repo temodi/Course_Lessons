@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+  
+     
+    button {
+      font-size: 20px;
+  
+    }
+  </style>
+  <script>
+ 
+    function eventConsoleLog(event) {
+        console.log(event);
+    }
+
+    function afterLoad(event) {
+        
+      document.querySelector('a').addEventListener('focus', function (event) {
+        console.log(event.type + ' - ' +event.target, event.currentTarget)
+      })
+      document.querySelector('a').addEventListener('blur', function (event) {
+        console.log(event.type + ' - ' +event.target, event.currentTarget)
+      })
+
+    }
+    window.addEventListener('load', afterLoad);
+
+  </script>
+</head>
+<body>
+ 
+  <a href="http://www.google.com">Ez egy link</a>
+ 
+</body>
+</html>

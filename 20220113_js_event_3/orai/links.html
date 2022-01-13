@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <a href="http://www.google.com">Link 1</a>
+  <a href="#masodik">Link 2</a>
+  <a href="#harmadik">Link 3</a>
+
+  <script>
+    let links = document.querySelectorAll('a'); // NodeList[HTMLAnchorElement, HTMLAnchorElement, HTMLAnchorElement, ]
+    let clickOrder = [];
+    let elozoKattintas = null;
+
+    for(let i = 0; i < links.length; i++) {
+
+      links[i].addEventListener('click', function (event) {
+        event.preventDefault();
+        console.log(links[i]); 
+
+        // clickOrder.push({
+        //   index: i,
+        //   elemALinksben: (i + 1),
+        // })
+        // console.log(clickOrder);
+        // aktualis kattintas: links[i] 
+          console.log('elozoKattintas valtoztaas elott', elozoKattintas) // elozo alapotot mutatja, elozo kattinas htlm eleme van tarolva
+         
+          if (elozoKattintas) {
+            elozoKattintas.classList.remove('active');
+            elozoKattintas.classList.add('inactive');
+          }
+
+          elozoKattintas = links[i]
+         
+          if (elozoKattintas) {
+            elozoKattintas.classList.add('active'); 
+          }
+          console.log('elozoKattintas valtoztaas utan', elozoKattintas) // az aktulasist, itt az aktualis kattinas html eleme
+      })
+    }
+
+
+  </script>
+</body>
+</html>

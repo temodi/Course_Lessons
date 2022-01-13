@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+  
+     
+    button {
+      font-size: 20px;
+  
+    }
+  </style>
+  <script>
+ 
+    function eventConsoleLog(event) {
+        console.log(event);
+    }
+
+    function afterLoad(event) {
+        
+      function validate() {
+
+        // ha az adatok megfelelnek
+        // akkor true egyebkent false
+        return true;
+      }
+      // reset
+      document.querySelector('#loginForm').addEventListener('submit', function (event) {
+          // if (!confirm('Biztosan elakarod küldeni a szeverre az adatokat ?')) {
+          //  event.preventDefault()
+          // }
+
+          event.preventDefault()
+          if (validate()) {
+            // az okesak, manualisan a submit elkuldes kivaltasa
+            event.target.submit()  // document.querySelector('#loginForm')
+          }
+          
+      })
+
+      document.querySelector('#loginForm').addEventListener('reset', function (event) {
+          if (!confirm('Biztosan törölni akarod a bevitt adatokat ?')) {
+            event.preventDefault()
+          }
+
+          // event.target.reset() - manualisan a reset esemeny meghivasa
+      })
+
+      
+    }
+    window.addEventListener('load', afterLoad);
+
+  </script>
+</head>
+<body>
+
+    <form method="get" action="http://www.google.com" id="loginForm">
+      <label>Username:
+        <input type="text" name="username">
+      </label>
+      <br>
+      <label>Password:
+        <input type="password" name="username">
+      </label>
+      <br><Br>
+
+      <button type="reset">Reset</button>
+      <button type="submit">Submit</button>
+
+    </form>
+ 
+ 
+</body>
+</html>

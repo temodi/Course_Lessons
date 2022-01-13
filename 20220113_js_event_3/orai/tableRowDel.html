@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <table>
+    <thead>
+      <tr>
+        <td>Nev</td>
+        <td>Beosztas</td>
+        <td>Művelet</td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Kiss Jolan</td>
+        <td>Developer</td>
+        <td><button>Törlés</button></td>
+      </tr>
+      <tr>
+        <td>Ben Ce</td>
+        <td>CEO</td>
+        <td><button>Törlés</button></td>
+      </tr>
+      
+      <tr>
+        <td>Wincs Eszter</td>
+        <td>Cleaning lady</td>
+        <td><button>Törlés</button></td>
+      </tr>
+     
+      <tr>
+        <td>Wincs Eszter 2</td>
+        <td>Cleaning lady</td>
+        <td><button>Törlés</button></td>
+      </tr>
+
+      <tr>
+        <td>Wincs Eszter 3</td>
+        <td>Cleaning lady</td>
+        <td><button>Törlés</button></td>
+      </tr>
+    </tbody>
+  </table>
+  <script>
+    // document.querySelectorAll('button').forEach(elem => elem.addEventListener('click', function (event) {
+    //   event.target.parentNode.parentNode.remove()
+    // }))
+
+    let buttonList = document.querySelectorAll('button'); // 3
+    
+    function trElemDelete(event) {
+      let tdElem = event.target.parentNode;
+      let trElem = tdElem.parentNode;
+      trElem.remove();
+    }
+
+    for(let index = 0; index < buttonList.length; index++) {
+      buttonList[index].addEventListener('click', function (event) {
+        trElemDelete(event)
+      })
+    }
+  
+
+    /*
+       buttonList[0].addEventListener('click', function (event) {
+      let tdElem = event.target.parentNode;
+      let trElem = tdElem.parentNode;
+      trElem.remove();
+    })
+   buttonList[1].addEventListener('click', function (event) {
+      let tdElem = event.target.parentNode;
+      let trElem = tdElem.parentNode;
+      trElem.remove();
+    })
+    buttonList[2].addEventListener('click', function (event) {
+      let tdElem = event.target.parentNode;
+      let trElem = tdElem.parentNode;
+      trElem.remove();
+    }) */
+
+  
+
+  </script>
+</body>
+</html>

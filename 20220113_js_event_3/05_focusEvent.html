@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+  
+     
+    button {
+      font-size: 20px;
+  
+    }
+  </style>
+  <script>
+ 
+    function eventConsoleLog(event) {
+        console.log(event);
+    }
+
+    function afterLoad(event) {
+        
+      // focus / blur - focust kap vagyis aktiv lesz
+     /*  ez nem fog kapni semmit, mert a focus esemeny a form elemen nem jelenik meg
+        document.querySelector('#loginForm').addEventListener('focus', function (event) {
+        console.log(event.type, event.target, event.currentTarget)
+      }) */
+
+      // focusin - focust kap vagyis aktiv lesz visszont ezt tovább visszi a parentekre
+      document.querySelector('#loginForm').addEventListener('focusin', function (event) {
+        console.log(event.type, event.target, event.currentTarget)
+      })
+
+      document.querySelector('#loginForm').addEventListener('focusout', function (event) {
+        console.log(event.type, event.target, event.currentTarget)
+      })
+     
+      // focus / blur - focust kap vagyis aktiv lesz
+      document.querySelector('#username').addEventListener('focus', function (event) {
+        console.log(event.type, event.target, event.currentTarget)
+      }) 
+
+      // focusin / focusout  - focust kap vagyis aktiv lesz visszont ezt tovább visszi a parentekre
+      document.querySelector('#username').addEventListener('focusin', function (event) {
+        console.log(event.type, event.target, event.currentTarget)
+      })
+
+      // focusout (focusin ellentete)
+      document.querySelector('#username').addEventListener('focusout', function (event) {
+        console.log(event.type, event.target, event.currentTarget)
+      })
+
+       // blur (blur ellentete)
+      document.querySelector('#username').addEventListener('blur', function (event) {
+        console.log(event.type, event.target, event.currentTarget)
+      }) 
+
+    // focus - focust kap vagyis aktiv lesz - NEM KAP
+   /*    document.querySelector('#trash').addEventListener('focus', function (event) {
+        console.log(event.type, event.target, event.currentTarget)
+      })
+
+      // focusin - focust kap vagyis aktiv lesz visszont ezt tovább visszi a parentekre  - NEM KAP
+      document.querySelector('#trash').addEventListener('focusin', function (event) {
+        console.log(event.type, event.target, event.currentTarget)
+      })   */
+
+      document.querySelector('a').addEventListener('focus', function (event) {
+        console.log(event.type + '-' +event.target)
+      })
+      document.querySelector('a').addEventListener('blur', function (event) {
+        console.log(event.type + '-' +event.target)
+      })
+    }
+    window.addEventListener('load', afterLoad);
+
+  </script>
+</head>
+<body>
+
+    <form method="get" action="http://www.google.com" id="loginForm">
+      <label>Username:
+        <input type="text" name="username" id="username">
+      </label>
+      <br>
+      <label>Password:
+        <input type="password" name="password">
+      </label>
+      <br><Br>
+      
+      <img id="trash" src="http://placekitten.com/200/200" > 
+ 
+      <a href="">Ez egy link</a>
+    </form>
+ 
+ 
+</body>
+</html>

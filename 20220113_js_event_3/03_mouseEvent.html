@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      user-select: none;
+    }
+    .dblclick {
+      background-color: brown;
+      color: white;
+      border: 1px solid black;
+      width: 200px;
+      height: 200px;
+      position: absolute;
+      top: 30%;
+      left: 30%;
+      display: none;
+    }
+    .movearea {
+      background-color: rgb(42, 95, 165);
+      color: white;
+      border: 1px solid black;
+      width: 200px;
+      height: 200px;
+      position: absolute;
+      top: 200px;
+      left: 50px; 
+    }
+    .movearea2 {
+      background-color: rgb(140, 42, 165);
+      color: white;
+      border: 1px solid black;
+      width: 200px;
+      height: 200px;
+      position: absolute;
+      top: 200px;
+      right: 100px; 
+    }
+    .child {
+      background-color: gray;
+      padding: 20px;
+      top: 10%;
+      left: 100%;
+      width: 100%;
+    }
+    button {
+      font-size: 20px;
+      width: 120px;
+      height: 80px;
+    }
+  </style>
+  <script>
+
+    let rightClickDisable = true;
+    let visibleDPLBox = false;
+    
+    function eventConsoleLog(mouseEvent) {
+        console.log(mouseEvent.type + ' - itt (x='+mouseEvent.pageX+', y='+mouseEvent.pageY+')');
+    }
+
+    function afterLoad(event) {
+
+      // Legfontosabb mouse eventek
+
+      // click
+      document.addEventListener('click',  function (mouseEvent) {
+        eventConsoleLog(mouseEvent);
+      })
+    
+      // contextmenu (jobb egérgomb menü)
+      document.addEventListener('contextmenu', function (mouseEvent) {
+        if (rightClickDisable) {
+          mouseEvent.preventDefault()
+        }
+        eventConsoleLog(mouseEvent);
+      })
+
+       // dbclick - dupla kattintas
+       document.addEventListener('dblclick', function (mouseEvent) {
+        eventConsoleLog(mouseEvent);
+
+        if (visibleDPLBox) {
+          document.querySelector('.dblclick').style.display = 'none';
+          visibleDPLBox = false;
+        } else {
+          document.querySelector('.dblclick').style.display = 'block';
+          visibleDPLBox = true;
+        }
+      })
+
+   
+
+      // mousedown / mouseup  - gomb lenyomba felengedve.
+      document.querySelector('.mouse-button').addEventListener('mousedown', function (mouseEvent) {
+        eventConsoleLog(mouseEvent);
+        mouseEvent.target.innerText = 'Rám kattantál';
+      })
+
+      document.querySelector('.mouse-button').addEventListener('mouseup', function (mouseEvent) {
+        eventConsoleLog(mouseEvent);
+        mouseEvent.target.innerText = 'Lek kattantál rólam';
+      })
+
+      
+     
+      // mousemove - vagyis az egér minden mozdulatáról küld eventet
+      document.querySelector('.movearea').addEventListener('mousemove', function (mouseEvent) {
+        eventConsoleLog(mouseEvent);
+      })
+
+    
+      // mouseenter / mouseleave  - belep a teruletre (vagy gyermek elemen vagy magan az elemen) v. kilep
+      document.querySelector('.movearea2').addEventListener('mouseenter', function (mouseEvent) {
+        eventConsoleLog(mouseEvent);
+        console.log(mouseEvent.target)
+      })
+
+      // mouseleave 
+      document.querySelector('.movearea2').addEventListener('mouseleave', function (mouseEvent) {
+        eventConsoleLog(mouseEvent);
+        console.log(mouseEvent.target)
+      })
+
+  
+ 
+      // mouseover / mouseout - belep (vagy ujra belpe egz childrol) a területre
+      document.querySelector('.movearea2').addEventListener('mouseover', function (mouseEvent) {
+        eventConsoleLog(mouseEvent);
+        console.log(mouseEvent.target)
+      })
+
+      //  mouseout  -  kilep
+      document.querySelector('.movearea2').addEventListener('mouseout', function (mouseEvent) {
+        eventConsoleLog(mouseEvent);
+        console.log(mouseEvent.target)
+      })
+    
+
+      return
+      
+    }
+    window.addEventListener('load', afterLoad);
+
+  </script>
+</head>
+<body>
+
+  <div class="dblclick">
+      Duplan kattintottál
+  </div>
+  
+  <div class="movearea">
+    Itt nezzuk az eger mozgasat
+  </div>
+
+  <div class="movearea2">
+    Mouse enter terulet
+    <div class="child">
+      Ez meg egy gyeremek elem
+    </div>
+  </div>
+
+  <button type="button" class="mouse-button">Ide kattinthasz</button>
+</body>
+</html>

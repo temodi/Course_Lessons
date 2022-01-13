@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+  
+     
+    button {
+      font-size: 20px;
+  
+    }
+  </style>
+  <script>
+ 
+    function eventConsoleLog(event) {
+        console.log(event);
+    }
+
+    function afterLoad(event) {
+        
+      // beforeinput  
+      document.querySelector('#username').addEventListener('beforeinput', function (event) {
+      //  console.log(event.type, event.target.name, event.target.value)
+      })
+
+      // input
+      document.querySelector('#username').addEventListener('input', function (event) {
+        console.log(event.type, event.target.name, event.target.value)
+        if (event.target.value == '#') {
+          event.target.value = 'hashtag'
+        }
+      })
+
+      // change
+      document.querySelector('#username').addEventListener('change', function (event) {
+        console.log(event.type, event.target.name, event.target.value)
+      })
+
+
+      // Select-re
+
+      // beforeinput  
+      document.querySelector('#orszagok').addEventListener('beforeinput', function (event) {
+       console.log(event.type, event.target.name, event.target.value)
+      })
+
+      // input
+      document.querySelector('#orszagok').addEventListener('input', function (event) {
+        console.log(event.type, event.target.name, event.target.value)
+      })
+
+      // change
+      document.querySelector('#orszagok').addEventListener('change', function (event) {
+        console.log(event.type, event.target.name, event.target.value)
+      })
+
+      // radio / checkbox
+
+      // input
+      // document.querySelectorAll('input[name="neme"]').forEach(function (htmlElem) {
+      //   htmlElem.addEventListener('input', function (event) { console.log(event.type, event.target.name, event.target.value) })
+      // });
+
+      let genderInputs = document.querySelectorAll('input[name="neme"]');
+      for(let i = 0; i < genderInputs.length; i++) {
+        
+        let htmlElem = genderInputs[i];
+
+        htmlElem.addEventListener('input', function (event) { 
+          console.log(event.type, event.target.name, event.target.value) 
+        })
+      }
+
+      // change
+      document.querySelectorAll('input[name="neme"]').forEach(htmlElem => htmlElem.addEventListener('change', function (event) {
+        console.log(event.type, event.target.name, event.target.value)
+      }))
+      
+
+    }
+    window.addEventListener('load', afterLoad);
+
+  </script>
+</head>
+<body>
+
+    <form method="get" action="http://www.google.com" id="loginForm">
+      <label>Username:
+        <input type="text" name="username" id="username">
+      </label>
+      <br>
+      <label>Password:
+        <input type="password" name="username">
+      </label>
+      <br><Br>
+        
+      <select name="orszagok" id="orszagok">
+        <option value="magyarorszag">magyarorszag</option>
+        <option value="franciaorszag">franciaorszag</option>
+        <option value="spanyolorszag">spanyolorszag</option>
+      </select>
+
+      <br>
+
+      <input type="radio" name="neme" value="no"> no<br>
+      <input type="radio" name="neme" value="ferfi"> ferfi<br>
+      <input type="radio" name="neme" value="nemadommeg"> none<br>
+
+    </form>
+ 
+ 
+</body>
+</html>
