@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <table>
+    <tr>
+      <td>Elem 1</td>
+      <td>Elem 1</td>
+      <td><button type="button">Click</button> </td>
+    </tr>
+    <tr>
+      <td>Elem 1</td>
+      <td>Elem 1</td>
+      <td><button type="button">Click</button> </td>
+    </tr>
+    <tr>
+      <td>Elem 1</td>
+      <td><input type="text" value="Elem 1" name="cell1"></td>
+      <td><button type="button">Click</button> </td>
+    </tr>
+  </table>
+
+  <script>
+    let tableElem = document.querySelector('table');
+    let buttonElems = document.querySelectorAll('button');
+ 
+    function tableSave(event) {
+      console.log('menti a modositasakat tortenesekt', event)
+
+      if (event instanceof Event) {
+        console.log('Sima Event osztaly')
+      }
+
+      if (event instanceof CustomEvent) {
+        console.log('Sima CustomEvent osztaly, detail:', event.detail)
+      }
+
+      // server hivas
+      // takaritas
+      // 
+    }
+  
+    let tableChangeEvent = new Event('tableChanged', { bubbles: true });
+ 
+    buttonElems[0].addEventListener('click', function (event) {
+          console.log('kklikk')
+          // tortent valtozas
+         tableElem.dispatchEvent(tableChangeEvent);
+    })
+
+    buttonElems[1].addEventListener('click', function (event) {
+          console.log('kklikk')
+          // tortent valtozas
+          tableElem.dispatchEvent(tableChangeEvent);
+    })
+    
+    buttonElems[2].addEventListener('click', function (event) {
+          console.log('kklikk')
+          // tortent valtozas
+          tableElem.dispatchEvent(tableChangeEvent);
+    })
+
+    
+    let cell1 = document.querySelector('input[name="cell1"]');
+    cell1.addEventListener('change', function (event) {
+        console.log('megvaltozott', event.target.value);
+        let tableChangeCustomEvent = new CustomEvent('tableChanged', { bubbles: true, detail: event.target.value });
+        tableElem.dispatchEvent(tableChangeCustomEvent);
+    })
+
+
+    
+    tableElem.addEventListener('tableChanged', tableSave);
+    
+
+  </script>
+</body>
+</html>

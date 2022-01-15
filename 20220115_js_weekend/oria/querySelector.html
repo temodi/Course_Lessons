@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    p {
+      color: blueviolet;
+    }
+  </style>
+</head>
+<body>
+  <div>
+    <p>Hello world</p>
+    <p>JavaScript itt kezdodik, ami nem igaz</p>
+    <form id="myForm">
+      <p>Ez meg szoveg a formba</p>
+    </form>
+  </div>
+  <p class="lastpelem">Diven kivuli p elem</p>
+  <script>
+    // head 
+    let headElem = document.querySelector('head');  // visszaterese ertek: HTMLHeadElement tiipus objektum
+    console.log(headElem);
+    console.log(document.head);
+    console.log(headElem === document.head)
+
+    // body elem
+    let bodyElem = document.querySelector('body'); // HTMLBodyElement
+    console.log(bodyElem)
+    console.log('bodyElem === document.body', bodyElem === document.body)
+
+    // osszes p elembol az elso p elem
+    let pElem = document.querySelector('p');  // HTMLParagraphElement -> HTMLElement -> Element -> Node -> EventTarget
+    console.log('1 p elem', pElem);
+
+    // osszes p elem
+    let allPElem = document.querySelectorAll('p'); // visszateresi ertek NodeLista 
+    console.log('Osszes p elem', allPElem);
+
+    // x eleme benuli 1.p  elem
+    let divElem = document.querySelector('div');  // HTMLDivElement ->.... Element.querySelector() metodusa
+    console.log('divElem', divElem);
+    let divPEleme = divElem.querySelector('p'); // div p eleme
+    console.log('div p eleme', divPEleme);
+    console.log('pElem === divPEleme', pElem === divPEleme)
+    
+
+    // div elem beluli 
+    let divPEleme2 = document.querySelector('div p')
+    console.log(divPEleme2);
+
+    let divPElemeAll = document.querySelectorAll('div p')
+    console.log(divPElemeAll);
+
+    let divPEleme3 = document.querySelector('div > p')
+    console.log('---', divPEleme3)
+
+    let divPElemeAll2 = document.querySelectorAll('div > p')
+    console.log('---', divPElemeAll2);
+
+    // osszes div, p elemet 
+    let allDivAndPElem = document.querySelectorAll('div, p'); // NodeList
+    console.log('allDivAndPElem', allDivAndPElem);
+
+    // .lastpelem class
+    let divPElemeClasssal = document.querySelector('.lastpelem');
+    console.log('divPElemeClasssal', divPElemeClasssal);
+
+    // myForm id
+    let myForm = document.querySelector('#myForm');
+    console.log('myForm', myForm)
+
+  </script>
+</body>
+</html>

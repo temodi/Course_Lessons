@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <h2>Páros számok:</h2>
+  <div></div>
+
+
+  <script>
+    let divElem = document.querySelector('div');
+
+    divElem.addEventListener('evennumber', function (event) {
+      console.log(event)
+      let divElem = event.target;
+      divElem.append(document.createElement('br'));
+      divElem.append(event.detail);
+    })
+
+
+    let randomNumbers = [23, 8940, 857, 102, 731, 73, 19, 38];
+ 
+    for(let i = 0; i < randomNumbers.length; i++) {
+      if (randomNumbers[i] % 2 == 0) {
+        let evenNumberEvent = new CustomEvent('evennumber',{ detail: randomNumbers[i], bubbles: true });
+        divElem.dispatchEvent(evenNumberEvent);
+      }
+    }
+ 
+
+  </script>
+
+</body>
+</html>

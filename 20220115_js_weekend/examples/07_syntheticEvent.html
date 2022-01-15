@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .box {
+      width: 200px;
+      height: 200px;
+      margin: 20px;
+      background-color: gold;
+    }
+  </style>
+</head>
+<body>
+  <div class="box"> Box A</div>
+  <div class="box"> Box B</div>
+ 
+  <script>
+
+    let boxA = document.querySelector('div:nth-child(1)');
+    let boxB = document.querySelector('div:nth-child(2)');
+
+    let boxChangedEvent = new Event('changed', { "bubbles": true, "cancelable": false });
+
+    boxA.addEventListener('click', function (event) {
+      event.target.innerText = 'Box A - uj szoveg';
+
+      boxB.dispatchEvent(boxChangedEvent);
+    })
+
+    boxB.addEventListener('changed',function (event) {
+      console.log(event)
+      
+      event.target.innerText = 'Hé megváltozott a BOX A tartalma';
+    })
+
+ 
+  /*   
+    let boxChangedEvent = new Event('myClick', { "bubbles": true, "cancelable": false });
+    boxB.addEventListener('myClick',function (event) {
+      console.log(event)
+      
+      event.target.innerText = 'Hé megváltozott a BOX A tartalma';
+    })
+
+    boxB.dispatchEvent(boxChangedEvent); // en clickeltem volna, elkuldi a myClick esemenyt a boxB */
+
+  </script>
+</body>
+</html>

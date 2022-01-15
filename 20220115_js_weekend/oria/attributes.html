@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <form action="">
+    Username:
+    <input type="username" name="username" value="Add meg a username-ed" id="uname">
+    Password:
+    <input type="password" name="password" value="">
+    <button type="submit" name="login">Login</button>
+  </form>
+  <ul class="menu" id="fistmenu">
+    <li class="menu-item">Menu 1</li>
+    <li class="menu-item">Menu 1</li>
+    <li class="menu-item">Menu 1</li>
+  </ul>
+  <table>
+    <tr>
+      <td class="default-td">DataCell 1</td>
+      <td>DataCell 2</td>
+      <td colspan="2">DataCell 3</td>
+    </tr>
+    <tr>
+      <td>DataCell 4</td>
+      <td>DataCell 5</td>
+      <td colspan="2">DataCell 6</td>
+    </tr>
+  </table>
+  <img src="http://placekitten.com/200/200">
+  <script>
+    // attributum lekerdezes
+    let ulElem = document.querySelector('#fistmenu');  // HTMLElement
+    console.log('ulElem', ulElem)
+    console.log('ulElem id:', ulElem.id)
+    console.log('ulElem className:', ulElem.className);
+
+    // attributum lekerdezese mashogy
+    console.log('ulElem', ulElem)
+    console.log('ulElem id:', ulElem.getAttribute('id'))
+    console.log('ulElem className:', ulElem.getAttribute('class'));
+    
+
+    // attributum beallitas
+    let form = document.querySelector('form') // HTMLFormElement
+    console.log('form', form)
+    form.action = 'http://www.google.com';
+    console.log('form action', form.action);
+
+    let tdElem = document.querySelector('td');
+    tdElem.className = 'tdbg';
+
+    let tdElems = document.querySelectorAll('table tr td');   // NodeList
+    for(let i = 0; i < tdElems.length; i++) {
+        let td = tdElems[i];   // HTMLTableCellElement (td)
+        td.className = 'tdbg';
+        if (i == 0) {
+          td.className = 'tdactive';
+        }
+        console.log('td  colspan', td.colSpan)
+    }
+
+    // 2. td elem 
+    let trElem = document.querySelector('tr');
+    let activeTdElem = trElem.querySelector('td:nth-child(2)');
+    activeTdElem.className = 'tdactive';
+
+    let activeTdElem2 = document.querySelector('tr > td:nth-child(3)');
+    activeTdElem2.className = 'tdactive2';
+
+    // input value
+    let inputName = document.querySelector('#uname');
+    console.log('inputName value',  inputName.defaultValue, inputName.value);
+    inputName.value = 'Admin';
+    console.log('inputName value', inputName.defaultValue, inputName.value);
+    
+    // style (style attributum), nem string, hanem obj. ami reprezentalja a css property neveket
+    let ulLastLiElem = document.querySelector('ul > li:last-child');
+    console.log(ulLastLiElem);
+    ulLastLiElem.style.border = "1px solid red";
+    console.log('ulLastLiElem.style.border', ulLastLiElem.style.border)
+    
+    // classList 
+    // class elem hozzadas
+    ulLastLiElem.classList.add('tdactive2');
+    ulLastLiElem.classList.add('trash');
+    if (ulLastLiElem.classList.contains('trash')) {
+      console.log('igen van "trash" class')
+    } else {
+      console.log('nincs "trash" class')
+    }
+    // class cserelese masik classra
+    ulLastLiElem.classList.replace('trash', 'deletable');
+    console.log('trash replace deletable utan')
+    if (ulLastLiElem.classList.contains('trash')) {
+      console.log('igen van "trash" class')
+    } else {
+      console.log('nincs "trash" class')
+    }
+    // class trolese
+    ulLastLiElem.classList.remove('deletable');
+    
+    // img src cserleni
+    let imgElem = document.querySelector('img');
+   // imgElem.src = 'https://picsum.photos/200/300';
+   imgElem.setAttribute('src', 'https://picsum.photos/200/300');
+ 
+  </script>
+  <style>
+    .tdbg {
+      background-color: crimson;
+      color: white;
+    }
+    .tdactive {
+      background-color: yellow;
+      color: blue;
+    }
+    .tdactive2 {
+      background-color: rgb(11, 199, 67);
+      color: rgb(255, 208, 0);
+    }
+  </style>
+</body>
+</html>
