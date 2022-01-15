@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <p>Hello P</p>
+  <script>
+    // div elem letrehozasa programobol
+    let divElem = document.createElement('div');  // HTMLDivElement
+    divElem.style.width = '200px';
+    divElem.style.height = '100px';
+    divElem.style.backgroundColor = 'red';
+    divElem.style.color = 'white';
+    divElem.className = 'active-div';
+    divElem.innerHTML = 'Ez a <strong>DIV</strong> elemunk';
+    console.log('divElem', divElem);
+
+    // form elem letrehozas 
+    let formElem = document.createElement('form'); // HTMLFormElement
+    formElem.action = 'http://www.google.com';
+    formElem.id = 'myForm';
+    console.log('formElem', formElem);
+
+
+    // szoveg letrehozas
+    let text = document.createTextNode("Hello, en vagyok a TextNode"); // TextNode
+
+    // Elem hozzadasa DOM-hoz
+    let parentElem = document.body;
+    // sajat created div-unk hozzadasa
+    parentElem.append(divElem);     // szulo elem VEGEBE fogja hozzadni
+
+    // tobb elem beszurasa a szulo elem vegere
+    parentElem.append(text, formElem, "Itt vege");
+
+    // form elemhez input elem hozzadasa
+    let inputElem = document.createElement('input');
+    inputElem.type = 'text';
+    inputElem.name = 'username';
+    inputElem.value = 'Hello input';
+    inputElem.id = '#uname';
+    formElem.append(inputElem); // szulo a Form lesz, annak a vegez adja
+
+    // selecet hozzadasa a formhoz
+    let selectElem = document.createElement('select');
+    selectElem.name = 'countries';
+    let countires = ['hungary', 'england'];
+    for(let arrayElem of countires) {
+        let option = document.createElement('option');
+        option.value = arrayElem;
+        option.innerText = arrayElem;
+        selectElem.append(option)
+    }
+    formElem.append(selectElem);
+
+    
+
+  </script>
+</body>
+</html>

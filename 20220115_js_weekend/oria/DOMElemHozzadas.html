@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+    <ul>
+      <li>Menu 2</li>
+      <li>Menu 3</li>
+      <li>Menu 4</li>
+    </ul>
+     
+    <div>Ezt fogjuk torolni</div>
+    <script>
+      // append - a szulo elem vegebe
+      document.body.append("Szoveg a script utan")
+      // prepend - a szul elem elejebe add hozza elemet 
+      document.body.prepend("Szoveg a script elott")
+
+      let liElem = document.createElement('li');
+      liElem.innerText = 'Menu 1';
+      let ulElem = document.querySelector('ul');
+      ulElem.prepend(liElem);
+
+
+      // before - a megadott elem elé 
+      ulElem.before("Ez megy a UL elo");
+      ulElem.before(document.createElement('hr'));
+
+      // after - a megadott elem után
+      ulElem.after("Ez megy a UL utan");
+      ulElem.after(document.createElement('hr'));
+
+      // remove - a megadott elem torlese
+      let divElem = document.querySelector('div');
+      
+      divElem.remove();
+      // divElem.parentNode.removeChild(divElem);  // ez ugyan ezt torli
+
+      // liElem.remove();
+      
+
+    </script>
+
+  </script>
+</body>
+</html>
