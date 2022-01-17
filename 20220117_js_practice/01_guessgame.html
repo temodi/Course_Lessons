@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .win, .loose {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <h2>Melyik szamra gondoltam ?</h2>
+  <form>
+    <input type="number" name="num" value="0">
+    <button type="submit">Lassuk</button>
+  </form>
+  <p class="hint"></p>
+  <div class="win">
+    Sikeresen kitalaltad!
+  </div>
+  <div class="loose">
+    Sajnos, most nem sikerult kitalalnod!
+  </div>
+  <script>
+      let form = document.forms[0]; // documentum.querySelector('form') == document.forms
+      let btn = document.querySelector('button');
+      let random = Math.floor(Math.random() * 10);
+      let maxTryNumber = 3;
+      let tryCounter = 0;
+      console.log(random)
+
+      form.addEventListener('submit', function (event) {
+        event.preventDefault();
+ 
+        tryCounter++;
+
+        let inputNumber = document.querySelector('input');
+        
+        if (random == inputNumber.value) {
+          document.querySelector('.win').style.display = 'block';
+          inputNumber.disabled = true;
+          btn.disabled = true;
+        } else if (tryCounter === maxTryNumber) {
+          document.querySelector('.loose').style.display = 'block';
+          document.querySelector('.hint').innerHTML += 'A(z) '+tryCounter+'. problakozas nem sikerult!<br>';
+          inputNumber.disabled = true;
+          btn.disabled = true;
+        } else {
+          document.querySelector('.hint').innerHTML += 'A(z) '+tryCounter+'. problakozas nem sikerult!<br>';
+        }
+      })
+
+
+  </script>  
+</body>
+</html>
