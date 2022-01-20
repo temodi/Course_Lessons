@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .box {
+      width: 200px;
+      height: 150px;
+      background-color: firebrick;
+      position: absolute;
+      left: 0;
+      right: 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="box" ></div>
+  <script>
+    let inMove = false;
+ 
+    document.querySelector('.box').style.left = '0px';
+    document.querySelector('.box').style.top = '0px';
+    
+    document.querySelector('.box').addEventListener('mousedown', function (event) {
+      inMove = true;
+    })
+
+    document.querySelector('.box').addEventListener('mouseup', function (event) {
+      inMove = false;
+      event.target.style.backgroundColor = 'firebrick'
+    })
+
+    document.querySelector('.box').addEventListener('mouseout', function (event) {
+      inMove = false;
+      event.target.style.backgroundColor = 'firebrick'
+    })
+
+    document.querySelector('.box').addEventListener('mousemove', function (event) {
+   
+      if (inMove) {
+ 
+        event.target.style.left = (parseInt(event.target.style.left.replace('px','')) + event.movementX) + 'px'
+        event.target.style.top = (parseInt(event.target.style.top.replace('px','')) + event.movementY) + 'px'
+
+        event.target.style.backgroundColor = 'blue'
+        
+      }
+    })
+    
+  </script>
+</body>
+</html>
