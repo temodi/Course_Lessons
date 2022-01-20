@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .box {
+      width: 100%;
+      height: 200px;
+      position: absolute;
+      left: 0;
+      top: 0;
+      display: none;
+      background-color: black;
+      opacity: 0.45;
+    }
+  </style>
+</head>
+<body>
+  <button type="button">Layer nyilj meg</button>
+  <div class="box">Hello</div>
+  <script>
+
+    let button = document.querySelector('button');
+    let box = document.querySelector('.box');
+
+    button.addEventListener('click', function (event) {
+      console.log('box', box)
+      if (box) {
+        box.style.display = 'block';
+      }
+    })
+
+    document.addEventListener('keydown', function (event) {
+      console.log(event.type, event.key, event.keyCode);
+
+      switch (event.key) {
+        case 'Escape':
+          if (box) {
+            box.style.display = 'none';
+          }
+          break;
+      
+        default:
+          console.log('Lenyomott bill:', event.key)
+          break;
+      }
+    })
+
+    document.addEventListener('keyup', function (event) {
+      // console.log(event.type, event);
+    })
+    
+  </script>
+
+</body>
+</html>

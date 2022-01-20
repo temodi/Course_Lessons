@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <!-- inline event handler -->
+  <a href="http://www.google.com" onclick="console.log('hello, clickeltel')">Klikk ide: Inline event handler</a>
+  <a href="http://www.google.com" id="link2">Klikk ide: event handler property</a>
+  <a href="http://www.google.com" id="link3">Klikk ide: addEventListener</a>
+  <br>
+  <button type="button" id="link4">Klikk ide: lassuk mi lesz</button>
+  <br>
+  <a href="" id="link5">
+    <img src="http://placekitten.com/200/200">
+  </a>
+
+  <script>
+      let link2 = document.querySelector('#link2'); // HTMLAnchorElement .. -> .. EventTarget 
+
+      // event handler property
+      link2.onclick = function (event) {  // PointerEvent
+          event.preventDefault();
+          console.log(event);
+          console.log('event handler property vagyok')
+      }
+
+      function clickEventHandler(event) {
+          event.preventDefault();
+          console.log('event handler property vagyok function declarationbol')
+          return ''
+      }
+
+      link2.onclick = clickEventHandler;  // nem pedig: link2.onclick = clickEventHandler();   link2.onclick = ''
+
+      // listeneren kereszturli esemeny kezeles
+
+      let link3 = document.querySelector('#link3'); // tipus: HTMLAnchorElement .. -> .. EventTarget  obj
+      
+      // link3.addEventListener(eventString, callbackFunc)
+ 
+      let callbackFunc = function (event) {
+          event.preventDefault();
+          console.log('event handler listneren keresztul')
+          return ''
+      }
+      // addEventListnere feliratkoztatja a mi fv-unket, hogy varakozon egy esemenyre
+      // ha az esemeny bekovetkezik, akkor fog lefutni a fv-unk;
+
+      link3.addEventListener('click', callbackFunc) // ez se meghivas : link3.addEventListener('click', callbackFunc()) / link3.addEventListener('click', '') 
+      
+
+      let link4 = document.querySelector('#link4'); // tipus: HTMLAnchorElement .. -> .. EventTarget  obj
+     
+      link4.addEventListener('click', function (event) {
+          console.log(event);
+          // methods
+          event.preventDefault();  // tiltja eredeti esemenyt, igy rendszer szinten nem fog letrejoni a klikk eredmenye
+
+          // property
+          // event.target    // az a dom objektum, amin az esemeny tortent.
+          // event.currentTarget   // az a dom objektum, amire az esemeny figyelo fellett iratkoztatva
+          console.log('event.target', event.target)
+          console.log('event.currentTarget', event.currentTarget);
+
+      })
+
+
+      let link5 = document.querySelector('#link5'); // tipus: HTMLAnchorElement .. -> .. EventTarget  obj
+     
+      link5.addEventListener('click', function (event) {
+          console.log(event);
+          // methods
+          event.preventDefault();  // tiltja eredeti esemenyt, igy rendszer szinten nem fog letrejoni a klikk eredmenye
+
+          // property
+          // event.target    // az a dom objektum, amin az esemeny tortent.
+          // event.currentTarget   // az a dom objektum, amire az esemeny figyelo fellett iratkoztatva
+          console.log('event.target', event.target)
+          console.log('event.currentTarget', event.currentTarget);
+
+      })
+
+      link5.addEventListener('mouseover', function (event) {
+         console.log('mouseover - event.target', event.target)
+      })
+
+  </script>
+</body>
+</html>

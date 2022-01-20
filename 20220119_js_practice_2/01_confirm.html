@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .confirm {
+      background-color: crimson;
+      color: white;
+      width: 200px;
+      height: 100px;
+      text-align: center;
+      display: none;
+      position: absolute;
+    }
+  </style>
+</head>
+<body>
+  <a href="http:///www.google.com" class="check-confirm">Link mashova</a>
+ 
+  <div class="confirm">
+    <p>Biztos elakarod hagyni az oldalt ? </p>    
+    <button type="button" value="1" id="yes">Igen</button>
+    <button type="button" value="0" id="no">Nem</button>
+  </div>
+
+  <script>
+    let letgo = false;
+    let yes = document.querySelector('#yes');
+    let myConfirm = document.querySelector('.confirm');
+
+    document.querySelector('.check-confirm').addEventListener('click', function (event) {
+      console.log('event', event)
+      if (!letgo) {
+        event.preventDefault()
+      } else {
+        return;
+      }
+
+      myConfirm.style.display = 'block'
+      myConfirm.style.left = event.pageX;
+      myConfirm.style.top = event.pageY;
+      
+      yes.addEventListener('click', function (yesEvent) {
+          letgo = true;
+          myConfirm.style.display = 'none';
+          event.target.click()
+      })
+
+      no.addEventListener('click', function (noEvent) {
+          myConfirm.style.display = 'none';
+      })
+
+    })   
+  </script>
+</body>
+</html>
