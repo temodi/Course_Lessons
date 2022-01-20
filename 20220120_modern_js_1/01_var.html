@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    // Global Context
+    var foo;
+    var baz = 1;
+
+    console.log('foo', foo) // mivel nincs ertek, ezert automatikusa undefined lesz az erteke
+    console.log('baz', baz)
+
+    // console.log('foobazz', foobazz) // Uncaught ReferenceError: foobazz is not defined
+
+    function kiir() {
+      var d = 1; // lokalis valtozo
+
+      // globalis a fv-en belul
+      function kiirBelso() {
+        var alma = 'korte';
+        console.log('kiirBelso d=', d);
+      }
+
+      kiirBelso()
+      // console.log('alma=', alma)  // ReferenceError: alma is not defined
+    }
+
+    kiir();
+
+    // ha nem adok meg valtozo deklaracios utasitast
+    
+    devaVara = 'leomlott';  // az interpreter automatiksu 'var' a valtozot
+    console.log('devaVara', devaVara)
+
+    // felul deklaralhato a var -ral letrehozott valtozo
+    var egyik = 'masik';
+    var egyik = 'harmadik';
+
+    console.log('egyik=', egyik)
+
+    /*
+    felul definialunk egy nativ window property-t veletlenul vagy direkt a var valtozonevvel
+    var alert = function () {
+      console.log('alert / hello')
+    }
+
+    window.alert('');
+    */
+
+
+    // console.log('d=', d) // ReferenceError mivel a fv-be hoztam letre
+    
+/* 
+    function kiir() {
+      var d = 1;
+      // function context
+      console.log('kiir() d=', d);
+
+      function method() {
+        console.log('method() d=', d);
+        console.log('method() foo=', foo)
+        console.log('method() baz=', baz)
+      }
+
+      method();
+      console.log('kiir() foo=', foo)
+      console.log('kiir() baz=', baz)
+    }
+
+    kiir()
+    console.log('foo=', foo);
+    console.log('baz=', baz);
+   // console.log('d=', d);
+   // console.log('c=', c);
+
+    // var baz = 'alma';
+    // console.log('baz=', baz)
+    
+    devaVara = 'leomlott';
+    console.log('devaVara', devaVara) */
+
+    function fv (a,b) {
+      // formalis parameter ugyan ugy viselkedik, mintha a fv-en beluel var kulcsszoval deklaraltam volna a valtozot
+      function cc() {
+        console.log('cc()', a)
+      }
+      cc()
+    }
+    fv('1', '2')
+  </script>
+</head>
+<body>
+  <script>
+    console.log('foo', foo)
+    console.log('baz', baz)
+  </script>
+</body>
+</html>

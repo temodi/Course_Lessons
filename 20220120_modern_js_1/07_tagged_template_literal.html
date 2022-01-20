@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+
+    function add(str, a, b) {
+      // a = 1, b = 2
+      console.log('str', str);
+      console.log('a,b', a, b)
+
+      return `${str[0]} ${a} ${str[1]} ${b} ${str[2]} : ${a + b}`
+    }
+    
+    let a = 1;
+    let b = 2;
+    
+    let eredmeny = add`A(z) ${a} es ${b} erteke`;
+    console.log(eredmeny);
+
+  </script>
+</head>
+<body>
+  <div></div>
+  <script>
+    
+    function highlight(str, ...values) {
+      console.log(str, values)
+   
+      let returnValue = '';
+   
+      str.forEach((s, i) => {
+        returnValue += s + (values[i] ? `<strong>${values[i]}</strong>` : '');
+      });
+   
+      return returnValue;
+    }
+
+    let world = 'world';
+    let div = document.querySelector('div');
+
+    div.innerHTML += highlight`Hello ${world}<br>`;
+    div.innerHTML += highlight`The ${world} is mine`;
+
+    console.log(`Hello <strong>${world}</strong><br>`)
+  </script>  
+</body>
+</html>

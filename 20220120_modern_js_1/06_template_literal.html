@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+  // sima template literal megadas
+   let world = 'Earth';
+   console.log(`Hello ${world}`); // 'Hello Earth'
+   // string estben
+   console.log("Hello "+world); // 
+
+   function kiir(string) {
+    //  string = 'Hello Earth'
+    // string != `Hello ${world}`
+    console.log(string)
+   }
+
+   kiir(`Hello ${world}`);
+   kiir("Hello "+world)
+   // ` jel kiirasa
+   console.log(`\`ide irj\``)
+
+   // tobb soros literal
+   let literal = `Helloo
+   world`;
+  // tobb soros string
+   let string = "Hello\n"+
+  'world';
+
+  console.log(literal)
+  console.log(string)
+
+
+  // kifejezes megadas
+  let a = 1;
+  let b = 2;
+  console.log(`${a} + ${b} = ${a + b}`);
+
+  // array exp.
+  let tomb = ['abc', 'bcd']
+  console.log(`tomb 0. elem: ${tomb[0]}`);
+
+  // obj exp.
+  let obj = {
+    nev : 'Kiss Jolan'
+  }
+  console.log(`obj nev property-je: ${obj.nev}`)
+
+  // nesting func hivas
+  function add(a, b) {
+      return a + b;
+  }
+  console.log(`${a} + ${b} = ${ add(a,b) }`);
+
+  // primitiv ertekkel
+  console.log(`${ 1 } + ${ 2 } = ${ 1 + 2 }`);
+
+  // nesting template
+
+  let visible = true; // valami lathato e
+  console.log(`Visible classname: ${ visible ? 'active' : 'inactive' } / ${visible}`)
+
+
+
+  </script>
+</head>
+<body>
+  
+</body>
+</html>

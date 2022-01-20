@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    // Temporal dead zone start (foo variable)
+
+    // console.log(foo)  // ReferenceError: Cannot access 'foo' before initialization
+ 
+    let foo; // Temporal dead zone end (foo variable)
+    console.log(foo)  // undefined
+    foo = 1;
+    console.log(foo) // 1
+
+    {
+      // Temporal dead zone start (foo variable)
+
+      // console.log(baz); // ReferenceError: Cannot access 'baz' before initialization
+
+      let baz = 'a'; // Temporal dead zone end (foo variable)
+      console.log(baz); 
+    }
+
+
+    // Temporal dead zone start (foobaz variable)
+    
+    let myFunc = function () { console.log('myFunc:', foobaz) }  // OK a valtozo, megengedett
+    
+    // myFunc() // Ref. Error, mert a TDZ-ben hivtam meg.
+    
+    // Temporal dead zone end (foobaz variable)
+    
+    let foobaz = 'hoho'; 
+    myFunc() // Ok, foobaz deklaracio utan lett meghivva, ezert mukodik, es nem TDZ-ben
+
+
+
+  </script>
+</head>
+<body>
+  
+</body>
+</html>

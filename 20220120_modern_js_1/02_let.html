@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script> 
+    {
+      // blokk
+    }
+
+    if (true) {
+      // blokk
+    }
+
+    function kiir() {
+      // blokk
+    }
+
+   /*  for(;;) {
+      // blokk
+    } */
+
+    // letValtozo = 2; // Uncaught ReferenceError: Cannot access 'letValtozo' before initialization
+    // let letValtozo; // utolag deklaraltam a let-tel, ezert nem var valtozo
+
+    // nem hoz letre propertyt a window objektumba
+    // nem hoistingol
+    // console.log(globalValtozo); // Ref. err
+
+    let globalValtozo = 'akarmi';
+    console.log(globalValtozo);
+
+    function kiir() {
+      console.log('kiir globalvaltozo=', globalValtozo)
+
+      // let globalValtozo = 'a' // ReferenceError: Cannot access 'globalValtozo' before initialization
+      let fvValtozo = 'belso kiir akarmi';
+      console.log('fvValtozo=', fvValtozo);
+
+      function subfv() {
+          console.log('subfv fvValtozo=', fvValtozo);
+      }
+
+      subfv();
+    }
+
+    kiir()
+
+
+  </script>
+</head>
+<body>
+  
+</body>
+</html>

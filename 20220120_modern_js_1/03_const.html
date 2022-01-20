@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    // const constVariable; // igy hibas, mivel nincs inicializalva / SyntaxError: Missing initializer in const declaration
+
+    const constVariable = 'Hello World'; // inicalizalva van.
+    // let vs const
+    // - const inicalizalni kell mindig
+    // - const read-only 
+  
+    // constVariable = 'uj ertek';  // TypeError: Assignment to constant variable.
+
+    const arrayConst = ['a', 'b']; // ok
+
+    // arrayConst = ['1', '2']; //  TypeError: Assignment to constant variable.
+    // constans tomb v. objektum ertek viszont megvaltozhat
+    console.log(arrayConst);
+
+    arrayConst[0] = '1';
+    arrayConst[1] = '2';
+    
+    console.log(arrayConst);
+
+    // PI elve konstans
+    const PI = 3.14;
+  </script>
+</head>
+<body>
+  <div>Div elem</div>
+
+  <script>
+    const divElem = document.querySelector('div');
+    divElem.setAttribute('id', 'divId');
+
+    // divElem = document.createElement('div'); // TypeError: Assignment to constant variable.
+ 
+  </script>
+</script>
+</body>
+</html>
