@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+
+    // Parameter kezdőérték 
+    function randomGenerator(min, max) {
+      if (!min) {
+        min = 1;
+      }
+
+      if (!max) {
+        max = 10;
+      }
+      console.log(`randomGenerator min=${min} max=${max}`);
+    }
+
+  /*   randomGenerator();  // min = 1, max = 10
+    randomGenerator(2);  // min = 2, max = 10;
+    randomGenerator(3,7); // akt. parameter min=3, max=7
+ */
+
+    // ES5 
+    function randomGeneratorES5(min, max) {
+      let myMin = min || 1;
+      let myMax = max || 10;
+ 
+      // min ||= 1; // min értéke legyen min értéke, ha van neki, ha nincs akkor legyen 1 
+      // max ||= 10; // max értéke legyen max értéke, ha van neki, ha nincs akkor legyen 10
+      console.log(`randomGeneratorES5 min=${myMin} max=${myMax}`);
+    }
+
+    // ES6
+    function randomGeneratorES6(min = 1, max = 10) {
+      console.log(`randomGeneratorES6/ES2015 min=${min} max=${max}`);
+    }
+
+    randomGenerator();
+    randomGeneratorES5();
+    randomGeneratorES6();
+
+    randomGenerator(2);
+    randomGeneratorES5(2);
+    randomGeneratorES6(2);
+
+
+    randomGenerator(3,5);
+    randomGeneratorES5(3,5);
+    randomGeneratorES6(3,5);
+
+    // let a = 1, b = 2;
+     
+    // randomGeneratorES5(a,b); 
+    // console.log(a,b)
+  </script>
+</head>
+<body>
+
+</body>
+</html>

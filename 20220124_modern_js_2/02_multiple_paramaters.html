@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    // valtozo szamu parameter lista vagy / variádiuks fv.
+
+    function multipleArgs(params) {
+        // params[0] -> nev valtozo 
+        // params[1] -> kor
+    }
+    multipleArgs(['Kiss Jolan', '23']); // old way tömbbel
+    function multipleArgs2(paramsObj) {
+       // obj.a , obj.b ... obj.n
+    }
+    multipleArgs({ a: 'Kiss Jolan', b: '23'}); // old way objektummal
+
+
+    // ES5 // array function-ban nincs ilyen arguments valtozo
+    function multipleArgsES5() {
+      /*
+      arguments[0] - 1. parameter
+      arguments[1] - 2. parameter
+      ..
+      arguments[n] - n+1. parameter
+      */
+
+      console.log(arguments) 
+     // console.log(Array.prototype.join.call(arguments, '-')) -- tomb fv meghivas az arguments
+    }    
+
+    /* Kombinalva az arguments a formalis parameterrel */
+    function multipleArgsES5withFP(a, b) {
+      console.log(`a=${a} b=${b}`)
+      console.log(arguments)
+    }
+
+    /* Array-a alakitas */
+    function multipleArgsES5Array() {
+      let arrayArgs = Array.from(arguments);  // ES5 atalakitas
+
+      console.log('multipleArgsES5Array', arrayArgs);
+
+      let arrayArgsES6 = [...arguments];
+      console.log('multipleArgsES5Array', arrayArgsES6); // ES6 atalakitas
+    }
+
+    multipleArgsES5();
+    multipleArgsES5(1, 'abc', true);
+    multipleArgsES5('Kiss Jolan', 23)
+
+    multipleArgsES5withFP(1, 2, "Kiss Neve", true);
+
+    multipleArgsES5Array(1, 2, "Kiss Neve", true);
+  </script>
+</head>
+<body>
+  
+   <script>
+      // rest operator / 1 db ilyen parameterunk lehet / mindig az utolso parameter
+      // nem kotelezo params-nak hivni, a kotelezo a ...
+      function multipleArgsES6(...params) {
+        // params - js array 
+        // 0. index - 1. param
+
+        console.log(`ES6 isArray(params)=${Array.isArray(params)}\n ${params}`);
+        console.log(params)
+      }
+
+       /* Kombinalva az arguments a formalis parameterrel */
+       function multipleArgsES6withFP(a, b, ...arg) {
+          // ha hivas  multipleArgsES6withFP(1, 'abc', true, ['a', 'b', 'c']);
+          // akkor a = 1, b = 'abc'
+          // maradek megy az args tombbe [true, ['a', 'b', 'c']]
+
+          console.log(`a=${a} b=${b}`)
+          console.log('arg=', arg)
+       }
+
+       multipleArgsES6(1, 'abc', true, ['a', 'b', 'c']);
+       multipleArgsES6withFP(1, 'abc', true, ['a', 'b', 'c']);
+   </script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    // fv. a parametrek kozul kivalasztja a legnagyobbat  
+    // rest operator / array
+    function max(...args) {
+      // max(1, 2, 3); => args = [1, 2, 3] 
+      // max(300, 1341, 234, 5, 6) => args = [300, 1341, 234, 5, 6]
+
+      if (args.length == 0) {
+        return null;
+      }
+
+      let maxValue = args[0];
+      for(let index = 0; index < args.length; index++) {
+          if (maxValue < args[index]) {
+              maxValue = args[index]
+          }
+      }
+
+      return maxValue;
+    }
+
+    console.log(max(1, 2, 3));
+    console.log(max(300, 1341, 234, 5, 6))
+
+  </script>
+</head>
+<body>
+  
+</body>
+</html>
