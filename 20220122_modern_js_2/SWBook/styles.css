@@ -1,0 +1,55 @@
+body {
+  font-family: sans-serif;
+}
+
+thead {
+  border-bottom: 2px solid black;
+}
+tbody tr:nth-child(even) {
+  background-color: grey;
+}
+.modal-background {
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+  background-color: black;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  opacity: 0;
+  transform: translate(-100%);
+  transition: 0.25s opacity ease-in-out;
+}
+.modal {
+  width: 600px;
+  height: 500px;
+  z-index: 20;
+  background-color: white;
+}
+.fejlec {
+  border-bottom: 1px solid grey;
+  padding: 3px;
+  text-align: right;
+}
+
+.open {
+  transform: translate(0);
+  opacity: 1;
+}
+
+.closing {
+  transform: translate(0);
+  opacity: 0;
+}
+
+.remove {
+  animation: flashremove 2000ms;
+}
+
+@keyframes flashremove {
+  50% {
+    background-color: red;
+  }
+}
