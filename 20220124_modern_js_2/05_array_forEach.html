@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    
+    let names = ['John', 'Eva', 'Bob']
+
+    let concatedStrings = '';
+
+    for(let index = 0; index < names.length; index++) {
+        concatedStrings += names[index];
+    }
+
+    console.log('for eredemeny', concatedStrings);
+
+    let concatedStrings2 = '';
+    names.forEach(element => {
+      concatedStrings2 += element;
+    })
+
+    console.log('concatedStrings2', concatedStrings2)
+
+    let counter = 0;
+    names.forEach((element, index, array) => {
+        console.log('counter', ++counter);
+        console.log('element', element);
+        console.log('index:', index);
+        console.log('array', array)
+        console.log('--------')
+    })
+  </script>
+</head>
+<body>
+  
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    let szamok = [1, 20, 3, 4, 5]
+
+    // find((element, index, array) => { /* ... */ } )
+    // az elso elemet, ahol a callback (teszt function) true-vel ter vissza
+    let eredmeny = szamok.find((element, index, array) => {
+        // element, aktualis elem
+        // index maga tomb index 
+        // array -> eredeti  tomb (szamok)
+        if (element > 10) {
+          return true;
+        }
+        return false;
+    })
+
+    // short
+    let eredmeny2 = szamok.find(element => element > 10);
+    
+    console.log('find:', eredmeny)
+    console.log('find2:', eredmeny2)
+
+
+    for(let index = 0; index < szamok.length; index++) {
+        // szamok[index]
+        // index maga  tomb index 
+        // szamok az eredeti
+    }
+
+    // objektumot tartalmazo tomb
+
+    let objArray = [
+      {
+        id: 1,
+        read: 2,
+        title: "JS a mindennapokban",
+      },
+      {
+        id: 2,
+        read: 2,
+        title: "JS a mindennapokban",
+      },
+      {
+        id: 3,
+        read: 4,
+        title: "JS a mindennapokban",
+      }
+    ]
+    // elso obj. ahol legalabb 4 olvas volt
+    let result = objArray.find((element) => element.read >= 4)
+    console.log('result:', result)
+
+  </script>
+</head>
+<body>
+  
+</body>
+</html>

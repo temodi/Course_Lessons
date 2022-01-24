@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    const array1 = ['a', 'b', 'c'];
+    const array2 = ['d', 'e', 'f', { 'name': 'helo' }];
+    const array4 = array1.concat(array2)
+    // expected output: Array ["a", "b", "c", "d", "e", "f"]
+
+    // uj tomb letrehozas
+    const array3 = array2.concat()
+    const array3 = [].concat(array2)
+
+    console.log(array3 === array2)
+    console.log(array3[3] === array2[3])
+    console.log(array3);
+    
+  </script>
+</head>
+<body>
+  
+</body>
+</html>

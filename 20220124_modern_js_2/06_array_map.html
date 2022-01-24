@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    let szamok = [1, 2, 34, 22, 11];
+
+    // let parosSzamok = []
+    // ciklus
+    // foreach
+    // map
+    let parosSzamok = szamok.map(element => {
+        if (element % 2 == 0) {
+          return element
+        }
+
+        return null;
+    }).filter(e => e !== null)
+    console.log('parosSzamok', parosSzamok);
+
+    let szavak = ['hello', 'world', 'something']; 
+    let upper = szavak.map(element => element.toUpperCase())
+    console.log('upper', upper);
+     
+    // szavak.map(e => e) // uj tomb: ['hello', 'world', 'something']; 
+
+    console.log(szavak.map((element, index) => index))
+    console.log(szavak.map((element, index, array) => array))
+
+  </script>
+</head>
+<body>
+  
+</body>
+</html>

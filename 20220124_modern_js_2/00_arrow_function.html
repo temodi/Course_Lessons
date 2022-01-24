@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+
+    // 1 param
+    let sqrt = b => b * b;
+
+    let sqrtV2 = (b) => (b * b);
+
+    let sqrtV3 = b => { return b * b };
+
+    // tobb param
+    let multiply = (a, b) => a * b
+    let multiplyV2 = (a, b) => { return a * b }
+
+    console.log(sqrt(2), sqrtV2(2), sqrtV3(2))
+
+    console.log(multiply(2, 3), multiplyV2(2, 3))
+
+
+</script>
+</head>
+<body>
+  
+  <script>
+     let multiplyUni = (...param) => param.reduce((all, a) => all * a)
+    console.log(multiplyUni(2, 2, 3));
+
+  </script>
+</body>
+</html>

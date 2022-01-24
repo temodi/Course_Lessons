@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    
+    let nums = [1, 2, 3, 4, 13, 12341,555,777 ]
+    // 1000-nel nagyobb szamok egz uj tombbe
+    let result = nums.filter(e => e > 1000);
+    console.log('Result:', result);
+
+    let products = [
+      {
+        product_name: 'Alma',
+        category_id: 1,
+        status: 'active',
+      },
+      {
+        product_name: 'Korte',
+        category_id: 2,
+        status: 'active',
+      },
+      {
+        product_name: 'Citrom',
+        category_id: 3,
+        status: 'inactive',
+      },
+    ]
+
+    // adott kategorihaoz akarom filterzni a termeket
+    let categoryId = 2;
+    let filteredProducts = products.filter(e => e.category_id == categoryId);
+    console.log('filteredProducts', filteredProducts)
+
+    // activ termekek listaja
+    let activeProducts = products.filter(e => e.status === 'active');
+    console.log('activeProducts', activeProducts)
+
+    // activ termekek listajabol az adott kategoriabol az elso termek (chaining)
+    let activeFilteredProducts = products.filter(e => e.status === 'active').find(e => e.category_id == categoryId);
+    // products.filter(e => e.status === 'active' && e.category_id == categoryId);
+    // let activeFilteredProducts = products.filter(e => e.status === 'active')
+    // activeFilteredProducts.find(e => e.category_id == categoryId);
+    
+    console.log('activeFilteredProducts', activeFilteredProducts)
+
+  </script>
+</head>
+<body>
+  
+</body>
+</html>
