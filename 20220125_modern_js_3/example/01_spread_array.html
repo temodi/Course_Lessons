@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    const htmlColors = ['red', 'green', 'blue', 'white', 'brown'];
+
+    function colorize(firstColor, secondColor, thirdColor) {
+      console.log('firstColor', firstColor)
+      console.log('secondColor', secondColor)
+      console.log('thirdColor', thirdColor)
+    }
+
+    // spread syntax / array
+    const myColors = [...htmlColors];   // spread operator , spread syntax   tomb masolat letrehozas (shallow copy)
+    const myColors2 = [htmlColors[0], htmlColors[1], htmlColors[2], htmlColors[3]];
+
+    console.log('myColors', myColors);
+    console.log('myColors2', myColors2);
+    // ez mas
+    console.log('[htmlColors]', [htmlColors]); 
+    
+    /*
+      const myColors = [];
+      myColors[] = ['red','green', 'blue', 'white']
+
+      const myColors = [];
+      myColors.push('red')
+      myColors.push('green')
+      ....
+      ..
+    */
+    console.log(htmlColors);
+    console.log(...htmlColors);
+    /* ezzel egyenlo */
+    console.log(htmlColors[0], htmlColors[1], htmlColors[2], htmlColors[3]);
+    /*
+    console.log('red', 'green', 'blue', 'white')
+    */
+    console.log('-----------------')
+  
+    console.log(myColors)
+    console.log('myColors === htmlColors', myColors === htmlColors)
+
+    // hagyomanyosan hivas
+    console.log(htmlColors[0], htmlColors[1], htmlColors[2])
+
+    console.log('---colorize')
+    colorize(htmlColors[0], htmlColors[1], htmlColors[2])  // hagyomanyos 
+    console.log('----Spread operatorral:')
+    colorize(...htmlColors);  // spred ertek adas
+
+    console.log('++++-----------------')
+
+    // kombinálás 
+    const warmColors = ['crimson', 'orange', 'orangered']
+
+    let allColors = []
+    allColors = [...htmlColors, ...warmColors];
+    /* 
+    allColors.push(htmlColors[0])
+    allColors.push(htmlColors[1])
+    ...
+    allColors.push(warmColors[0])
+    allColors.push(warmColors[1])
+    allColors.push(warmColors[2])
+    */
+
+    console.log('allColors', allColors);
+    
+    console.log('Extended colors', ['black', ...htmlColors, 'grey', ...warmColors, 'white'])
+
+    // Néhány eset amire tudom használni
+    // tömb másolat (shallow copy)
+    const myColorsX = [...htmlColors]; 
+    // tömb összefűzése
+    let allColorsX = [...htmlColors, ...warmColors];
+    // string array konverzio
+    console.log([..."Hello"]);
+    // Node List array konverzio
+    // [...NodeList]
+    // let divElemes = document.querySelectorAll('div');
+    // [...divElemes] => tombot ami a div elemeket fogja tartalmazni
+
+    // Arguments array konv.
+    function test() {
+      let argArray = [...arguments]
+    }
+    // pl fv paramater:  math.min / math.max 
+    let szamok = [1, 2, 42, 0, 233];
+    
+    Math.max(...szamok); // spread
+    Math.max(1, 2, 42, 0, 233); // old way
+
+    // hibas
+    let a = [1 ,2]
+    let b = 8;
+    // console.log([...a, ...b])   // TypeError: b is not iterable 
+    // javitas
+    console.log([...a, ...[b]])  
+  </script>
+</head>
+<body>
+  
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    let cart = [
+      {
+        itemId: 1,
+        quantity: 2,
+        price: 120
+      },
+      {
+        itemId: 2,
+        quantity: 1,
+        price: 3
+      },
+      {
+        itemId: 3,
+        quantity: 3,
+        price: 43
+      },
+    ]
+     
+    let result = cart.reduce((prevObj, currentObj) => { 
+      console.log(prevObj, currentObj);
+      return {
+         sum_price: prevObj.sum_price + (currentObj.price * currentObj.quantity),
+         price: prevObj.price + currentObj.price, 
+         quantity: prevObj.quantity + currentObj.quantity
+       }
+    }, { sum_price: 0, price: 0, quantity: 0})
+
+    console.log('result', result)
+  </script>
+</head>
+<body>
+  
+</body>
+</html>

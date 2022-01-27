@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+
+    let idFilter = (...params) => params.filter(e => e.id);  // e.id értek az true vagy truthy 
+    let idFilter2 = (...params) => params.filter(obj => obj.hasOwnProperty('id'))   // ez a jo megoldas
+
+    function idFilter3(...params) {
+      console.log('params', params)
+    }
+
+    const result = idFilter({
+      id: 1,
+      title: '1-es',
+    }, 
+    {
+      id: null,  // falsy
+      title: 'null-as'
+    }, 
+    {
+      id: 0,    // falsy
+      title: '0-as'
+    })
+
+ 
+    const result2 = idFilter2({
+      id: 1,
+      title: '1-es',
+    }, 
+    {
+      id: null,  // falsy
+      title: 'null-as'
+    }, 
+    {
+      id: 0,    // falsy
+      title: '0-as'
+    })
+
+    console.log('result2:', result2)
+
+    console.log(idFilter3(
+      {
+        id: 1,
+        title: '1-es',
+      }, 
+      {
+        id: null,  // falsy
+        title: 'null-as'
+      }, 
+      {
+        id: 0,    // falsy
+        title: '0-as'
+      }
+    ))
+  </script>
+</head>
+<body>
+  
+</body>
+</html>
