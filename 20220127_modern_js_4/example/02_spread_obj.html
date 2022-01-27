@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+
+    const book = {
+      id: '123123ABC',
+      title: 'Spread a nagyvilagban',
+      author: 'John. D.',
+    }
+
+    const book2 = {
+      id: '9999',
+      title: 'No way',
+      author: 'Liza K.',
+    }
+
+    const bookPage= {
+      page: '200',
+      cover: 'cover.jpg',
+      back: 'back.jpg',
+      author: 'John Smith',
+    }
+
+
+    // Object masolas (shallow)
+    let bookCopy = {...book};
+ 
+    console.log('bookCopy', bookCopy);
+    /* old way
+      bookCopy = {}
+      bookCopy.id = book.id;
+      bookCopy.title = book.title;
+      bookCopy.author = book.author;
+      bookCopy => {
+        id: '123123ABC',
+        title: 'Spread a nagyvilagban',
+        author: 'John. D.',
+      }
+    */
+
+    // Object összeolvasztás/bővítés (merge) 
+    let fullBook = {...book, ...bookPage}
+    console.log('fullBook', fullBook);
+
+    // bovites
+    let fullBook2 = {...book, ...bookPage, color_cover: true, page: 250 }
+    console.log('fullBook2', fullBook2)
+
+    // Objectból object felülírás
+    let newBook = {...book, ...book2}     
+    console.log('newBook', newBook);
+    
+    // hibas
+    //console.log(...book);  //  non-callable @@iterator
+ 
+    
+  </script>
+</head>
+<body>
+  
+</body>
+</html>

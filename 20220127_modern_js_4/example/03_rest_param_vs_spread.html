@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    
+    // rest prameter
+    // bejovo parmetereket belteszi a megadott neven egy tombbe 
+    function add(...rest) {
+      // rest -> tomb
+      // ...parames
+      return rest;
+    }
+
+    let a = [1, 2, 3, 4]
+    console.log(add(...a));       // rest[0] = 1, rest[1] = 2, rest[2] => 3, rest[3] => 4 
+    console.log(add(1, 2, 3, 4,)) // rest[0] = 1, rest[1] = 2, rest[2] => 3, rest[3] => 4 
+
+    console.log(add([1, 2, 3, 4])) // rest[0] => [1, 2, 3, 4]
+
+
+  </script>
+</head>
+<body>
+  
+</body>
+</html>

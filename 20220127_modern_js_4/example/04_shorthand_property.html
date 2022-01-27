@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+
+    // Property init assign 
+    let item_id = '3002', quantity = 30;
+
+    // old way
+    let cart = {
+      item_id: item_id,
+      quantity: quantity,
+    }
+    console.log('cart:', cart.item_id, cart.quantity);
+ 
+    let tomb = [1, 2];
+    // Shorthand property (ES6/ES2015)
+    let newCart = {
+      item_id,
+      quantity,
+      tomb, 
+    }
+
+    console.log('shorhand property:', newCart);
+    console.log(newCart);
+    
+
+    // Method names 
+
+    let myMatOld = {
+      random: function (min, max) {
+        return Math.floor((Math.random() * max)) + min;
+      },
+      max: function(a, b) {
+        return a < b ? a : b
+      }
+    }
+
+    // Shorthand method names (ES2015)
+    let myMath = {
+      random(min, max) {
+        return Math.floor((Math.random() * max)) + min;
+      },
+      max(a, b) {
+        return a < b ? a : b
+      }
+    }
+
+    console.log('Random ', myMath.random(1,10));
+
+  </script>
+</head>
+<body>
+  
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+
+    // computed property name 
+    const computedPropertyName = 'myName';
+    // const computedPropertyName = prompt('...');
+
+    const getName = () => 'valami';
+
+    let objWithComputedNames = {
+      [computedPropertyName] : 'John Doo',        // valtozo erteke lesz a property neve
+      ['first' + 'name'] : 'ez lesz a firstName', // a kifejezes ertek lesy a property neve
+      [getName()]: 'fv visszateresi ertek lesz', // fv visszateresi ertek lesz
+    }
+
+    console.log('computedPropertyName:', objWithComputedNames[computedPropertyName])
+    console.log('first' + 'name:', objWithComputedNames['first' + 'name'])
+    console.log('getName():', objWithComputedNames[getName()])
+  
+    /*
+     objWithComputedNames = {
+      myName : 'John Doo'
+     }
+    */
+    
+    console.log('objWithComputedNames', objWithComputedNames);
+
+
+    // dinamikusan tombol
+    let possiblePropertyNames = ['id', 'title', 'desc']
+    let possiblePropertyValues = ['03', 'Dzsungel Konyve', 'Volt egyszer...'];
+    let dynamicObject = {
+      [possiblePropertyNames[0]] : possiblePropertyValues[0],
+      [possiblePropertyNames[1]] : possiblePropertyValues[1],
+      [possiblePropertyNames[2]] : possiblePropertyValues[2]
+    }
+
+    console.log('dynamicObject', dynamicObject)
+
+
+    // ciklussal
+    let dynamicObj = {}
+    for(let index = 0; index < possiblePropertyNames.length; index++) {
+      // spreaddel 
+      dynamicObj = {...dynamicObj, [possiblePropertyNames[index]] :  possiblePropertyValues[index] }
+      /* 0. index / 1. iteracio
+      dynamicObj = {...{}, ['id'] : '03'} = > { id: '03'} => dynamicObj
+         1. index / 2. iteracio
+      dynamicObj = {...{ id: '03'}, 'title': 'Dzsungel Konyve'} => { id: '03', 'title': 'Dzsungel Konyve'} => dynamicObj
+         2.
+      */
+      
+      // dynamicObj[possiblePropertyNames[index]] = possiblePropertyValues[index]
+    }
+
+    console.log('dynamicObj', dynamicObj);
+    possiblePropertyValues.forEach((item) => {
+
+    })
+
+    // 
+    function sessionGenerator(sessionData, session_id, session_value) {
+        return {...sessionData, [`${session_id}_id`] : session_value}
+    }
+
+    let sessionData = {}
+    sessionData = sessionGenerator(sessionData, '3242efwefew34234', 'kissmiska');
+    sessionData = sessionGenerator(sessionData, 'awefwef324234234', 'nagyamelia');
+    
+    console.log('sessionData', sessionData)
+    let serverroljovoadat = 'awefwef324234234_id';
+
+    if (sessionData[serverroljovoadat]) {
+      console.log('van user adat')
+    }
+  </script>
+</head>
+<body>
+  
+</body>
+</html>
