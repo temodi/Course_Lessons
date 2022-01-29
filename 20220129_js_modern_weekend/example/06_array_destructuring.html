@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+
+    // Basic array destructuring
+    const tags = ['div', 'p', 'img']
+    const [elem1, elem2, elem3] = tags;
+     
+    console.log(`elem1: ${elem1} elem2: ${elem2} elem3: ${elem3}`);
+
+    // without init 
+    let colors;
+    let mainColor, secondaryColor;
+
+    colors = ['red', 'yellow'];
+    
+    // syntaxis: [variable0, variable1, .... variablen] = array[0..n]
+    // [let|const]  [variable0, variable1, .... variablen] = array[0..n]
+
+    [mainColor, secondaryColor] = colors; // destructuring
+
+    console.log(`mainColor: ${mainColor} secondaryColor: ${secondaryColor}`);
+
+    let numbers = [1, 2, 3, 4, 5]
+    let [number1, number2, number3, number4, number5] = numbers; // [number1, number2, number3, number4, number5] = [1, 2, 3, 4, 5]
+   
+   /* old way 
+   let numbers = [1, 2, 3, 4, 5]
+    let number1 = numbers[0];
+    let number2 = numbers[1];
+    let number3 = numbers[2];
+    let number4 = numbers[3];
+    let number5 = numbers[4];
+    */
+    
+    // default value
+    let barColor = ['black']
+    let [color1 = 'blue', color2 = 'white', color3 = 'green'] = barColor;
+    /*
+      let color1 = 'blue';
+      if (barColor[0]) {
+        color1 = barColor[0] 
+      }
+
+      let [color1 = 'blue'] = barColor;
+      let color1 = barColor[0] || 'blue';  // ha barColor[0] nem falsy, nem null, nem defined, akkor color1 = barColor[0], egyebkent color1= 'blue'
+    */
+    console.log(`color1: ${color1} color2: ${color2} color3: ${color3}`);
+
+    // felulirasa a korabbi valtozoknak
+    //  colors = ['red', 'yellow']; fentebb deklaraltam
+    [color1, color2, color3] = colors;    // color1 => 'red', color2 => 'yellow', color3 = undefined
+    console.log(color1, color2, color3) 
+
+
+    // value ignoring
+    let arr = [1, 2, 3, 4, 5, 6]
+    let [firstElem] = arr;  // firstElem = 1
+
+    let items = ['elem1', 1231, 'elem2', 23434];
+    let [item1, ,item3] = items;
+    /*
+    let [ , ,item3] = items;
+    item3 = 'elem2'
+    */
+    console.log(`item1: ${item1} item2: ${item3}`);
+
+
+    console.log('--------------------')
+ 
+   /*  fv(a,b,...rest) {
+      a, b -> adat a =1, b = 2
+      rest -> tomb = [3, 4, 5]
+    }
+    fv(1,2,3,4,5) */
+    // destructuring assigned to rest
+    let moreItems = ['abc', 12, true, [1,2], null];
+    let [itemFirst, itemSecond, ...rest] = moreItems;     // mint a fv-nel
+
+    console.log(moreItems);
+    console.log(`itemFirst ${itemFirst} itemSecond: ${itemSecond}`);
+    console.log('rest', rest);
+
+
+    // peldak
+    // valtozo ertek csere
+    /* old way
+     let a = 1;
+     let b = 2;
+     let tmp;
+
+     tmp = a;
+     a = b;
+     b = tmp;
+
+    */
+    /*    fv(min, max) 
+      if (min > max) {
+        [min, max] = [max, min]
+      }  */
+    let a = 1;
+    let b = 2;
+    console.log(`a: ${a} b: ${b}`);
+    [a, b] = [b, a];  // [a, b] = [2, 1] => a = 2, b = 1
+    console.log(`a: ${a} b: ${b}`);
+
+    // tomb eseten
+    let myArray1 = [1, 2, 3];
+    let myArray2 = ['a', 'b', 'c'];
+
+    console.log('myArray1:', myArray1);
+    console.log('myArray2:', myArray2);
+
+    [myArray1, myArray2] = [myArray2, myArray1] // tomb csere
+
+    // 2 tomb elemeit cserletem meg
+    console.log('jobb oldal:', [myArray2, myArray1]);
+    console.log('myArray1:', myArray1)
+    console.log('myArray2:', myArray2)
+
+    console.log('-----------fv------------')
+    // function array parameter destructuring
+    {
+      // tomb aktiv parametert var a fv.
+      // fv-t 1 parameterrel kell hivni
+      function add([a, b]) {
+        // add([1,2]) 
+        // [a, b] = [1, 2] // destructuring
+        // [a, b] = [5, 5]
+        console.log(a, b)
+        return a + b;
+      }
+      function add2([a, b, c, ...rest]) {
+        // meghivas:  add2([1, 2, 3, 4, 5, 6])
+        // a = 1, b = 2, c = 3  , rest = [4, 5, 6]
+        console.log('Bejovo paramter ertekek:', a, b, c, rest)
+        return a + b + c;
+      }
+
+      let ab = [1, 2]
+
+      console.log('add(ab) = ', add(ab))
+      console.log('add([ a: 5, b: 5]) = ', add([5, 5]))
+
+      console.log('add2([a, b, c])', add2([1, 2, 3, 4, 5, 6]))
+    }
+
+    console.log('------------------')
+
+
+
+    // Indirect assignment of a function return
+    function myFunction() {
+      return ['1', '2']
+    }
+
+    let [returnFirst, returnSecond] = myFunction()  // returnFirst=1, returnSecond=2
+    console.log('myFunction() return erteke', myFunction() )
+    console.log(`returnFirst=${returnFirst}, returnSecond=${returnSecond}`);
+    // let [rFirst, rSec] = myFunction()
+    
+
+    // 
+    function mathFunctions(param1, param2) {
+
+      function add(a, b) {
+        return a + b;
+      }
+      function multiply(a, b) {
+        return a * b;
+      }
+
+      // multiply(param1, param2)
+
+      // add fv az igy publikus lesz
+      // multiply fv private 
+      return [add(param1, param2), add];
+    }
+
+    const [returnValue, innerAdd] = mathFunctions(5, 10);
+    const mathF = mathFunctions(5, 10)
+
+    console.log('mathFunctions(5, 10)', mathFunctions(5, 10))
+    console.log('returnValue', returnValue);
+    console.log('innerAdd:', innerAdd)
+    console.log('use innerAdd()', innerAdd(8, 8));
+    
+    console.log('--- destruct nelkul---')
+
+    console.log('mathF[0] kiszamolt', mathF[0]);
+    console.log('mathF[1] fv:', mathF[1])
+    console.log('mathF[1]() belso fv hivas', mathF[1](8, 8));
+
+
+
+  </script>
+</head>
+<body>
+  
+</body>
+</html>
