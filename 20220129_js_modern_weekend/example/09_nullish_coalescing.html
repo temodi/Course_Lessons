@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <script>
+
+
+  // nullish coalescing  (ha null vagy undefined)
+  {
+    let a;
+    let b = a ?? 'default ertek';
+    console.log('?? a=', b);
+
+    // old way
+   /*  let e;
+    if (typeof e === 'undefined' || e === null) {
+      e = 'default ertek'
+    } */
+
+    let c = 0;
+    let d = c ?? 'default ertek';
+    console.log('?? d=', d)
+
+  }
+
+
+    // logical assignment (||) (ha null, undefined, falsy)
+  // https://developer.mozilla.org/en-US/docs/Glossary/Falsy
+  {
+    let a;
+    let b = a || 'default ertek';
+    console.log('|| a=', b);
+
+    let c = 0;
+    let d = c || 'default ertek';
+    console.log('|| d=', d)
+  }
+
+  </script>
+
+
+</head>
+<body>
+  
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    class ChainableObject {
+      constructor() {
+
+      }
+      method1() {
+        console.log('Method 1 meghivva');
+        return this; // maga a ChainableObject peldany
+      }
+      method2() {
+        console.log('Method 2 meghivva');
+        return this;
+      }
+      methodArray() {
+        return []; // method1, method2, stb az nem hivhato, mivel Array obje, ezen a .map .filter..stb
+      }
+      deadend() {
+        console.log('no more chain');
+        return;
+      }
+    }
+
+    const chainObj = new ChainableObject()
+    
+    // old way
+    chainObj.method1();
+    chainObj.method2();
+    chainObj.deadend();
+
+    // vagy chainelve
+
+    chainObj
+    .method1()
+    .method2()
+    .deadend();
+
+    console.log('--------------------')
+    // ez is jo: chainObj.method2().method1().deadend();
+
+    // chainObj.deadend().method1()  // TypeError: Cannot read properties of undefined (reading 'method1')
+
+
+    
+    // optional chainging (ES6)
+    // old way
+    let result = chainObj.deadend()
+    if (typeof result !== 'undefined') {
+        result.method1() // 
+    }
+
+    // optional chaining
+    // ha a chainObj nem undefined, akkor meghivja a deadend() metodust, ha a deadend() visszateresi erteke nem undefined 
+    // akkor meghivja a method1()
+    // az elso undefined/null utan megszakad a chaining es nem fut tovabbi metodus hivas
+    chainObj?.deadend()?.deadend()?.method1()
+
+    // chainObj => this
+    // chainObj?.deadend() => undefined?.method1() ez mar nem fut le
+
+    // let a = [1,2]
+    // a.map().filter().find()
+    // pl: a.map() => [].filter() => [] => [].find()  
+    
+    // property vizsgalatnal is mukodik
+    let obj = {
+      func: () => {},
+      name: 'objNameXX',
+    }
+
+    let obj2;
+    console.log('Obj:', obj2?.name ?? 'nincs ilyen propert');
+  
+  </script>
+</head>
+<body>
+  
+</body>
+</html>
