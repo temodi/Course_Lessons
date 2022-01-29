@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    // Not destructuring
+    let animal = {
+        name: 'Boby',
+        type: 'Horse',
+        desc: 'Long desc...',
+    }
+
+    let animalName, animalType;
+    animalName = animal.name;
+    animalType = animal.type;
+
+
+    // Basic object destructuring
+    let book = {
+      id: 1, 
+      title: "JS and destructuring",
+    }
+    let { id, title } = book;   // same name!
+    console.log('id:', id);
+    console.log('title:', title);
+    
+    console.log('--------')
+
+    // without init 
+    let book2 = {
+      bookId: 1, 
+      bookTitle: "JS and destructuring",
+    }
+    let bookId, bookTitle;
+
+    ({ bookId, bookTitle } = book2) // zarojel!!
+    console.log('bookId:', bookId);
+    console.log('bookTitle:', bookTitle);
+ 
+    console.log('------------------')
+
+    // default value
+    
+    {
+      const { id, title, author = 'John Do'} = book;
+      console.log('book:', book)
+      console.log(id, title, author);
+    }
+
+    console.log('++++++++++++++++')
+
+    
+    // assign to new variable (alias)
+    const {
+      id: myBookId,
+      title: myTitleId,
+      author: myAuthor = 'Geng Szter',    // with default value 
+    } = book;
+    console.log('id => myBookId:', myBookId)
+    console.log('title => myTitleId:', myTitleId)
+    console.log('author => myAuthor:', myAuthor)
+
+    console.log('++++++++++++++++')
+
+ 
+
+    // function parameter destructuring (obj)
+   
+    function add({a, b}) {
+      console.log(`a=${a}, b=${b}`)
+      return a + b;
+    }
+
+    let ab = {
+      a: 1,
+      b: 2,
+    }
+    
+    console.log('add(ab) = ', add(ab))
+    console.log('add({ a: 5, b: 5}) = ', add({ a: 5, b: 5}))
+    // add(5,5); => 2  akt. param es nem obj
+     
+    console.log('+_+_+_+_+_+_+_')
+
+    // function return
+    function myFunction() {
+      return {
+        price: 1,
+        quantity: 2,
+      }
+    }
+
+   
+    let {
+      price,
+      quantity
+    } = myFunction();
+
+    console.log(`price: ${price} quantity: ${quantity}`);
+
+
+// destructuring array in obj
+        
+let coord = [1, 2];
+    let coordObj = {x: 0, y: 0};
+    [coordObj.x, coordObj.y] = coord;  // array destructiring
+
+    console.log(coordObj)
+  </script>
+</head>
+<body>
+  
+</body>
+</html>
