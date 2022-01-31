@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+
+    // old way, de ettol fuggetlenul hasznaljuk v. hasznalhatjuk
+    // error return
+    // a fv visszateres jelzi a hibat 
+    function add(a, b) {
+      if (isNaN(a) || isNaN(b)) 
+        return null; // undefined v. 0-val, jelezzuk hogy hiba van
+      
+      return a + b;
+    }
+
+    function userInputAdd(a, b) {
+      let result = add(a, b);
+      if (result === null) {
+        console.log('Ertesitjuk a felhasznalot hogy nem jo valemelyik szam', a, b)
+      } else {
+        console.log('Kiertekeles eredmenye:', result);
+      }
+
+      return result; // propagation // tovabbadjuk az eredemenyt
+    }
+
+    function formSubmitHandler() {
+      let success = userInputAdd(1, "abc");
+
+        // ha sikerult a muvelet, akkor engedelyezuk a submit gombot
+      if (success === null) {
+        // nem egedelyezuk a gombot
+      } else {
+        // egyebkent meg igent
+      }
+
+    }
+
+    // error function
+    function error(msg) {
+      console.log('Tajekoztatja a felhasznalot, hogy ez a hiba tortent:', msg)
+    }
+
+    function addWithError(a, b) {
+      if (isNaN(a)) {
+        error('Hibas a (1. param) szam')
+        return null;
+      }
+      if (isNaN(b)) {
+        error('Hibas b (2. param) szam')
+        return null;
+      }
+      return a + b;
+    }
+    
+    console.log('Eredemeny:', addWithError(1, 'abc'))
+
+
+    // error callback
+    function addWithErrorCallback(a, b, errorCB) {
+      if (isNaN(a)) {
+        if (typeof errorCB === 'function') {
+          errorCB('Hibas a (1. param) szam', a)
+        }
+        return null;
+      }
+      if (isNaN(b)) {
+        if (typeof errorCB === 'function') {
+          errorCB('Hibas a (2. param) szam', b)
+        }
+        return null;
+      }
+      
+      return a + b;
+    }
+ 
+
+    addWithErrorCallback(4, 'abc', function (msg, value) {
+        console.log(`${msg}, az megadott érték: ${value} volt`);
+    })
+
+  </script>
+</head>
+<body>
+  
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <script>
+
+    function mailSend2(email, subject, body) {
+      if (!email) {
+        throw new Error('Email address missing');
+      }
+      if (!subject) {
+        throw new Error('Subject missing');
+      }
+    }
+
+
+    function mailSend(email, subject, body) {
+      if (!email) {
+        throw 'Email address missing';
+      }
+      if (!subject) {
+        throw 'Subject missing'
+      }
+    }
+
+    function closeMailSendBox() {
+      console.log('Bezarja a mail kuldot')
+    }
+
+    function mainCode() {
+
+      // something here
+
+      try {
+ 
+        console.log('meghivtuk a mailSend-et')
+        // mailSend();
+        // mailSend2();
+        mailSend2('alma@alam.hu', 'Teszt')
+      
+      } catch(error) {
+
+        console.log('Catch ag mert hiba volt')
+        // mailSend2() eseten
+        console.log(error.name, error.message, error); // for developer
+        alert('Sorry nem sikerult az email küldés, a hiba ok:' + error.message)
+        
+        // mailSend() eseten: console.log(error)
+
+      } finally {
+        console.log("finally ag mert mindig lefut")
+        closeMailSendBox();
+      }
+
+
+      // something here
+    }
+
+    mainCode()
+
+
+     
+  </script>
+</head>
+<body>
+  
+</body>
+</html>

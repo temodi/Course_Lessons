@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+
+    // try-catch hibakezeles vagy exception handling
+    // try-finaly 
+    try { 
+      // Try runs
+      // Ebben futatom a kóot, ez fogj figyelni, hogyha kivetel történi (exception)
+      // a kód addig fut ebben a blokkban, amig nem történik hiba
+      // a hiba utani kódok nem fognak már lefutni ebben a blokkban
+
+      // fv1() -> lefut
+      // fv2() -> ez kivalt egy kivelt (exception), akkor itt megszakad futas és áturgrik vagy catch ág v. a finallyre 
+      // fv3() -> ez mar nem fog lefutni, mert exception volta fv2-nel
+
+    }  catch (error) {
+      // Handle errorsű
+      // 1 opcionalis parameter: error , e, err
+      // Minden esetben lefut HA HIBA van
+      console.log(error)
+    } finally {
+      // Always run after try or catch
+      // MINDIG LEFUT, akkor is ha lefutt a try block, akkor is ha volt catch blokk es lefutott 
+      console.log('finnaly')
+    }
+
+    // Kivel kiváltása 
+    throw // parameter: primitiv ,osszett adat tipus es Error objektum
+    // ha hivtam a fv2-ben ,akkor a fentebbi try-catch elfogja kapni ezt a kivetelt
+    // throw parametereben megadott adat vagy erteket kapjuk meg a catch ag parameterben
+
+    // Error() - altalnaos hiba objectum, erdemes használni
+    // hasznalata: throw new Error('message')
+
+  </script>
+</head>
+<body>
+  
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    function logError(error) {
+      console.log(`Name: ${error.name}\n Message: ${error.message}`)
+    }
+
+    // TypeError
+    // 
+    function objParam({a}) {
+    }
+
+    try {
+      let obj = null; 
+      objParam(obj); // Cannot destructure property 
+
+    } catch(error) {
+      
+      if (error instanceof TypeError) {
+        console.log('This is a TypeError');
+      }
+      logError(error)
+    
+    }
+
+    console.log('------------------')
+
+    const hello = 'world';
+    try {
+      hello = 'earth';  // Assignment to constant variable.
+    } catch(error) {
+      logError(error) 
+    }
+
+    console.log('------------------')
+
+    let a = 1;
+    try {
+      a.call()    // .call is not a function
+    } catch(error) {
+      logError(error)
+    }
+
+    console.log('------------------')
+
+    try {
+        document.querySelector('p').innerHTML = 'Hello Peter';
+
+    } catch(e) {
+      console.log(e);
+    }
+  </script>
+</head>
+<body>
+  
+</body>
+</html>

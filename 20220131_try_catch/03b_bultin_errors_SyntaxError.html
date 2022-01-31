@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    function logError(error) {
+      console.log(`Name: ${error.name}\n Message: ${error.message}`)
+    }
+
+    // SyntaxError
+    try {
+      eval('1.map()') // !!!! FONTOS ne hasznalj eval-t biztonsagi és sebesség beli okokból sem.
+      
+    } catch(error) {
+      logError(error)
+      if (error instanceof SyntaxError) {
+
+      }
+      if (error instanceof TypeError) {
+
+      }
+      if (error instanceof ReferenceError) {
+
+      }
+    }
+     
+
+  </script>
+</head>
+<body>
+  
+</body>
+</html>

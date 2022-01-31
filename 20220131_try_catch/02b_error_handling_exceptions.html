@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <script>
+    function fv1() {
+      console.log('fv1() lefutott');
+    }
+    function fv2() {
+      console.log('fv2() hibat dob');
+      throw new Error('fv2-ben hiba van'); // kivaltok egy exceptiont (dobok egy kivelt)
+    }
+    function fv3() {
+      console.log('fv3() lefutott');
+    }
+
+    function fvAll() {
+     /*  try {
+         */
+        fv1();
+        fv2();
+        fv3(); // ez nem fut le, mert fv2 hibat dob
+/* 
+      } catch(e) {
+        
+        console.log('fvAll() hibat:', e)
+      
+      } */
+    }
+
+    function mainCode() {
+      try {
+        fvAll();
+      } catch(e) {
+        console.log('mainCode() hibat:', e)
+      }
+    }
+
+    mainCode();
+    console.log('mainCode utan')
+
+  </script>
+</head>
+<body>
+  
+</body>
+</html>

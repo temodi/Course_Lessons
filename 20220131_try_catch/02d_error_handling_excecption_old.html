@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <script>
+
+    let errorObject = {
+      type: 'emailError',
+      message: '',
+      value: '',
+    }
+
+    function mailSend(email, subject, body) {
+      if (!email) {
+        return {...errorObject, message: 'Hibas email cim!'};   // => return {type: 'emailError', message: 'Hibas email cim!', value:''}
+      }
+      if (!subject) {
+        return {...errorObject, message: 'Hibas subject!'};     // => return {type: 'emailError', message: 'Hibas subject!', value:''}
+      }
+      // elkuldi a emailt
+      return true; // jelzi hogy sikeres
+    }
+
+    function closeMailSendBox() {
+      console.log('Bezarja a mail kuldot')
+    }
+
+    function mainCode() {
+
+      // something here
+
+      let result = mailSend('alma@alam.com', 'subj'); 
+
+      // try-catch helyett
+      if (typeof result === 'object') {
+        console.log('Hiba volt a mail kuldes elott, mert : ', result.message)
+        closeMailSendBox();
+      } else {
+        // sikeres volt a mail kuldes
+        console.log('sikeres mail kuldes')
+        closeMailSendBox();
+      }
+ 
+      // something here
+    }
+
+    
+    function mainCode2() {
+ 
+      let result = mailSend('alma@alam.com', 'subj'); 
+      if (result === 1) {
+        console.log('sikeres mail kuldes')
+        closeMailSendBox();
+      } else {
+        closeMailSendBox();
+        return result // a hibat propagalom, tovabb adom
+      }
+    }
+
+    // itt is letudjam kezelni, akkor a mainCode-nak is kell visszateres
+    // mainCode()
+
+    let mailSendResult = mainCode2();
+    if (typeof result === 'object') {
+        console.log('Hiba volt a mail kuldes elott, mert : ', mailSendResult.message)  
+    } 
+
+     
+  </script>
+</head>
+<body>
+  
+</body>
+</html>
