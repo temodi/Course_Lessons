@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+
+    const isEmpty = (value) => !value;
+
+    let machine = (slot1, slot2) => {
+
+      if (isEmpty(slot1) && isEmpty(slot2)) throw new Error('Mind a két slotban üres')
+
+      if (isEmpty(slot1)) throw new Error('A slot1 üres');
+      if (isEmpty(slot2)) throw new Error('A slot2 üres');
+      
+      if (slot1 === slot2) throw new Error('A két slot-ban ugyanaz az alapanyag van van');
+
+      return slot1 + slot2;
+    }
+
+    try {
+      let product = machine('a', 'b');
+      console.log('product', product)
+      // machine('','');
+      // machine('a', null)
+
+    } catch(e) {
+      console.log(e)
+    }
+
+
+    /// 
+
+    // 1234a
+    let rest = [1, 2, 3, 4, 'a']
+
+    let strNum = rest.join('') // .replaceAll(',' , '');
+
+    let strNum2 = rest.reduce((prev, actual) => prev + (actual + ''))
+ 
+    if (isNaN(strNum)) {
+      console.log('Nem szam')
+    } else {
+      console.log('Szam lehet', strNum)
+    }
+
+    if (isNaN(strNum2)) {
+      console.log('Nem szam')
+    } else {
+      console.log('Szam lehet', strNum)
+    }
+
+
+  </script>
+</head>
+<body>
+  
+</body>
+</html>

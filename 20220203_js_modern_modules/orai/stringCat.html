@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    
+
+    function stringCat(...rest) {
+      rest.forEach(str => {
+        if (typeof str !== 'string') {
+          throw new Error('Valamelyik parameter nem string');
+        }
+      });
+
+      let [separator, ...strs] = rest; // destructuring
+      
+      return strs.join(separator);
+    }
+ 
+    
+    try {
+      console.log(stringCat(':', 'string1', 'alam', 'korte')); // ha meghivtuk, volt vagy van -e hiba
+      console.log(stringCat(1, 'string1', 'alam', 'korte'));
+    } catch(error) {
+      console.log(error);
+    }
+    
+
+  </script>
+</head>
+<body>
+  
+</body>
+</html>

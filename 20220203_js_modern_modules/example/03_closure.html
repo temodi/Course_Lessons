@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    // lexical scoping, vagyis a belső függvény hozzáfér a külső függvény változóihoz 
+    function simpleFunction(param1, param2) {
+      let outerVar = 'lokalis fv valtozo';
+
+      function innerFunction() {
+        // let outerVar = 'belso valtozo lett' // szintaktikailag helyes,de elfedi a closure változót vagyis a globalis fv valtozot
+        console.log(outerVar, param1, param2)
+      }
+
+      function outerWrite() {
+        innerFunction()
+        console.log(outerVar)
+      }
+
+      innerFunction(); // futatjuk a belso függvényt
+      outerWrite();
+    } 
+
+    simpleFunction('param1 ertek', 'param2 ertek')
+
+
+
+    // closure 
+    function simpleClosure(param1, param2) {
+      
+      function innerFunction() {
+        console.log(param1, param2)
+      }
+
+      return innerFunction;
+    }
+
+    simpleClosure('alma', 'korte') // => visszaterese: innerFunction lesz maga
+
+
+  </script>
+</head>
+<body>
+  
+</body>
+</html>

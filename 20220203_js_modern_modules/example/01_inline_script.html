@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    // var vat = 27;
+    function calculetGrossPrice(price) {
+      // .
+      //. 
+      // vat = 0.27; 
+      return price * (vat + 100) / 100;
+    }
+
+  </script>
+</head>
+<body>
+  
+  <script>
+      // kod
+      function orderHandling(item, price, qty) {
+          var showingPrice = calculetGrossPrice(price) * qty;
+          console.log("rendelesed:", item, showingPrice+" huf");
+      }
+      // var vat = 10;
+      // kodok
+      //...
+
+      orderHandling('Szivecskes parna', 100, 1)
+  </script>
+</body>
+</html>

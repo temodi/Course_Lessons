@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    
+    // closure 
+    function simpleClosure(param1, param2) {
+      
+      // param1, param2 private valtozo
+      // innerFunction is private 
+      function innerFunction() {
+        console.log(param1, param2)
+      }
+      // publikusa teszuk, innestol pulikalva van es elerheto publikusan a innerFunction
+      return innerFunction;
+
+      // pl igy is lehet
+      // return function () {
+      //   console.log(param1, param2)
+      // }
+
+    }
+
+    let innerFunc = simpleClosure('alma', 'korte') // => visszaterese: innerFunction lesz maga, mint egy fv kifejezes
+    innerFunc();
+    
+    //
+ 
+
+    function counter() {
+      let count = 0; // private valtozo
+
+      function increment() {
+        count++;
+      }
+
+      function decrement() {
+        count--;
+      }
+
+      function showCounter() {
+        return count;
+      }
+
+      return {
+        increment: increment,
+        decrement: decrement,
+        showCounter: showCounter,
+      }
+    }
+
+
+    let myCounter = counter();
+
+    myCounter.increment();
+    myCounter.increment();
+    myCounter.decrement();
+
+    console.log('count valtozo erteke:', myCounter.showCounter())
+
+    let visitorCounter = counter();
+    visitorCounter.increment();
+    visitorCounter.increment();
+
+    console.log('visitorCounter : count valtozo erteke:', visitorCounter.showCounter())
+
+
+
+  </script>
+</head>
+<body>
+  
+</body>
+</html>
