@@ -62,24 +62,8 @@ tBody.addEventListener("click", function (event) {
   }
   // https://developer.mozilla.org/en-US/docs/Learn/HTML/Howto/Use_data_attributes
   const index = Number(row.dataset.index); // row.getAttribute('data-index')
-  const character = window.swbook[index];
 
-  const modal = openModal();
-  const modalContentArea = modal.querySelector('.js_modal-content');
-
-  // Check if the element exists to make sure we won't get runtime error
-  if (modalContentArea) {
-    modalContentArea.innerHTML = formTemplate.innerHTML;
-
-    const form = modalContentArea.querySelector('#swform');
-
-    // Sets the value of each input field (when editing)
-    Object.keys(character).forEach((key) => {
-      form[key].value = character[key];
-    });
-  }
-
-
+  openEditModal(index)
 });
 
 // Reusable modal closing method
@@ -127,6 +111,52 @@ function openAddNewModal() {
   }
 }
 
+function openEditModal(index) {
+  const modal = openModal();
+  const modalContentArea = modal.querySelector('.js_modal-content');
+
+  const character = window.swbook[index];
+
+  if (!character) {
+    throw new Error('Character does not exists.');
+  }
+
+  // Check if the element exists to make sure we won't get runtime error
+  if (modalContentArea) {
+    modalContentArea.innerHTML = formTemplate.innerHTML;
+
+    const form = modalContentArea.querySelector('#swform');
+
+    // Sets the value of each input field (when editing)
+    Object.keys(character).forEach((key) => {
+      form[key].value = character[key];
+    });
+
+    // Add form submit event
+    form.addEventListener("submit", (event) => {
+      event.preventDefault();
+
+      const characterEdited = {};
+
+      // Fill characterEdited from values using input.name as key
+      Array.from(form.elements).forEach((input) => {
+        const value = input.value;
+        const name = input.name;
+        if (value !== "") {
+          characterEdited[name] = value;
+        }
+      });
+
+      // Find character in collection
+      // Replace character with new character in collection
+      window.swbook.splice(index, 1, characterEdited);
+      // Replace character with newly rendered row in table
+      replaceRow(index, characterEdited);
+      closeModal();
+    });
+  }
+}
+
 const addNewCharacterButton = document.querySelector("#addNewCharacterButton");
 
 if (addNewCharacterButton) {
@@ -161,6 +191,19 @@ const insertRow = function (character) {
     </tr>
   `;
 };
+
+function replaceRow(index, character) {
+  const rowToReplace = tBody.querySelector(`tr[data-index="${index}"]`);
+  const newRowContent = `
+    <td>${character.name}</td>
+    <td><strong>${character.gender}</strong></td>
+    <td><button class="deleteButton">Delete</button></td>
+  `;
+
+  if (rowToReplace) {
+    rowToReplace.innerHTML = newRowContent;
+  }
+}
 
 let deleteButtons = document.querySelectorAll(".deleteButton");
 let tableRows55 = tBody.querySelectorAll("tr");
