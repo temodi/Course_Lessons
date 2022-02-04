@@ -1,6 +1,9 @@
 console.log(window.swbook);
 // js-t ide
 const tBody = document.querySelector("#tBody");
+const modalCloseElement = document.querySelector(".modalClose");
+const modalDivElement = document.querySelector(".modal-background");
+const formTemplate = document.getElementById('characterFormTemplate');
 
 /**
  * Create the table with document.createElement
@@ -61,16 +64,23 @@ tBody.addEventListener("click", function (event) {
   const index = Number(row.dataset.index); // row.getAttribute('data-index')
   const character = window.swbook[index];
 
-  openModal();
+  const modal = openModal();
+  const modalContentArea = modal.querySelector('.js_modal-content');
 
-  // Sets the value of each input field (when editing)
-  Object.keys(character).forEach((key) => {
-    form[key].value = character[key];
-  });
+  // Check if the element exists to make sure we won't get runtime error
+  if (modalContentArea) {
+    modalContentArea.innerHTML = formTemplate.innerHTML;
+
+    const form = modalContentArea.querySelector('#swform');
+
+    // Sets the value of each input field (when editing)
+    Object.keys(character).forEach((key) => {
+      form[key].value = character[key];
+    });
+  }
+
+
 });
-
-let modalCloseElement = document.querySelector(".modalClose");
-let modalDivElement = document.querySelector(".modal-background");
 
 // Reusable modal closing method
 const closeModal = function () {
@@ -79,59 +89,65 @@ const closeModal = function () {
   modalDivElement.addEventListener("transitionend", () => {
     modalDivElement.classList.remove("closing");
   });
+  clearModalContent(modalDivElement)
 };
 
 modalCloseElement.addEventListener("click", closeModal);
 
-const modalOpen = document.querySelector("#modalOpen");
+function openAddNewModal() {
+  const modal = openModal();
+  const modalContentArea = modal.querySelector('.js_modal-content');
+
+  // Check if the element exists to make sure we won't get runtime error
+  if (modalContentArea) {
+    modalContentArea.innerHTML = formTemplate.innerHTML;
+
+    const form = modalContentArea.querySelector('#swform');
+    // Add form submit event
+    form.addEventListener("submit", (event) => {
+      event.preventDefault();
+
+      const character = {};
+
+      // Fill characterect form form values using input.name as key
+      Array.from(form.elements).forEach((input) => {
+        const value = input.value;
+        const name = input.name;
+        if (value !== "") {
+          character[name] = value;
+        }
+      });
+
+      // Add new character to collection
+      window.swbook.push(character);
+      // Add new character to table
+      insertRow(character);
+      closeModal();
+    });
+  }
+}
+
+const addNewCharacterButton = document.querySelector("#addNewCharacterButton");
+
+if (addNewCharacterButton) {
+  addNewCharacterButton.addEventListener('click', openAddNewModal)
+}
 
 // Reusable modal opening method
 const openModal = function () {
   modalDivElement.classList.add("open");
+  return modalDivElement;
 };
-modalOpen.addEventListener("click", openModal);
 
-const form = document.getElementById("swform");
-form.addEventListener("submit", (event) => {
-  event.preventDefault();
+function clearModalContent(modal) {
+  const modalContentArea = modal.querySelector('.js_modal-content');
 
-  const obj = {};
-
-  // Tombbe alakitas
-  // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/from
-  //
-  // nemtomb {0: ertek0, 1: ertek1, ...}
-  // Array.from(nemtomb), [...nemtom]
-  // Object.keys(nemtomb) [0,1,2,3...]
-  // Object.values(nemtomb) [ertek0, ertek1...]
-  // Object.entries(nemtomb) [[0, ertek0], [1, ertek1]]
-
-  Array.from(form.elements).forEach((input) => {
-    // if (value != "")
-    const value = input.value;
-    const name = input.name;
-    if (value !== "") {
-      obj[name] = value;
-    }
-  });
-
-  window.swbook.push(obj);
-
-  //
-  // Ezt helyettesiti a fenti ciklus
-  //
-  // obj.birth_year = form.elements.birth_year.value
-  // obj.eye_color = form.elements.eye_color.value
-  // obj.gender = form.elements.gender.value
-  // obj.hair_color = form.elements.hair_color.value
-  // obj.height = form.elements.height.value
-  // obj.mass = form.elements.mass.value
-  // obj.name = form.elements.name.value
-  // obj.skin_color = form.elements.skin_color.value
-
-  insertRow(obj);
-  closeModal();
-});
+  // Check if the element exists to make sure we won't get runtime error
+  if (modalContentArea) {
+    // Remove everything from the modal content
+    modalContentArea.innerHTML = ""
+  }
+}
 
 const insertRow = function (character) {
   const newName = character.name;
