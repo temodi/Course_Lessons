@@ -63,7 +63,11 @@ tBody.addEventListener("click", function (event) {
   // https://developer.mozilla.org/en-US/docs/Learn/HTML/Howto/Use_data_attributes
   const index = Number(row.dataset.index); // row.getAttribute('data-index')
 
-  openEditModal(index)
+  if (event.target.classList.contains('deleteButton')) {
+    deleteRow(index);
+  } else {
+    openEditModal(index)
+  }
 });
 
 // Reusable modal closing method
@@ -102,10 +106,10 @@ function openAddNewModal() {
         }
       });
 
+      // Add new character to table
+      insertRow(character, window.swbook.length);
       // Add new character to collection
       window.swbook.push(character);
-      // Add new character to table
-      insertRow(character);
       closeModal();
     });
   }
@@ -179,12 +183,12 @@ function clearModalContent(modal) {
   }
 }
 
-const insertRow = function (character) {
+const insertRow = function (character, newIndex) {
   const newName = character.name;
   const newGender = character.gender;
 
   tBody.innerHTML += `
-    <tr>
+    <tr data-index="${newIndex}">
       <td>${newName}</td>
       <td><strong>${newGender}</strong></td>
       <td><button class="deleteButton">Delete</button></td>
@@ -205,20 +209,11 @@ function replaceRow(index, character) {
   }
 }
 
-let deleteButtons = document.querySelectorAll(".deleteButton");
-let tableRows55 = tBody.querySelectorAll("tr");
+function deleteRow(index) {
+  const tableRow = tBody.querySelector(`tr[data-index="${index}"]`);
 
-// Attach event listeners to the delete buttons
-// Problem: Newly inserted delete buttons will not get this listener
-for (let j = 0; j < deleteButtons.length; j++) {
-  deleteButtons[j].addEventListener("click", () => {
-    tableRows55[j].addEventListener("animationend", () => {
-      removeThis();
-    });
-
-    tableRows55[j].classList.add("remove");
-    function removeThis() {
-      tableRows55[j].remove();
+  if (tableRow) {
+    tableRow.addEventListener("animationend", () => tableRow.remove());
+    tableRow.classList.add("remove");
     }
-  });
 }
