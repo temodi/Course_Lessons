@@ -48,6 +48,7 @@ function renderTableAsStringLiteral(database) {
 
 // renderTable(window.swbook);
 renderTableAsStringLiteral(window.swbook);
+window.swbook.forEach((character, index) => character.id = index)
 
 /**
  * Adds a single event listener to the entire tbdoy element.
@@ -62,7 +63,6 @@ tBody.addEventListener("click", function (event) {
   }
   // https://developer.mozilla.org/en-US/docs/Learn/HTML/Howto/Use_data_attributes
   const index = Number(row.dataset.index); // row.getAttribute('data-index')
-
   if (event.target.classList.contains('deleteButton')) {
     deleteRow(index);
   } else {
@@ -95,7 +95,10 @@ function openAddNewModal() {
     form.addEventListener("submit", (event) => {
       event.preventDefault();
 
-      const character = {};
+      const character = {
+        // New id should be larger than the id of the last element's id
+        id: window.swbook[window.swbook.length - 1].id + 1
+      };
 
       // Fill characterect form form values using input.name as key
       Array.from(form.elements).forEach((input) => {
@@ -107,7 +110,7 @@ function openAddNewModal() {
       });
 
       // Add new character to table
-      insertRow(character, window.swbook.length);
+      insertRow(character);
       // Add new character to collection
       window.swbook.push(character);
       closeModal();
@@ -119,7 +122,8 @@ function openEditModal(index) {
   const modal = openModal();
   const modalContentArea = modal.querySelector('.js_modal-content');
 
-  const character = window.swbook[index];
+  const characterIndex = window.swbook.findIndex(character => character.id === index);
+  const character = window.swbook[characterIndex];
 
   if (!character) {
     throw new Error('Character does not exists.');
@@ -140,7 +144,9 @@ function openEditModal(index) {
     form.addEventListener("submit", (event) => {
       event.preventDefault();
 
-      const characterEdited = {};
+      const characterEdited = {
+        id: character.id
+      };
 
       // Fill characterEdited from values using input.name as key
       Array.from(form.elements).forEach((input) => {
@@ -153,9 +159,9 @@ function openEditModal(index) {
 
       // Find character in collection
       // Replace character with new character in collection
-      window.swbook.splice(index, 1, characterEdited);
+      window.swbook.splice(characterIndex, 1, characterEdited);
       // Replace character with newly rendered row in table
-      replaceRow(index, characterEdited);
+      replaceRow(characterEdited);
       closeModal();
     });
   }
@@ -183,12 +189,12 @@ function clearModalContent(modal) {
   }
 }
 
-const insertRow = function (character, newIndex) {
+const insertRow = function (character) {
   const newName = character.name;
   const newGender = character.gender;
 
   tBody.innerHTML += `
-    <tr data-index="${newIndex}">
+    <tr data-index="${character.id}">
       <td>${newName}</td>
       <td><strong>${newGender}</strong></td>
       <td><button class="deleteButton">Delete</button></td>
@@ -196,8 +202,8 @@ const insertRow = function (character, newIndex) {
   `;
 };
 
-function replaceRow(index, character) {
-  const rowToReplace = tBody.querySelector(`tr[data-index="${index}"]`);
+function replaceRow(character) {
+  const rowToReplace = tBody.querySelector(`tr[data-index="${character.id}"]`);
   const newRowContent = `
     <td>${character.name}</td>
     <td><strong>${character.gender}</strong></td>
@@ -213,7 +219,11 @@ function deleteRow(index) {
   const tableRow = tBody.querySelector(`tr[data-index="${index}"]`);
 
   if (tableRow) {
+    // Remove from table
     tableRow.addEventListener("animationend", () => tableRow.remove());
     tableRow.classList.add("remove");
-    }
+    // Remove from collection
+    const characterIndex = window.swbook.findIndex(character => character.id === index);
+    window.swbook.splice(characterIndex, 1);
+  }
 }
