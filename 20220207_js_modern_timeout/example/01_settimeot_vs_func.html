@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    // Egyszeri időzítés.
+    // 
+    // let timerId = setTimeout(func, [delay], [arg1], [arg2], ...)
+    // func - callback fv
+    // delay - millisecundom - 1 masodperc = 1000 ms
+    // arg1, arg2 - parameter a callback fv szamara
+    // 
+    // fv visszaterese: idozito id-t 
+
+    function write() {
+      console.log('hello setTimeout');
+    }
+
+    function writesynccode() {
+      console.log('hello setTimeout');
+    }
+
+    // non-blocking
+    setTimeout(function () {
+        console.log('letelt az ido')
+    }, 3*1000);
+
+/*    function blockingfv() {
+      for(let i = 0; i < 3000000000; i++) {
+      }
+      console.log('for lefutott');
+    
+       blockingfv();
+    } */
+
+    let timerId = setTimeout(function () {
+        console.log('60*1000 setTimeout lefutott')
+    }, 60*1000);
+
+
+    // tudom torolni a timeout-ot, ha megse kell valami miatt
+    clearTimeout(timerId)  // param: a setTimeout visszateresi ertek
+
+    write();
+    writesynccode();
+    
+ 
+
+  </script>
+</head>
+<body>
+  
+</body>
+</html>

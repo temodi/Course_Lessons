@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    // nested timeout mint a timeout intervallonkent
+
+   /*  let timeoutId = setTimeout(function write() {
+        console.log(`timeoutId: ${timeoutId}`);
+        
+        timeoutId = setTimeout(write, 2*1000)
+    }, 2*1000); */
+
+    let count = 0;
+    let timeoutId = setTimeout(function write() {
+        console.log(`timeoutId: ${timeoutId} count: ${count}`);
+        count++;
+        if (count < 5) {
+          timeoutId = setTimeout(write, 2*1000)
+        }
+    }, 2*1000);
+
+  </script>
+</head>
+<body>
+  
+</body>
+</html>
