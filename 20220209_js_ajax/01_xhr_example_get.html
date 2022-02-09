@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    
+    function ajaxRequest() {
+      if (window.XMLHttpRequest) {
+        const method = 'GET';
+        const url = 'https://eloquent-leakey-dcde05.netlify.app/xml_pelda_01.xml';
+        const ajaxEnable = true;
+
+        // AJAX hivoszhoz kell peldanyositani XMLHttpRequest objektumot
+        const xhrRequest = new XMLHttpRequest();
+
+        
+        // xhrRequest.open(method, url, asyncron) - letrehozzuk a XHR de nem kuldi el meg a servernek
+        // method - milyen metodus: GET, POST, PUT, DELETE
+        // url - server eroforras vagyis a serveren milyen filet hivjon meg vagy le
+        // asyncron = true, ha async, false ha sync modba mukodjon
+
+        // xhrRequest.open('GET', 'https://eloquent-leakey-dcde05.netlify.app/xml_pelda_01.xml', true);
+        xhrRequest.open(method, url, ajaxEnable);
+        
+        // esemeny kezelo (onload), ami akkor jon letre vagy valtodik ki, ha sikerult a serverrol teltoltnie a tartalmat
+        // pl: xhrRequest.addEventListner('load', sajatEventHandler);
+        xhrRequest.onload = function () {
+
+            console.log('xhrRequest.readyState', xhrRequest.readyState)
+      
+            console.log('xhrRequest status:', xhrRequest.status)
+
+            // maga az adat az a responseText propertyben, mint szoveges adat erheto el (string)
+            console.log('responseText', xhrRequest.responseText);
+            // vagy responseXML propertyben ,mint XML dokumentum (ez parsoval van, felvan dolgozva)
+            console.log('responseXML', xhrRequest.responseXML);
+            // csak egy pl arra hogy tudom hasznalni a DOM metodusokat
+            console.log(xhrRequest.responseXML?.querySelector('cimke-child').textContent);
+
+            // html-be varozsoljuk
+            const divElem = document.querySelector('#content');
+            divElem.innerText = xhrRequest.responseXML?.querySelector('cimke-child').textContent;
+        }
+
+        // hivas folymatanak a statuszi váltják ki ezt az eseményt.
+        xhrRequest.onreadystatechange = function() {
+            /*
+              forras: https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/readyState
+              0	= UNSENT	Client has been created. open() not called yet.
+              1	= OPENED	open() has been called.
+              2	= HEADERS_RECEIVED	send() has been called, and headers and status are available.
+              3	= LOADING	Downloading; responseText holds partial data.
+              4	= DONE	The operation is complete.
+            */
+          if (xhrRequest.readyState === XMLHttpRequest.LOADING) {
+            console.log('state content loading...')
+          }
+          if (xhrRequest.readyState === XMLHttpRequest.DONE) {
+            console.log('state content loaded')
+          }
+        }
+        
+
+        // Itt jelezzuk a XHR-nek, hogy küldje el a kérést a servernek.
+        xhrRequest.send()
+      }
+    }
+
+  </script>
+</head>
+<body>
+  <button>Hivd meg a servert</button>
+  <h2>XML cimke child tartalma:</h2>
+  <div id="content"></div>
+  <script>
+    const btn = document.querySelector('button');
+    btn.addEventListener('click', ajaxRequest)
+  </script>
+</body>
+</html>

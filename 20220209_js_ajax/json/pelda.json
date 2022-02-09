@@ -1,0 +1,14 @@
+[
+ {
+  "nev": "ertek",
+  "email": "emailcim"
+ },
+ {
+  "nev": "ertek",
+  "email": "emailcim"
+ },
+ {
+   "database": "database_nev",
+   "server_url": "url"
+ }
+]

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<news>
+  <article>
+    <title>Cim 1</title>
+    <content>Lorem ipsum</content>
+  </article>
+  <article>
+    <title>Cim 2</title>
+    <content>Lorem ipsum...</content>
+  </article>
+</news>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    
+    // adat kuldes a servernek
+    // GET eseten queryString url: https://6179a8bcaa7f340017404bde.mockapi.io/api/v1/users?nev=ertek&nev2=ertek 
+    // queryString: ?nev=ertek&nev2=ertek 
+    // POST metodussal kuldunk adatot
+    function ajaxRequest() {
+      if (window.XMLHttpRequest) {
+        const method = 'POST';
+        const url = 'https://6179a8bcaa7f340017404bde.mockapi.io/api/v1/users';
+        const ajaxEnable = true;
+
+        const xhrRequest = new XMLHttpRequest();
+
+        xhrRequest.open(method, url, ajaxEnable)
+        xhrRequest.onload = function () {
+
+            console.log('xhrRequest.readyState', xhrRequest.readyState)
+         
+            console.log('xhrRequest status:', xhrRequest.status)
+
+            console.log(xhrRequest.responseText); // plain/text sima szoveges adat
+            // string-et mivel JSON alapu vissza alakithatjuk JSON-na
+
+            let jsonObj = JSON.parse(xhrRequest.responseText); 
+            console.log('jsonObj', jsonObj);
+            
+        }
+
+        xhrRequest.onreadystatechange = function() {
+             /*
+            forras: https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/readyState
+            0	UNSENT	Client has been created. open() not called yet.
+            1	OPENED	open() has been called.
+            2	HEADERS_RECEIVED	send() has been called, and headers and status are available.
+            3	LOADING	Downloading; responseText holds partial data.
+            4	DONE	The operation is complete.
+            */
+
+          if (xhrRequest.readyState === XMLHttpRequest.LOADING) {
+            console.log('state content loading...')
+          }
+          if (xhrRequest.readyState === XMLHttpRequest.DONE) {
+            console.log('state content loaded')
+          }
+        }
+
+        // POST data - application/x-www-form-urlencoded'
+        // a tartalom vagy adat az milyen tipusu, amit kuldok a servernek
+        // xhrRequest.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded'); // default ertek, nem kotelezo beallitani
+        // maga az adat send() metodus parametereben van nev ertek parok & jellel elvalasztva
+        // xhrRequest.send("name=teszt&email=teszt%20email");
+
+        // POST data - JSON
+        xhrRequest.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+        // maga az adat az string ami serializalt JSON adat
+        // send() - stringet kell kuldeni
+        xhrRequest.send(JSON.stringify({ name: "teszt", email: "teszt email"}));
+
+        // JSON.stringify - JSON objektumot stringge alakit
+        // JSON.parse - stringet JSON objektumma, ha a string, az elozoleg atalakitott modon van.
+      }
+    }
+
+  </script>
+</head>
+<body>
+  <form method="post" action="http://backendserver/akarmi">
+    
+  </form>
+  <button>POST adat elküldés</button>
+  <script>
+    const btn = document.querySelector('button');
+    btn.addEventListener('click', ajaxRequest)
+  </script>
+</body>
+</html>
