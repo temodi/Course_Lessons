@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    
+    function createArticle(title, content) {
+      const divElem = document.querySelector('#content');
+
+      const articleElem = document.createElement('article');
+      divElem.append(articleElem);
+      
+      const titleElem = document.createElement('h2');
+      titleElem.innerText = title;
+      const contentElem = document.createElement('p');
+      contentElem.innerText = content;
+      
+      articleElem.append(titleElem);
+      articleElem.append(contentElem)
+    }
+
+    function ajaxRequest() {
+      if (window.XMLHttpRequest) {
+        const method = 'GET';
+        const url = 'https://eloquent-leakey-dcde05.netlify.app/xml_pelda_02.xml';
+        const ajaxEnable = true;
+ 
+        const xhrRequest = new XMLHttpRequest();
+ 
+        xhrRequest.open(method, url, ajaxEnable);        
+        xhrRequest.onload = function () {
+
+            const articles = xhrRequest.responseXML?.querySelectorAll('article'); // NodeList
+            console.log('articles', articles)
+            articles.forEach((article) => { // article Node
+              const title = article.querySelector('title').textContent;
+              const content = article.querySelector('content').textContent;
+              createArticle(title, content)
+
+            })
+
+        }
+        xhrRequest.send()
+      }
+    }
+
+  </script>
+</head>
+<body>
+  <button>Hivd meg a servert</button>
+  <h1>Hirek a nagyvilagbol</h1>
+  <div id="content"></div>
+  <script>
+    const btn = document.querySelector('button');
+    btn.addEventListener('click', ajaxRequest)
+  </script>
+</body>
+</html>
