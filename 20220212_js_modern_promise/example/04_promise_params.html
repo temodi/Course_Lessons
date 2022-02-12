@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+/* 
+    // 1. nincs eredmeny, de teljesult a promise (fulfilled)
+    let promise1 = new Promise((resolve, reject) => {
+       resolve();  // parameter nelkul van
+    });
+
+    // akkor a hivaslancban undefined ertek jelenik meg
+    promise1
+      .then((value) => console.log(value))  // undefined a value
+      .then((value) => console.log(value))  // undefined
+  */
+
+    // 2. van eredmeny / teljesult (fulfilled)
+    let promise2 = new Promise((resolve, reject) => {
+       resolve("van ertek");
+    });
+
+    // 3/1
+   /*  promise2
+      .then((value) => console.log('Promise2 3/1 call 1', value))   // "van ertek"
+      .then((value) => console.log('Promise2 3/1 call 2', value))   // undefined
+ */
+
+    // 3/2 
+/*     promise2
+      .then((value) => { console.log('Promise2 3/2 call 1', value); return 'uj ertek' })    // "van ertek"
+      .then((value) => console.log('Promise2 3/2 call 2', value))     // "uj ertek"
+ */
+     
+    // 3/3 
+/*     promise2
+      .then((value) => { console.log('Promise2 3/3 call 1', value); return new Promise((resolve, reject) => resolve('teljesult promise')) })
+      .then((value) => console.log('Promise2 3/3 call 2', value))   // value => (az elozo then-bol) Promise teljesult ertek
+ */
+    // ---------------------------
+
+    // 3. promise (teljesult), promisebol promise
+/*     let promise3 = new Promise((resolve, reject) => {
+       let fulfilledPromise = new Promise((res, rej) => res('teljesult azonnal'));
+       resolve(fulfilledPromise); // promise3 teljesul a fullfilledPromise-al
+    });
+
+    promise3.then((value) => console.log('Promise3: ', value))    // value => fulfilledPromise teljesules 
+     */
+
+    // ---------------------------
+
+    // 4. promise (függő), akkor a teljesült promise eredmennyel tér vissza
+  /*   let innerPromise = new Promise((innerResolve, innerReject) => {
+          setTimeout(() => innerResolve("Belso promise amit visszad"), 1000);
+    })
+
+    let promise4 = new Promise((resolve, reject) => {
+       resolve(innerPromise);
+    });
+
+    promise4.then((value) => console.log('Promise4: ', value)) */
+     
+
+    // ---------------------------
+    // 5. hiba történik (rejected)
+
+  /*   let promise5 = new Promise((resolve, reject) => reject("hibas volt"))
+
+    promise5
+    .then((value) => console.log('Promise5: ', value))          // ez nem fut futni, mivel reject van
+    .catch((reason) => console.log('Promise5 catch:', reason))  // ez fut "hibas volt"
+ */
+
+    // ---------------------------
+    // 6. promisessal tér vissza, de abban hiba történik
+    
+ /*    let hibasPromise = new Promise((resolve, reject) => {
+          setTimeout(() => reject("Belso promise hiba"), 1000);
+    })
+
+    let promise6 = new Promise((resolve, reject) => {
+       resolve(hibasPromise);     // mivel a resolve-ed parameter rejectel, ez az eredi promise is rejectelni fog
+    });
+    
+    promise6
+    .then((value) => console.log('Promise 6:', value))            // nem fut le
+    .catch((reason) => console.log('Promise 6 catch: ', reason)); // ez fut (hibasPromise reject-e miatt)
+     */
+
+
+    // ---------------------------
+    // 7. Exception a promise-ban
+/*     let promise7 = new Promise((resolve, reject) => {
+        throw new Error("Exception error")    // exception -t dobunk, ami reject-etre valtozik a promiseben, igy: reject(new Error("Exception error"))
+    })
+
+    promise7
+    .then((value) => console.log('Promise 7:', value))              // ez nem fut
+    .catch((reason) => console.log('Promise 7 catch: ', reason));     // ez fut a throw miatt
+   
+   */
+
+
+    // ---------------------------
+    // 8. Exception a promise-ban és try-catch
+  /*   let promise8 = new Promise((reason, reject) => {
+        throw new Error("Exception error")      // => atalakul reject(new Error("Exception error") ) automatikusan
+    })
+
+    // felesleges try-catch-et hasznalni a Promise-ra, helyette .catch kell
+    try {
+      promise8
+        .then((value) => console.log('Promise 8:', value))
+        .catch(reason => console.log("HIBA:", reason))
+    } catch (error) {
+      console.log('try-catch error', error)   // nem fog lefutni, azert nem, mert throw a Promise-n belul reject-t lesz.
+    } */
+   
+
+  </script>
+</head>
+<body>
+  
+</body>
+</html>

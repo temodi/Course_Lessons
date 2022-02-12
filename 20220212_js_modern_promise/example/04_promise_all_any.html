@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    // egyszerre tobb promise-t akarunk futatni (parhuzmaosan tobb async hivas)
+    // egyszerre kapjuk meg az eredemenyt
+
+    let promise1 = new Promise((resolve, reject) => resolve('1'));
+    let promise2 = new Promise((resolve, reject) => resolve('2'));
+
+    Promise
+      .all([promise1,promise2])     // bevarja az osszes promise rejecte vagy resolve teljesulest
+      .then(value => console.log('value:', value))  // value tomb; [1, 2]
+      .catch(reason => console.log(reason))  // ha valamelyik promise reject-el
+    
+    // tobb promise van, mindegy melyik de valamelyik lefusson teljesuljon
+
+    Promise
+      .any([promise1, promise2])  // tomben felsorolva
+      .then(value => console.log('value:', value))  //  value 1 lesz, mivel a promise1 teljesult elsonek 
+      .catch(reason => console.log(reason))  // ha valamelyik promise reject-el
+    
+
+  </script>
+</head>
+<body>
+  
+</body>
+</html>

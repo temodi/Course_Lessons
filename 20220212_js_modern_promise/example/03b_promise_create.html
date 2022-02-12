@@ -128,6 +128,27 @@
  
     }, 1000));
 
+    // ------------------
+    function requestGET(url) {
+      return new Promise((resolve, reject) => {
+        // ide kerul a server hivas (url)
+        // itt megjon az eredmeny
+        // ha van eredmeny
+        resolve("serverrol jovo adat");
+      })
+    }
+
+    let requestPromise = requestGET("http://www.google.com");
+
+    requestPromise
+     .then(value => console.log('server ertek:', value))
+     .catch(reason => console.log('hiba van', reason))
+
+    requestPromise
+     .then(value => console.log('server ertek:', value))
+     .catch(reason => console.log('hiba van', reason))
+
+     
   </script>
 </head>
 <body>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    
+    // GET request (html data)
+    fetch('http://localhost:5501/PMA_FE_2021_2022/EDUMAT/lessons/004_js_modern/008_js_modern_promise/example/testdata/test.html')
+      .then(response => response.text())
+      .then(text => console.log(text))
+      .catch(reason => console.log(reason));
+
+    // GET request (json data)
+    fetch('http://localhost:5501/PMA_FE_2021_2022/EDUMAT/lessons/004_js_modern/008_js_modern_promise/example/testdata/test.json')
+      .then(response => response.json())      // mint a JSON.parse() stringből csinál JSON object
+      .then(json => console.log(json))
+      .catch(reason => console.log(reason));
+      
+    // GET request (xml data)
+    fetch('http://localhost:5501/PMA_FE_2021_2022/EDUMAT/lessons/004_js_modern/008_js_modern_promise/example/testdata/test.xml')
+      .then(response => response.text())
+      .then(str => new window.DOMParser().parseFromString(str, "text/xml"))
+      .then(data => console.log(data))
+      .catch(reason => console.log(reason));
+
+    // POST request (json) 
+    fetch('http://localhost:3000/users', {
+      method: "POST",   /* PUT, PATCH */
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({name: "Fetch Ke", email: "fetchke@mail.com"})
+    })
+      .then(response => response.json())
+      .then(json => console.log(json))
+      .catch(reason => console.log(reason));
+
+</script>
+</head>
+<body>
+  
+</body>
+</html>

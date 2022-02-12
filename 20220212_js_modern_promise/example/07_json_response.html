@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+
+      function createDivFromJson(json) {
+          console.log(json)
+          return json
+      }
+      // GET request (json data)
+      fetch('http://localhost:5501/PMA_FE_2021_2022/EDUMAT/lessons/004_js_modern/008_js_modern_promise/example/testdata/test.json')
+      .then(response => response.json())      // mint a JSON.parse() stringből csinál JSON object
+      .then(json => createDivFromJson(json))
+      .then(json => console.log('3. then:', json))
+      .catch(reason => console.log(reason));
+      
+  </script>
+</head>
+<body>
+  
+</body>
+</html>

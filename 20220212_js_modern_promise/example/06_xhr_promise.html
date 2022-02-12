@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    function makeRequest (method, url) {
+      return new Promise(function (resolve, reject) {
+        var xhr = new XMLHttpRequest();
+        xhr.open(method, url);
+        xhr.onload = function () {
+          if (xhr.status >= 200 && xhr.status < 300) {
+            resolve(xhr.response);
+          } else {
+            reject({
+              status: xhr.status,
+              statusText: xhr.statusText
+            });
+          }
+        };
+        xhr.onerror = function () {
+          reject({
+            status: xhr.status,
+            statusText: xhr.statusText
+          });
+        };
+        xhr.send();
+      });
+    }
+ 
+    makeRequest('GET', 'http://example.com')
+    .then(function (datums) {
+      console.log(datums);
+    })
+    .catch(function (err) {
+      console.error('Augh, there was an error!', err.statusText);
+    });
+  </script>
+</head>
+<body>
+  
+</body>
+</html>

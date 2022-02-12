@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+
+    function add(array) {
+      console.log('array', array)
+      console.log(array[0] + array[1]);
+    }
+ 
+    function add2([a, b]) {
+      console.log(a, b)
+      console.log('add2', a + b)
+    }
+
+    let promise = new Promise(function (resolve, reject) {
+        setTimeout(function () {
+            // itt fut, itt fejezodik be az async hivas
+            // itt van eredmenyuk
+            let result = [2, 3] 
+            resolve(result);
+        }, 3000);
+    })
+
+    promise
+    .then((value) => add(value))
+
+    promise
+    .then((value) => add2(value))
+
+  </script>
+</head>
+<body>
+  
+</body>
+</html>
