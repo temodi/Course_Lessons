@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    
+    // promise / pending
+    // mindig pending lesz, sose teljesul, mert nem hivtam meg a callback fv-em blokkjaban vagy a resolve v. a reject fv-t
+    let promise1 = new Promise((resolve, reject) => {  }); // alap Promise letrehozasa
+    console.log('Promise1: ', promise1);
+
+    // sync ertek sikeres / fulfilled
+    // azonolal teljesulo promise 
+    let promise2 = new Promise((resolve, reject) => { resolve([1,2]) });  
+    console.log('Promise2:', promise2);
+
+    promise2.then((value) => {
+      console.log('Promise2 eredmenye:', value)
+    })
+
+    // then 2 param
+    // azonnal elutasitott promise
+    // resolve(value) -> then(function (value) {})
+    // reject(reason) -> then(function (value) {}, function(reason) {}); // nem teljesult
+    let promise3 = new Promise((resolve, reject) => { reject("Ez a hiba szovege") });  
+    promise3.then(
+      function (value) {
+        console.log('Promise3 eredmenye:', value)
+      }, 
+      function (reason) { 
+        console.log('Hiba van az ajax hivasban', reason)
+      }
+    )
+
+    // then / catch
+    promise3
+      .then(
+        function (value) {
+          console.log('Promise2 eredmenye:', value)
+        }
+      )
+      .catch(
+        function (reason) {
+          console.log('Hiba van az ajax hivasban (catch metodus)', reason)
+        }
+      )
+
+    // async sikeres / fulfilled
+    // setTimeout simulalja az async hivas
+    let promise4 = new Promise((resolve, reject) => setTimeout(() => { resolve('megszuletett az async eredmeny')  }, 1000));
+    /*
+    let promise4 = new Promise(
+      function (resolve, reject) {
+        setTimeout(function () {
+          resolve('megszuletett az async eredmeny')
+        }, 10000)
+      }
+    ) */
+    promise4
+      .then((value) => console.log('Async resolve value:', value))  // value == 'megszuletett az async eredmeny'
+
+    // async hiba / rejected
+    // setTimeout simulalja az async hivas
+    let promise5 = new Promise((resolve, reject) => setTimeout(() => { reject('megszuletett az async eredmeny')  }, 2000));
+
+    promise5
+    .then((value) => console.log(value)) // ebben az esetben nem fog lefutni, mivel a Promise rejected
+    .catch((reasone) => console.log('Catch / Hiba van:', reasone));
+
+    // pelda sajt fv hivasra
+
+    function addAvatar(divElem) {
+      // divElem.crateImage()
+      console.log(divElem)
+    }
+
+    function insertUserToDIV(user, email) {
+      let divElem = document.querySelector('#user');
+      divElem.innerText = `${user} : ${email}`;
+      // addAvatar(divElem, user, email)
+      return divElem;
+    }
+
+    let promise6 = new Promise((resolve, reject) => setTimeout(() => { 
+      // megjott az adat a serverol,csak ez a resolve fut le
+      resolve({
+        "user": "Kiss Jolan",
+        "email": "test@email.com"
+      })
+      // elso resolve v. reject-ig fut v. lesz ervnyes
+      reject('HIBA')
+      resolve('ez se fog lefutni')
+    }, 1000));
+
+    promise6
+      .then((value) => insertUserToDIV(value.user, value.email))
+      .then(divElem => addAvatar(divElem))
+      .catch((reason) => console.log('reason:', reason));
+
+    // pelda promise atadas parameterben
+    // 
+    function logger(promiseInstance) {
+      // logger(promise6) hivas eseten
+      // promiseInstance == promise6
+      promiseInstance
+        .then(value => console.log('logger: ', value))
+    }
+    // promise6.then(value => console.log(value))
+    logger(promise6);
+
+
+    let promise7 = new Promise((resolve, reject) => setTimeout(() => { 
+      // megjott az adat a serverol,csak ez a resolve fut le
+      const responseStatus = 'OK'; 
+      // const responseStatus = 'ERROR';
+
+      if (responseStatus === 'OK') {
+        resolve({
+          "user": "Kiss Jolan",
+          "email": "test@email.com"
+        })
+      } else {
+        reject('Response hiba volt')
+      }
+ 
+    }, 1000));
+
+  </script>
+</head>
+<body>
+  <div id="user">
+
+  </div>
+</body>
+</html>

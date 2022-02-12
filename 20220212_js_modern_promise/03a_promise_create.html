@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+
+    // async sikeres / fulfilled
+    // Promise osztaly amit peldanyositani kell
+    // kotelezeo param: 1 db callback fv, aminek 2 db parametere lehet, de min 1
+    // resolve - parameterben ez egy callback fv, amit akkor hivunk meg, amikor megvan az async hivas eredmenye, es ezzel eredmennyel
+    // reject - callback fv, akkor hivjuk meg, amikor hiba történt, megadhatunk egy hiba leirast vagy amit kesőbb feltudunk dolgozni hibat 
+    let promise = new Promise(function (resolve, reject) {
+      setTimeout(function () {
+          resolve('sikeresen lefuttot az async'); // ertek: 'sikeresen lefuttot az async'
+          // vagy
+          // reject('nem sikerutl pl letolteni az adatot a serverrol')  <- ertek: 'nem sikerutl pl letolteni az adatot a serverrol'
+      }, 3000)
+    })
+
+    console.log(promise)
+
+    // Promise altal kozvetitet erdemeny feldolgozasa
+    promise
+    .then(function (value) {
+      console.log('result1x:', value)
+      console.log(promise)
+      return value;
+    })
+    .then(value => { console.log('result2x:',value); return value })
+    .then(value => console.log('result3x:',value))
+
+    console.log('szekvencialis kod lefutott')
+
+
+  </script>
+</head>
+<body>
+  
+</body>
+</html>

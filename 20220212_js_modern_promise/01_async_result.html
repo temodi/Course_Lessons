@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+
+
+    // ez a kódunk fő sordása, vagyis ami szinkron fut illetve szekvenciálisan egymás után
+    function add(a,b) {
+      return a + b;
+    }
+
+    let sum1 = add(1,4);
+    console.log('sum1:', sum1);
+
+    let sum2;
+    setTimeout(
+                                                                                      function () {
+                                                                                        sum2 = add(4,3);
+                                                                                        console.log('async sum2', sum2)
+                                                                                        // return sum2; // nem mukodik
+                                                                                      }
+      , 1000)
+  
+    console.log('sum2', sum2);
+
+    console.log('veget ert a kodunk, szekvencialis program vege')
+  </script>
+</head>
+<body>
+  
+</body>
+</html>
