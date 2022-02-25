@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #questionShow {
+      display: none;
+    }
+    .answer-list {
+      display: flex;
+      flex-direction: column;
+    }
+
+    main {
+      display: flex;
+      max-width: 1000px;
+      margin: auto;
+      border: 1px solid crimson;
+      border-radius: 10px;
+    }
+
+    #questionAsk {
+      width: 50%;
+      padding: 50px;
+    }
+
+    #questionShow {
+      width: 50%;
+      padding: 30px 50px;
+      text-align: center;
+    }
+
+    h2 {
+      font-size: 40px;
+      margin-top: 0px;
+    }
+    
+
+    #questionAsk form {
+      display: flex;
+      flex-direction: column;
+    }
+    label {
+      padding: 5px 0px 5px 0px;
+    }
+    button {
+      width: 200px;
+      align-self: center;
+      font-size: 16px;
+      padding: 5px;
+    }
+    input {
+      padding: 5px;
+    }
+    #questionShow a {
+      margin: 10px 0px 10px 0px;
+      font-weight: 500;
+      font-size: 20px;
+      text-align: left;
+      cursor: pointer;
+    }
+    .answer-list {
+      margin: 0px 20%;
+    }
+  </style>
+  <script>
+ 
+    window.addEventListener('load', () => {
+ 
+      const questionForm = document.forms[0];
+      const questionShow = document.querySelector('#questionShow');
+
+      let correctAnswer = 0;
+      let disableClick = false;
+
+      loadQuestion();
+
+      function loadQuestion() {
+        fetch('https://6179a8bcaa7f340017404bde.mockapi.io/api/v1/question/1', {
+          method: "GET",
+          headers: {
+            'Content-Type': 'application/json'
+          },
+        })
+        .then(response => response.json())
+        .then(json => prepareQuestion(json))
+      }
+
+      function selectAnswer(event) {
+        if (disableClick) {
+          return;
+        }
+
+        disableClick = true;
+        if (event.target.id[event.target.id.length - 1] !== correctAnswer) {
+            event.target.style.color = 'red';
+        }
+        let answerElem = document.querySelector('#selectedAnswer'+correctAnswer)
+        answerElem.style.color = 'green';
+        answerElem.style.fontWeight = 'bold';
+      }
+
+      function prepareQuestion(json) {
+        if (json.question === '') {
+          questionShow.style.display = 'none';
+        }
+        
+        correctAnswer = json.correct;
+    
+        questionShow.querySelector('h2').innerText = json.question;
+        let divContainer = questionShow.querySelector('.answer-list')
+ 
+        if (!divContainer) {
+          divContainer = document.createElement('div');
+          divContainer.classList.add('answer-list');
+        } else {
+          divContainer.innerHTML = '';
+        }
+
+        let a1 = document.createElement('a');
+        a1.innerText = json.answer1;
+        a1.addEventListener('click', selectAnswer);
+        a1.id = 'selectedAnswer1';
+        divContainer.append(a1);
+
+        let a2 = document.createElement('a');
+        a2.innerText = json.answer2;
+        a2.addEventListener('click', selectAnswer);
+        a2.id = 'selectedAnswer2';
+        divContainer.append(a2);
+
+        let a3 = document.createElement('a');
+        a3.innerText = json.answer3;
+        a3.addEventListener('click', selectAnswer);
+        a3.id = 'selectedAnswer3';
+        divContainer.append(a3);
+
+        questionShow.append(divContainer)
+        questionShow.style.display = 'block';
+      }
+
+
+      questionForm.addEventListener('submit', (formEvent) => {
+        formEvent.preventDefault();
+
+        const jsonData = {
+          question: questionForm.querySelector('#question').value,
+          answer1: questionForm.querySelector('#answer1').value,
+          answer2: questionForm.querySelector('#answer2').value,
+          answer3: questionForm.querySelector('#answer3').value,
+          correct: questionForm.querySelector('#correct').value,
+        }
+
+       fetch('https://6179a8bcaa7f340017404bde.mockapi.io/api/v1/question/1', {
+          method: "PUT",
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(jsonData)
+        }) 
+        .then(response => loadQuestion())
+ 
+
+      })
+
+    })
+  </script>
+</head>
+<body>
+  <main>
+    <section id="questionAsk">
+      <form method="post" autocomplete="off">
+        <label>Kérdés:</label>
+        <input type="input" name="question" id="question">
+        <label>Válasz 1:</label>
+        <input type="input" name="answer1" id="answer1">
+        <label>Válasz 2:</label>
+        <input type="input" name="answer2" id="answer2">
+        <label>Válasz 3: </label>
+        <input type="input" name="answer3" id="answer3">
+        <label>
+          Jó válasz száma:
+          <input type="input" name="correct" id="correct">
+        </label>
+        <button type="submit" name="save">Mentés</button>
+      </form>
+    </section>
+    <section id="questionShow">
+      <h2></h2>
+    </section>
+  </main>
+</body>
+</html>
