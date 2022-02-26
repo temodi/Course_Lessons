@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+  <!-- 1. Babel libary betoltes -->
+  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+  <!-- 2. type="text/babel" attributtom hogy ebben a script blockban babel speceifikus dolgokat fogunk hasznalni pl JSX -->
+  <script type="text/babel">
+
+    /* React.Component combinalva JSX kódal */ 
+    class HelloComponent extends React.Component {
+      render() {
+        return <h1>Hello Component</h1>;
+      }
+    }
+
+  </script>
+</head>
+<body>
+  <div id="reactContainer"></div>
+  
+  <script type="text/babel">
+    const reactContainer = document.querySelector('#reactContainer');
+    
+    // JSX-ben ha nincs child 
+    // JSX: <HelloComponent />  vs JS: React.createElement(HelloComponent); 
+    
+    // JSX gyerek elemmel
+    // <HelloComponent><span>Hehe</span></HelloComponent>
+
+    // HelloComponent <- JS class / osztaly a React.Component-ből származtatva
+    // <HelloComponent /> <- JSX React.Element önlezáró elem
+    // <HelloComponent><span>Hehe</span></HelloComponent>  <- JSX React.Element aminek van egz span JSX React.element childrenje
+
+    ReactDOM.render(<HelloComponent />,reactContainer);
+
+    // JSX div: üres children
+    /*    <div></div>
+        // JSX img children nelkul, önlezáró
+        <img />
+    */
+  </script>
+  <!-- HTML div -->
+  <div>
+
+  </div>
+</body>
+</html>

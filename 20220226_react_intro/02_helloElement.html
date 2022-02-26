@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+  <script>
+
+    if (typeof React !== 'undefined' && React) {
+      console.log(`React sikeresen betoltve: React ${React.version}`);
+    } else {
+      console.log('Nincs React!');
+    }
+ 
+  </script>
+</head>
+<body>
+  <div id="reactContainer"></div>
+  <script>
+    const reactContainer = document.querySelector('#reactContainer');
+    /* 
+     React.createElement parameters:
+
+     tagName       - stringben html tag v. majd React.component nev
+     props|options - ez tartalamazza attributumokat (objektum)
+     children      - a string | React.component | React.Element -nak a gyermek eleme
+     
+     visszaterese:  React.Element 
+    */
+ 
+    const helloReactElement = React.createElement('h2', {
+      style: {
+        color: 'red'
+      },
+      className: 'red-class',
+    }, "Hello Element");
+  
+    /*
+     ReactDOM.render 
+
+     1. param: React.Element | React.Component
+     2. param: DOM Element <= ez a html-ben a containerünk
+
+     ReactDOM.render(helloReactElement, reactContainer);
+
+     helloReactElement - React.Element lesz
+     reactContainer - DOM Element
+    */
+   
+    ReactDOM.render(helloReactElement, reactContainer);
+    
+    /* ReactDOM.render(
+      React.createElement('h2', {
+        style: {
+          color: 'red'
+        },
+      }, "Hello Element"
+      ) ,  
+      document.querySelector('#reactContainer')
+      ); */
+
+
+    const helloDivElement = React.createElement('div', {
+      className: "div_class",     
+    }, helloReactElement);
+    
+    ReactDOM.render(helloDivElement, reactContainer); 
+
+
+ /*    const helloProba = React.createElement('div', {
+      className: "div_class",
+    }, 'h2');
+
+    ReactDOM.render(helloProba, reactContainer);
+ */
+  </script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+  <script>
+
+    if (typeof React !== 'undefined' && React) {
+      console.log(`React sikeresen betoltve: React ${React.version}`);
+    } else {
+      console.log('Nincs React!');
+    }
+ 
+  </script>
+</head>
+<body>
+  <div id="reactContainer"></div>
+  <script>
+    const reactContainer = document.querySelector('#reactContainer');
+   
+ 
+    const pElem = React.createElement('p', {
+      style: {
+        color: 'red'
+      },
+      className: 'red-class',
+    }, "Hello Element");
+  
+    const imgElem = React.createElement('img', {
+      src: 'http://placekitten.com/g/200/300',
+    });
+  
+   
+   
+    ReactDOM.render(pElem, reactContainer);
+ 
+    ReactDOM.render(imgElem, reactContainer);
+
+  </script>
+</body>
+</html>

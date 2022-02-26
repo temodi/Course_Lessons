@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+  <script>
+
+    if (typeof React !== 'undefined' && React) {
+      console.log(`React sikeresen betoltve: React ${React.version}`);
+    } else {
+      console.log('Nincs React!');
+    }
+ 
+  </script>
+</head>
+<body>
+  <div id="reactContainer"></div>
+  <script>
+    const reactContainer = document.querySelector('#reactContainer');
+    
+    const reactElemP1 = React.createElement('p', {
+      style: {
+        color: 'red'
+      },
+    }, "Hello LI1 Element");
+
+    const reactElemP2 = React.createElement('p', {
+      style: {
+        color: 'green'
+      },
+    }, "Hello LI2 Element");
+
+ 
+    // Old way
+    const reactDIV = React.createElement('div', {}, reactElemP1, reactElemP2);
+    ReactDOM.render(reactDIV, reactContainer);
+
+    // Uj Fragment
+    const reactFragment = React.createElement(React.Fragment, {}, reactElemP1, reactElemP2);  
+    ReactDOM.render(reactFragment, reactContainer);
+
+
+  </script>
+</body>
+</html>
