@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+</head>
+<body>
+  <div id="app"></div>
+ 
+  <script type="text/babel">
+
+    // value or variable in JSX
+    // Kapcsols zárójelek között JS kód lehet, ami kiértékelődik és az eredemény bekerül a jsx-be
+    const PI = 3.14;
+    let userName = 'Kiss Jolan';
+
+    const valueInJSX = (
+      <div>
+        <table>
+          <tbody>
+            <tr>
+              <td>{ 'ertek1' }</td>
+              <td>{ 2 + 2 }</td>
+            </tr>
+            <tr>
+              <td>{ PI }</td>
+              <td>{ userName }</td>
+            </tr>
+            <tr>
+              <td colSpan="2">{ `${userName} nem szeretei a ${PI}-t` }</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    );
+  
+    ReactDOM.render(valueInJSX, document.querySelector('#app'));
+ 
+
+    // func call jSX
+    function getUserName() {
+      return 'Hello Adam';
+    }
+
+    ReactDOM.render((
+      <h2>{ getUserName() }</h2>
+    ), document.querySelector('#app'));
+ 
+
+    // React Component  props parammal JSX
+    function HighlightText(props) {
+      console.log(props)
+      return <strong>{ props.text }</strong>
+    }
+
+    ReactDOM.render(<HighlightText text="hello props" />,document.querySelector('#app'));
+
+    // React Component nem JSX-ben hivtam meg, hanem React.createElement
+    let highlightElement = React.createElement(HighlightText, {
+        text: "hello props2" 
+    })
+    ReactDOM.render(highlightElement,document.querySelector('#app'));
+ 
+
+    // JSX in JSX
+    const h2ELem = <h2>{ <HighlightText text="hello props from JSX" /> }</h2>
+    ReactDOM.render(h2ELem, document.querySelector('#app'));
+  </script>
+</body>
+</html>

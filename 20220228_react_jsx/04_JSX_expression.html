@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+</head>
+<body>
+  <div id="app"></div>
+ 
+  <script type="text/babel">
+    // JSX olyan mint egy ertek (! React.createElement visszateresi értéke)
+    
+    function echo(jsxParam) {
+      console.log(jsxParam)
+      return jsxParam;
+    }
+
+    // JSX mint const valtozo erteke
+    const constVariable = (
+      <div>
+        <table>
+          <tbody>
+            <tr>
+            <td>DataCell 1</td>
+            <td>DataCell 2</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    );
+    
+    // JSX mint valtozo erteke
+    let letVariable = <p>Hello let</p>
+    
+    // JSX mint függvényhíváskor paraméter
+    const echoReturn = echo(<p>Hello retrun value</p>);
+    
+    ReactDOM.render(echoReturn, document.querySelector('#app'));
+  
+    // Array
+    let jsxArray = [
+      <img src="http://placekitten.com/200/200" id="img1" key="1" />,
+      <img src="http://placekitten.com/200/200" id="img1" key="2" />,
+    ]
+    console.log(jsxArray);
+
+    // itt egy tomb kerul atadasra, aminek az elemei React.Element-ek
+    ReactDOM.render(jsxArray, document.querySelector('#app')); 
+
+    // alternativa
+    let jsxList = (
+      <React.Fragment>
+        <img src="http://placekitten.com/200/200" id="img1" key="1" />
+        <img src="http://placekitten.com/200/200" id="img1" key="2" />
+      </React.Fragment>
+    )
+    ReactDOM.render(jsxList, document.querySelector('#app')); 
+
+    // if condition
+    let lampSwitch = 'off';
+    let jsxLamp;
+
+    if (lampSwitch === 'on') {
+      jsxLamp = <span>Lámpa felkapcsolva</span>;
+    } else {
+      jsxLamp = <span>Lámpa lekapcsolva</span>;
+    }
+
+    ReactDOM.render(jsxLamp, document.querySelector('#app')); 
+
+    // iteration
+    let jsxDivElems = [];
+    for(let i = 0; i < 10; i++) {
+      jsxDivElems.push(<div>{ i }</div>);
+    }
+
+    ReactDOM.render(jsxDivElems, document.querySelector('#app')); 
+  </script>
+</body>
+</html>
