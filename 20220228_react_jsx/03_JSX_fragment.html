@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+  <<script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+</head>
+<body>
+  <div id="app"></div>
+ 
+  <script type="text/babel">
+    
+    const fragmentExample = (
+      <React.Fragment>
+        <img src="http://placekitten.com/200/200" />
+        <img src="http://placekitten.com/200/200" />
+      </React.Fragment>
+    )
+
+    
+    // Fragment Shorthand -> Babel 7.0.0-beta.31 verzio-tol, majd dev toolsban 
+    /* const fragmentExample = (
+      <>
+       <img src="http://placekitten.com/200/200" />
+       <img src="http://placekitten.com/200/200" />
+      </>
+    ) */
+    
+    ReactDOM.render(fragmentExample, document.querySelector('#app'));
+  </script>
+
+  
+</body>
+</html>
