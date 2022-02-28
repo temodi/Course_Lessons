@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+</head>
+<body>
+  <div id="app"></div>
+ 
+  <script type="text/babel">
+
+    // JSX-ben inline style JS objektum kell a {} között és a property nev az camelCase
+    ReactDOM.render(<div style={
+      {
+        color: 'white',
+        backgroundColor: 'red',
+      }
+    }>Hello simple JSX</div>, document.querySelector('#app'));
+  
+    // 2.
+    const style = {
+        color: 'white',
+        backgroundColor: 'green',
+    };
+    ReactDOM.render(<div style={ style }>Hello simple JSX</div>, document.querySelector('#app'));
+
+    // 3/
+
+    function getStyle() {
+      return {
+        color: 'white',
+        backgroundColor: 'blue'
+      }
+    }
+
+    ReactDOM.render(<div style={ getStyle() }>Hello simple JSX</div>, document.querySelector('#app'));
+
+
+  </script>
+</body>
+</html>

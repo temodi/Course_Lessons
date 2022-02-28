@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+</head>
+<body>
+  <div id="app"></div>
+
+  <script>
+    // React.createElement
+
+    function MyTitleComponent() {
+      return React.createElement('h2', {}, 'My title component content');
+    }
+
+    const reactApp = React.createElement(
+        "div",
+        {
+          id: "divId"
+        },
+        React.createElement(MyTitleComponent, { })
+    )
+
+    ReactDOM.render(reactApp, document.querySelector('#app'));
+  </script>
+
+  <script type="text/babel">
+
+    // Function React component
+    function MyTitleComponent() {
+      return <h2>My title JSX component content</h2>;
+    }
+
+    const reactAppJSX = <div id="divId"><MyTitleComponent /></div>;
+
+    ReactDOM.render(reactAppJSX, document.querySelector('#app'));
+
+    
+    // Class React component
+    class MyTitleComponentClass extends React.Component {
+      render() {
+        return <h2>My title JSX component content</h2>;
+      }
+    }
+
+    const reactAppJSX2 = <div id="divId"><MyTitleComponentClass /></div>;
+    ReactDOM.render(reactAppJSX2, document.querySelector('#app'));
+
+  </script>
+</body>
+</html>

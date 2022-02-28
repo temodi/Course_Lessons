@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+</head>
+<body>
+  <div id="app"></div>
+ 
+  <script type="text/babel">
+
+    // simple value JSX
+    let simple = <a href="http://www.google.com/">Ez a children</a>;  // a tag közöti rész
+    let simple2 = <a href="http://www.google.com/">{ "Ez a children" }</a>;  // a tag közöti rész
+    
+    // string literals
+    let simpleSL = <a href="http://www.google.com/">{ `Ez a children` }</a>;  // a tag közöti rész
+
+    // tag children
+    let divChild = (<div>
+      <a href="http://www.google.com/">Ez az A tag childrenje</a>
+    </div>); // maga a elem a children: <a href="http://www.google.com/">Ez a children</a>
+
+
+    // React component children
+    function Container(props) {
+      return <ul>{ props.children }</ul>
+    }
+
+    function Item(props) {
+      return <li>{ props.children }</li>
+    }
+
+    // tobbsoros JSX kód
+    const unorderedList = (
+      <Container>
+        <Item>
+          Item 1
+        </Item>
+        <Item>
+          Item 2
+        </Item>
+      </Container>
+    )
+ 
+    ReactDOM.render(unorderedList, document.querySelector('#app'));
+  
+  </script>
+</body>
+</html>
