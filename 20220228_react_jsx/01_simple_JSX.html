@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+</head>
+<body>
+  <div id="app"></div>
+  <div id="pic"></div>
+
+  <script type="text/babel">
+
+    // a html tag kisbetus
+    ReactDOM.render(<h2>Hello simple JSX</h2>, document.querySelector('#app'));
+  
+    // Componens nev PascalCase
+    function MyComponent() {
+      return "Hello Component";
+    }
+    ReactDOM.render(<MyComponent />, document.querySelector('#app'));
+
+    // Az attributmok camelCase, illetve props-ok eseten is ajanlott lesz
+    ReactDOM.render(<span className="span-red" >Hello simple JSX</span>, document.querySelector('#app'));
+
+    // JSX (XML miatt) az önlezáró tageket úgy írjuk, hogy az utolsó > elé / jel kerül pl: <hr /> <input /> <img /> <br />
+    ReactDOM.render(<br />, document.querySelector('#app'));
+    
+    ReactDOM.render(<hr />, document.querySelector('#app'));
+
+    ReactDOM.render(<img src="https://placekitten.com/200/200" />, document.querySelector('#pic'));
+  </script>
+</body>
+</html>
