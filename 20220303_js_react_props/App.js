@@ -4,12 +4,19 @@ import BasicProps from './components/BasicProps';
 import BooleanProps from './components/BooleanProps';
 import NumericProps from './components/NumericProps';
 import StringProps from './components/StringProps';
+import ObjectProps from './components/ObjectProps';
 
 function App() {
 
   const logikaiVar = true;
   const numericVar = 3123;
   const strVar = "Helloka";
+  const objVar = {
+     id: 12,
+     price: 123,
+     item_name: "Phone",
+
+  }
 
   const generateNumber = () => 42;
 
@@ -18,6 +25,7 @@ function App() {
   return (
     <>
       <BasicProps content="hellok" />
+      
       <BooleanProps logikaiTrue={ true } logikaiFalse={ false } logikaiVar={ logikaiVar } />
 
       <NumericProps number={ 231 } numberVar={ numericVar } numberFuncReturn={ generateNumber() } />
@@ -28,6 +36,15 @@ function App() {
         str3={ strVar }
         str4={ `String literal: ${strVar} `}
         className="bg-red"
+      />
+
+      <ObjectProps 
+        obj={ {
+          name: 'Kiss Anna',
+          age: 18,
+          nickname: 'Annacska',
+          } }
+        objVar={ objVar }
       />
     </>     
   );
