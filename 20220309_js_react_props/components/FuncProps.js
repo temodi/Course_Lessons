@@ -15,9 +15,15 @@ function FuncProps(props) {
       { helloFunctionResult }<br />
       { helloFuncVarResult }<br />
 
+      { props.dateFormat() }
+
       <FuncChildProps
         helloFunction={ props.helloFunction }
       />
+
+      { props.kiirFunc('World') }<br />
+
+      { props.kiirFunc(props.kiirStr) }<br />
   </div>)
 }
 
