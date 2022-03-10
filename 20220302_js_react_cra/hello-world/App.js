@@ -11,7 +11,6 @@ function App() {
       <Conditional2 />
       <Conditional3 />
       <Conditional4 />
-
     </>
   );
 }

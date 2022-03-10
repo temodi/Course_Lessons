@@ -24,24 +24,25 @@
     /* 
      React.createElement parameters:
 
-     tagName       - stringben html tag v. majd React.component nev
-     props|options - ez tartalamazza attributumokat (objektum)
-     children      - a string | React.component | React.Element -nak a gyermek eleme
+     tagName       - stringben html tag v. majd React.component nev, JSX React.Component-et
+     props         - ez tartalamazza attributumokat/props (objektum), lehet: {} , null 
+     children      - a string | JSX React.component | React.Element -nak a gyermek eleme,  React.createElement(React.Component)
      
-     visszaterese:  React.Element 
+     visszaterese:  React.Element  
     */
- 
+  
     const helloReactElement = React.createElement('h2', {
       style: {
         color: 'red'
       },
+      id: 'helloId',
       className: 'red-class',
     }, "Hello Element");
   
     /*
      ReactDOM.render 
 
-     1. param: React.Element | React.Component
+     1. param: React.Element | React.Component 
      2. param: DOM Element <= ez a html-ben a containerünk
 
      ReactDOM.render(helloReactElement, reactContainer);
