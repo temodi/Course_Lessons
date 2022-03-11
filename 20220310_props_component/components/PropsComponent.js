@@ -7,8 +7,6 @@ function PropsComponents(props) {
   return (
     <div>
       { props.helloComponent }
-
-      
     </div>
   )
 }
