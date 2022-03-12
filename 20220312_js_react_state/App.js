@@ -5,6 +5,9 @@ import ClickComponent from './components/states/ClickComponent';
 import Counter from './components/states/Counter';
 import StateCallback from './components/states/StateCallback';
 import Toggle from './components/states/Toggle';
+import ArrayState from './components/states/ArrayState';
+import ObjState from './components/states/ObjState';
+import Form from './components/forms/Form';
 
 function App() {
 
@@ -17,8 +20,11 @@ function App() {
       <Counter />
       <br />
       <StateCallback /> */}
+{/*   <Toggle /> */}
+{/*   <ArrayState /> */}
 
-      <Toggle />
+      <ObjState />
+      <Form />
     </div>
   );
 }
