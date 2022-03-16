@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+   
+   function ho_func() {
+
+      const sum = function (a, b) {
+        return a + b;
+      }
+
+      return sum;
+  
+  /*     return function (a, b) {
+        return a + b;
+      } */
+
+   }
+
+  const sum = ho_func();
+  
+  const sum2 = function (a, b) {
+    return a + b;
+  }
+
+  console.log('sum', sum);
+  console.log('sum 2', sum2);
+
+  function math(command) {
+    const PI = 3.14;
+
+    if (command == 'sum') {
+      return function sum(a, b) {
+        return a + b;
+      }
+    }
+
+    if (command == 'average') {
+      return function average(a, b) {
+        return (a + b) / 2
+      }
+    }
+
+    if (command == 'circumference') {
+      return function circumference(r) {
+        console.log('PI', PI)
+        return 2 * r * PI;
+      }
+    }
+    
+    return null;
+  }
+
+  {
+    const sumFunc = math('sum');
+    const avgFunc = math('average');
+    const circumference = math('circumference');
+
+    console.log('sumFunc', sumFunc)
+    console.log('avgFunc', avgFunc)
+  
+    console.log('sum:', sumFunc(2, 3))
+    console.log('avg:', avgFunc(4, 5))
+    console.log('circumference: r = 5 => ', circumference(5))
+  }
+  </script>
+</head>
+<body>
+  
+</body>
+</html>

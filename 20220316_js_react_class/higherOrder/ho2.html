@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+</head>
+<body>
+  <a href="" class="link">Link</a>
+  
+  <div>1.</div>
+  <div>2.</div>
+  <div>3.</div>
+  
+  <script>
+    
+    function eventHandler(event) {
+      event.preventDefault();
+      console.log('event', event.target)
+    }
+
+    function eventHandlerWithParam(param) {
+
+      return function eventHandler(event) {
+          event.preventDefault();
+          console.log('event', param, event.target)
+      }
+    
+    }
+
+    window.addEventListener('click', eventHandlerWithParam('window-click'))
+    document.querySelector('.link').addEventListener('click', eventHandlerWithParam('link-click'))
+
+/*     .addEventListener('click', eventHandlerWithParam('1'))
+    .addEventListener('click', eventHandlerWithParam('2')) */
+
+    const eventHandlerWP = param => {
+      return (event) => {
+          event.preventDefault();
+          console.log('event', param, event.target)
+      }
+    }
+
+    const eventHandlerWP2 = param => (event) => { event.preventDefault(); console.log('event', param, event.target) }
+    const eventHandlerWP3 = param => function (event) { event.preventDefault(); console.log('event', param, event.target) }
+    
+  </script>
+</body>
+</html>
