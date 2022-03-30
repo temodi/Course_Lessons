@@ -1,0 +1,21 @@
+.button {
+  width: 45px;
+  height: 45px;
+}
+.board {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  grid-gap: 2px;
+  row-gap: 2px;
+  width: 135px;
+  height: 140px;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.resetbtn {
+  margin-top: 20px;
+}
