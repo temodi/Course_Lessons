@@ -46,6 +46,25 @@ const databaseUrl = 'https://apiexample-6ac74-default-rtdb.europe-west1.firebase
     console.log(value)
   }) */
 
-  deleteAPI(databaseUrl, 'user.json', (value) => {
+/*   deleteAPI(databaseUrl, 'user.json', (value) => {
     console.log(value)
+  }) */
+/* 
+  const article = {
+    id: 2,
+    title: "Kiscica a nagyvilagban",
+    desc: "Lorem ipsum...",
+  }
+
+  postAPI(databaseUrl, 'article.json', article ,(value) => {
+    console.log(value)
+  }) */
+
+  getAPI(databaseUrl, 'article.json', (value) => {
+    console.log(Object.entries(value))
+    const articles = Object.entries(value);
+    articles.forEach((article) => {
+      // article[0] // kulcs
+      console.log(article[1]?.id, article[1]?.title)
+    })
   })

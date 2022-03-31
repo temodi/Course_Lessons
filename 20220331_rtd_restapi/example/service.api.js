@@ -41,3 +41,13 @@ function deleteAPI(databaseUrl, endpoint, cb) {
   .then(value => value.json())    
   .then(json => cb(json))
 }
+
+
+function postAPI(databaseUrl, endpoint, data, cb) {
+  fetch(`${databaseUrl}/${endpoint}`, {
+    method: 'POST',
+    body: JSON.stringify(data)
+  })
+  .then(value => value.json())    
+  .then(json => cb(json))
+}
