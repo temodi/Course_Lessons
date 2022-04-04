@@ -1,15 +1,17 @@
 import './App.css';
 import { useEffect } from 'react';
-import { createUser, deleteUser, readUser, updateUser } from './services/crud';
+/* import { createUser, deleteUser, readUser, updateUser } from './services/crud';
+ */
+import UserForm from './components/UserForm';
 
 function App() {
 
   // torles
-  useEffect(() => {
+/*   useEffect(() => {
     deleteUser('-MzpS80DW3ZJdzAs_Iwg')
     .then(() => console.log('Sikerult a torles'))
     .catch(e => console.log(e))
-  }, []) 
+  }, [])  */
 
   // update 
   // 1 adott user update, 1 vagy proprety is lehet
@@ -51,7 +53,7 @@ function App() {
 
   return (
     <div className="App">
-      
+      <UserForm />
     </div>
   );
 }
