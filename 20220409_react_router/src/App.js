@@ -5,6 +5,8 @@ import ContactUs from './components/ContactuUs';
 import AboutScreen from './screens/AboutScreen';
 import Blog from './screens/Blog';
 import BlogPost from './components/BlogPost';
+import Knowledge from './components/Knowledge';
+import KnowledgeDetails from './components/KnowledgeDetails';
 
 /*
  Route eseten linkesek;
@@ -35,6 +37,7 @@ function App() {
         <li><NavLink to="/news" >Hirek</NavLink></li>
         <li><NavLink to="/blog">Blog</NavLink></li>
         <li><NavLink to="/jobs" >Allas</NavLink></li>
+        <li><NavLink to="/knowledge">Tudas</NavLink></li>
         <li><NavLink to="/contactus" className={ ({ isActive }) => isActive ? 'red': 'blue' }>Kapcsolat</NavLink></li>
         <li><Link to="/ASZF.pdf">ASZF</Link></li>
       </ul>
@@ -45,6 +48,9 @@ function App() {
         <Route path="/about" element={<AboutScreen /> } />
         <Route path="/news" element={ <div>Hirek</div> } />
         <Route path="/jobs" element={ <div>Allashirdetesek</div> } />
+        <Route path="/knowledge" element={ <Knowledge /> } />
+        <Route path="/knowledge/:id" element={ <KnowledgeDetails /> } />
+        
         <Route path="/contactus" element={ <ContactUs /> } />
         <Route path="/ASZF.pdf" element={ <div>Nincs asszf</div>} />
 

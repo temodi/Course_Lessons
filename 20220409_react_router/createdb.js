@@ -20,6 +20,10 @@ const knowledgeEndpoint = 'knowledge';
 const referencesEndpoint = 'references';
 const blogPostEndpoint = 'blog/posts';
 
+// mxn/knowledge/
+// mxn/references/
+// mxn/blog/posts/
+
 function createData(endpoint, data) {
   const refEp = ref(database, `${mainEndpoint}/${endpoint}`);
   const newRefEp = push(refEp);  
