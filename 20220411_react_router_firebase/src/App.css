@@ -1,0 +1,26 @@
+.App {
+  text-align: center;
+}
+
+ul {
+  display: inline;
+}
+
+li {
+  display: initial;
+  padding: 20px;
+}
+
+.about {
+  display: flex;
+}
+
+.blog {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.latest {
+  display: flex;
+  flex-direction: column;
+}
