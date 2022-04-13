@@ -7,8 +7,8 @@ function MainLayout() {
   return (
     <div className="main-layout">
         <header>Main layout</header>
-        <Navbar />
-         <Outlet />
+          <Navbar />
+          <Outlet />
         <footer>Copyright...</footer>
     </div>
   )
