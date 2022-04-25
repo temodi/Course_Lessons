@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+      // Érték nélkül
+      async function hello1() {
+        // return uj Promissal ami undefined ertekkel teljesul
+      }
+      console.log(hello1());
+
+      // Promise
+      function hello1Promise() {
+        return Promise.resolve(undefined)
+      }
+      console.log(hello1Promise())
+
+      // Primitive vagy összetett érték
+      async function hello2() {
+        return ['a', 'b']; // uj Promis, ami ['a','b']-el teljesul
+      }
+      /* console.log(hello2()); */
+
+      hello2().then(value => {
+        console.log('value', value);
+      })
+
+      // Promise
+      async function hello3() {
+        return new Promise((resolve, reject) => resolve(1)) // azonnal teljesulo Promise
+      }
+
+      console.log(hello3())
+      hello3().then(value => console.log('hello3 value', value));
+
+  </script>
+</head>
+<body>
+  
+</body>
+</html>

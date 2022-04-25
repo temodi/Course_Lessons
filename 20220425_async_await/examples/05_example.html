@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+
+    const countryPromise = fetch("https://restcountries.com/v3.1/name/Albania")
+
+    countryPromise
+    .then(response => response.json())
+    .then(countryData => {
+      const CCODE = countryData[0].cca2
+      const phonePromise = fetch('https://fervent-clarke-e660e0.netlify.app/phone.json');
+      phonePromise
+      .then(response => response.json())
+      .then(list => console.log('Phone prefix:', list[CCODE]));
+    })
+
+    async function getPhonePrefix() {
+      const response = await fetch("https://restcountries.com/v3.1/name/Albania");
+      const countryData = await response.json();
+      const CCODE = countryData[0].cca2;
+      const responsePhone = await fetch('https://fervent-clarke-e660e0.netlify.app/phone.json')
+      const phoneList = await responsePhone.json();
+
+      console.log(phoneList)
+      console.log(CCODE)
+      console.log('Prefix ujra: ', phoneList[CCODE]);
+    }
+
+    getPhonePrefix();
+
+  </script>
+</head>
+<body>
+  
+</body>
+</html>

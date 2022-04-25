@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+      // Sync fv (2 fv es eredmeny)
+      function syncHello() {
+        return "hello";
+      }
+
+      function syncHello2() {
+        return "hello2";
+      }
+
+      let aa = syncHello();
+      let bb = syncHello2();
+
+      console.log('synchHello', aa);
+      console.log('synchHello2', bb);
+ 
+
+      // Async
+      // function declaration
+      async function asyncHello(param) {
+          console.log('hello')
+      }
+    
+      // function expression (anonymouse) 
+      const asyncHelloFE = async function(param) { console.log('helloFE')}
+
+      // function expression (named)
+      const asyncHelloNFE = async function namedHello() { console.log('helloNFE') }
+
+      // arrow function
+      const asyncHelloArrow = async () => { console.log('hello arrow func')}
+
+      // class async method
+      class Obj {
+        async asyncMethod() {
+          
+        }
+      }
+
+  </script>
+</head>
+<body>
+  
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+      // Rejected proimse
+      async function rejectedExample() {
+        const result = await new Promise((resolve, reject) => reject("Sikertelen promise"))
+      }
+   
+      // rejectedExample().catch((reason) => console.log('HHiba:', reason));
+
+      // try-catch nem mukodik async hiba eseten
+ /*      try {
+        rejectedExample()
+      } catch (error) {
+        console.log('Try hiba : ', error)
+      }    */
+
+       // Rejected promise await (try-catch)
+       // a fv-en belul az await-telt promise ha hibat dob, akkor try-catch-el kezelhezo
+       // a fv-en kivul csak .catch() methodussal
+      async function rejectedExample2() {
+        try {
+          const result = await Promise.reject('Ooopss');
+        } catch (error) {
+          console.log('hiba az async await-kor', error);
+        }
+      }
+
+      // rejectedExample2();  
+
+
+      // Throw error
+      async function throwExample() {
+        throw new Error('Valamilyen hiba'); // ha async-fven belul mi valtunk ki exceptiont, akkor is fv-en kiv, catch() method kell
+      }
+
+     //  throwExample().catch((reason) => console.log('Hiba2: ', reason));
+ 
+      // nem mukodik itt se a try-catch ha async-ban mi valtunk ki exceptiont
+      try {
+        throwExample()
+      } catch (error) {
+        console.log('try-catch hiba: ', error)
+      } 
+      
+      async function tryThrowExample() {
+        try {
+          await throwExample()
+        } catch (error) {
+          console.log('try-catch hiba: ', error)
+        }
+      }
+
+      tryThrowExample();
+
+      // async fv-en belul await-elt hivasokat try-catch-el tudunk kezelni
+      // async fv-en kivul minden esetben csak a .catch() metodussal tudjuk elkapni a hibat
+      
+  </script>
+</head>
+<body>
+  
+</body>
+</html>
